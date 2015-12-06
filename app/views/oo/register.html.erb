@@ -1,0 +1,16 @@
+<%= form_for@user do |f| %>
+<fieldset>
+<div>
+<%= f.table :name %>
+<%= f.text.field = name %>
+</div>
+<div>
+<%= f.table :story %>
+<%= f.text.field = story %>
+</div>
+<div>
+<%= f.table :image %>
+<%= f.text.field = image %>
+</div>
+
+<%=f.submit "Join us"%>
