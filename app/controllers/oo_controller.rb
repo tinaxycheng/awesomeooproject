@@ -1,48 +1,31 @@
 class OoController < ApplicationController
   def home
+    @user = User.first
   end
-
   def new
+    @user = User.first
   end
 
   def show
+    @user = User.find(params[:id])
   end
 
   def create
-    @user = User.new
-    if @user.save
-      redirect_to oo_path (@user)
+    @user = User.find(1)
+    if @user.update_attributes(user_params)
+      redirect_to oo_path(@user), notice: "Thank you."
     else
-      render :register
+      render :new
     end
   end
 
-  def new
+  def user_params
+    params.require(:user).permit(:name, :story)
   end
-
-  def show
-  	@category = params
-  	if @category = 1
-  		render :blog
-  	elsif @category = 2
-  		render :slides
-  	elsif @category = 3
-  		render :register
-
-  	end
-  end
-
   def blog
   end
-
-  def slides
-  end
-
-  def register
-  end
-  
-  def create
-  	@user = User.new(create_params)
+  def edit
+    @user = User.find(params[:id])
   end
 
 end

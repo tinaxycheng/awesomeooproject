@@ -1,0 +1,13 @@
+<%= form_for @user, url: {controller: "oo", action: "create"}, :method => :POST do |f| %>
+<fieldset>
+<div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+</div>
+<div>
+    <%= f.label :story %>
+    <%= f.text_field :story %>
+</div>
+</fieldset>
+<%=f.submit "Add"%>
+<%end%>

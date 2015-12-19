@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { registrations: "registrations" }
   root 'oo#home'
   resources :oo
+  patch "oo/update" => "oo#update", :as => "oo/update"
   resources :pages
   get '/about', to: 'pages#about'
   get '/gallery', to: 'pages#gallery'
   get '/projects', to: 'pages#projects'
+  get '/join', to: 'pages#join'
   namespace :blog do
   resources :posts, only: [:index, :new, :create, :show]
   end

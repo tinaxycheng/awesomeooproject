@@ -1,0 +1,28 @@
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+    <li><%= link_to"Studio",about_path%></li>
+    <li><%= link_to"Blog",blog_posts_path%></li>
+    <li><%= link_to"Work",gallery_path%></li>
+    <% if user_signed_in? %>
+    <li><%= link_to"My story",oo_path(@user)%></li>
+    <% else %>
+    <li><%= link_to"Tell your story",join_path%></li>
+   <%end%>
+
+    </ul>
+    </div>
+
+
+<h1>Your profile picture is here</h1>
+<p><%= @user.email %></p>
+<p><%= @user.name %></p>
+<p><%= @user.story%></p>
+
+<p><% if user_signed_in? %>
+  <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+<% else %>
+  <%= link_to "Sign up", new_user_registration_path %> | <%= link_to "Sign in", new_user_session_path %>
+<% end %>
+</p>
+<p><%= link_to "Edit", edit_oo_path %>
+</p>
