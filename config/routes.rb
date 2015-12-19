@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
-
+  devise_for :users
   root 'oo#home'
   resources :oo
   resources :pages
   get '/about', to: 'pages#about'
   get '/gallery', to: 'pages#gallery'
   get '/projects', to: 'pages#projects'
-  
   namespace :blog do
   resources :posts, only: [:index, :new, :create, :show]
   end
