@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
-  
+
   root 'oo#home'
   resources :oo
   resources :pages
@@ -12,11 +11,6 @@ Rails.application.routes.draw do
   resources :posts, only: [:index, :new, :create, :show]
   end
 
-=======
-  root 'oo#home'
-  resources :oo,only:[:index, :create, :new, :show, :blog, :slides]
-  
->>>>>>> baf3c8b8f43337ab4367c49ab5748ca6026db72d
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

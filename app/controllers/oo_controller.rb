@@ -1,10 +1,8 @@
 class OoController < ApplicationController
   def home
   end
-<<<<<<< HEAD
 
   def new
-    
   end
 
   def show
@@ -17,9 +15,11 @@ class OoController < ApplicationController
     else
       render :register
     end
-=======
+  end
+
   def new
   end
+
   def show
   	@category = params
   	if @category = 1
@@ -31,15 +31,18 @@ class OoController < ApplicationController
 
   	end
   end
+
   def blog
   end
+
   def slides
   end
+
   def register
   end
+  
   def create
   	@user = User.new(create_params)
->>>>>>> baf3c8b8f43337ab4367c49ab5748ca6026db72d
   end
 
 end
