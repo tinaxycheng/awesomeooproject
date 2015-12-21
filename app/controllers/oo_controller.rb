@@ -10,17 +10,17 @@ class OoController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def create
-    @user = User.find(1)
+  def update
+    @user = User.first
     if @user.update_attributes(user_params)
-      redirect_to oo_path(@user), notice: "Thank you."
+      redirect_to oo_path(@user)
     else
       render :new
     end
   end
 
   def user_params
-    params.require(:user).permit(:name, :story)
+    params.require(:user).permit(:name, :story, :avatar)
   end
   def blog
   end
