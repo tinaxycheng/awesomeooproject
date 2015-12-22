@@ -1,21 +1,23 @@
 class OoController < ApplicationController
   def home
-    @user = User.first
+    @user = current_user
   end
   def new
-    @user = User.first
+    @user = current_user
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = current_user
   end
+  
 
   def update
-    @user = User.first
+    @user = current_user
     if @user.update_attributes(user_params)
       redirect_to oo_path(@user)
     else
-      render :new
+      flash.now[:error] = @user.errors.messages.first.join(" ")
+      render 'edit'
     end
   end
 
@@ -25,7 +27,7 @@ class OoController < ApplicationController
   def blog
   end
   def edit
-    @user = User.find(params[:id])
+    @user = current_user
   end
 
 end

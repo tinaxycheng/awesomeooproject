@@ -15,7 +15,8 @@
 <h1>Your profile picture is here</h1>
 <p><%= @user.email %></p>
 <p><%= @user.name %></p>
-<p><%= @user.story%></p>
+<p><%= @user.story %></p>
+<p><%= @user.last_sign_in_at %></p>
 <p><%= image_tag @user.avatar_url if @user.avatar? %></p>
 
 <p><% if user_signed_in? %>

@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: "registrations" }
   root 'oo#home'
   resources :oo
-  patch "oo/update" => "oo#update", :as => "oo/update"
   resources :pages
   get '/about', to: 'pages#about'
   get '/gallery', to: 'pages#gallery'
