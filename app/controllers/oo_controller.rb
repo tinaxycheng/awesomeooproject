@@ -8,6 +8,7 @@ class OoController < ApplicationController
 
   def show
     @user = current_user
+    @blog = current_user.blogs.first
   end
   
 

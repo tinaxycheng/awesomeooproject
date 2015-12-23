@@ -82,19 +82,30 @@
         </div>
     </header>
 
+<%= link_to "create a new post", new_blog_post_path %>
+
+<h3>Search Title or Category Here:</h3>
+<%=  form_tag blog_posts_path, method: :get do %>
+  <%=  text_field_tag :q  %>
+  <%=  submit_tag "Search" %>
+<% end %>
+
     <!-- Main Content -->
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-preview">
-                    <a href="post.html">
+                    <%= link_to blog_post_path(@blog) do %>
                         <h2 class="post-title">
-                            Oostudio's official website is launching!
+                            <%= @blog.title %>
                         </h2>
                         <h3 class="post-subtitle">
-                            Everyone is excited.
+                            <%= @blog.content %>
                         </h3>
-                    </a>
+                        <h3 class="post-subtitle">
+                            <%= @blog.user.email %>
+                        </h3>
+                    <% end %>
                     <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on September 24, 2014</p>
                 </div>
                 <hr>

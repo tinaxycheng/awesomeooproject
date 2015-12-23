@@ -1,0 +1,19 @@
+<h1>create a new post </h1>
+<%= form_for @blog, url: blog_posts_path do |f| %>
+<fieldset>
+<div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+</div>
+<div>
+    <%= f.label :content %>
+    <%= f.text_field :content %>
+</div>
+<div>
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+</div>
+
+</fieldset>
+<%=f.submit "Add"%>
+<%end%>
