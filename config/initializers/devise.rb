@@ -12,8 +12,8 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
-
+  config.mailer_sender = 'cxy1122334455@gmail.com'
+  config.omniauth :google_oauth2, "751319241519-ca47gs764hcb83l765bq7do3jq90vkrv.apps.googleusercontent.com", "GIDOBVRK29Oq_tSQ6rfwB7jq"
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
 

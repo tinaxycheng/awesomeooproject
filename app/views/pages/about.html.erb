@@ -33,15 +33,12 @@
         <!-- /.container -->
  </nav>
 
-<%- unless @lat_lng %>
-<script>
-  getGeoLocation();
-</script>
-<%- end %>
 
 <p>Oostudio </p>
 <p> oostudio is a photography studio based in Washington DC. </p>
 <p> Our email address is oostudio2dian@gmail.com </p>
+
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -89,10 +86,11 @@ function initMap() {
     map: map,
     title: 'Old Navy Yard',
   });
-  var secretMessage =  'old navy yard<br>' +
-                        '<a href="/projects/' + project 1+ '">' 
+  var secretMessage =  "old navy yard</br>" +
                       '<img src="http://41.media.tumblr.com/e979ae71b59eac64454a12a93c332c3b/tumblr_not2e5qkCJ1u9c74so1_1280.jpg" alt="Porcelain Factory of Vista Alegre" width="150" height="150" >' +
-                      '<p>duoduo engagement photo</p>';
+                      '<p>duoduo engagement photo</p>' +
+                       '<p><a href="http://localhost:3000/projects">'+ 
+                       'More pictures</a> '
 
   function attachSecretMessage(marker, secretMessage) {
   var infowindow = new google.maps.InfoWindow({
@@ -107,8 +105,6 @@ function initMap() {
   });
 }
   attachSecretMessage(marker, secretMessage);
-
-  
 }
 
     </script>

@@ -1,6 +1,7 @@
 class Blog::PostsController < ApplicationController
 	def index
     @blog= Blog.first
+    @blog2= Blog.second
   end
   def new
     @blog = Blog.new
@@ -19,7 +20,6 @@ class Blog::PostsController < ApplicationController
       render 'new'
     end
   end
-  
 
   def update
     @blog = Blog.find(params[:id])

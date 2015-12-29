@@ -1,0 +1,26 @@
+<h1>Update my story</h1>
+
+<% if flash[:error] %>
+  <p><%= flash[:error] %></p>
+<% end %>
+
+<%= form_for @blog, url: blog_post_path do |f| %>
+<fieldset>
+<div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+</div>
+<div>
+    <%= f.label :content %>
+    <%= f.text_field :content %>
+</div>
+<div>
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+</div>
+
+</fieldset>
+<%=f.submit "Add"%>
+<%end%>
+
+<%= link_to "Cancel", oo_path(@user) %>

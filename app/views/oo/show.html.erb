@@ -17,17 +17,31 @@
 <p><%= @user.name %></p>
 <p><%= @user.story %></p>
 <p><%= @user.last_sign_in_at %></p>
-<p><%= image_tag @user.avatar_url if @user.avatar? %></p>
+<p><%= image_tag @user.avatar_url(:thumb) if @user.avatar? %></p>
 
+<! show the user's posts as a thumb nail >
+
+<div>
+<p>my Inspiration book</p>
+<p><%= link_to "Add new", new_blog_post_path %></p>
+<li><%= link_to @blog.title ,blog_post_path(@blog)%></li>
+<p><%= image_tag @blog.image_url(:thumb) if @blog.image? %></p>
+</div>
+
+# sign in and sign out, small, bottom
 <p><% if user_signed_in? %>
   <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
 <% else %>
   <%= link_to "Sign up", new_user_registration_path %> | <%= link_to "Sign in", new_user_session_path %>
 <% end %>
+
+# edit profile
 </p>
 <p><%= link_to "Edit", edit_oo_path %>
 </p>
 
-<p><%= link_to "Add my inspiration", new_blog_post_path %></p>
-<p>my inspiration</p>
+
+
+
+
 <p>other people's inspiration</p>
