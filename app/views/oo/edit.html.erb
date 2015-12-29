@@ -1,0 +1,9 @@
+<h1>Update my story</h1>
+
+<% if flash[:error] %>
+  <p><%= flash[:error] %></p>
+<% end %>
+
+<%= render 'form' %>
+
+<%= link_to "Cancel", oo_path(@user) %>

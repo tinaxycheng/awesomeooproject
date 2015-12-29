@@ -1,0 +1,17 @@
+<%= form_for @user, url: oo_path(@user), html:{method: 'PATCH'} do |f| %>
+<fieldset>
+<div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+</div>
+<div>
+    <%= f.label :story %>
+    <%= f.text_field :story %>
+</div>
+<div>
+    <%= f.label :avatar %>
+    <%= f.file_field :avatar %>
+</div>
+</fieldset>
+<%=f.submit "Add"%>
+<%end%>

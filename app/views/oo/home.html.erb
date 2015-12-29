@@ -1,8 +1,33 @@
-<h1>Oo's home</h1>
-<p>Welcom to OO's homepage, here you will see a beautiful map built with javascript and css</p>
-<li> About </li>
-<li><%= link_to"Blog",oo_path(1)%></li>
-<li><%= link_to"slides",oo_path(2)%></li>
-<li><%= link_to"Tell your story",oo_path(3)%></li>
-<div><%= image_tag("app/assets/images/homepage.jpg") %></div>
+ <link href="css/bootstrap.min.css" rel="stylesheet">
+ <link href="css/clean-blog.min.css" rel="stylesheet">
+ 
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+    <li><%= link_to"Studio",about_path%></li>
+    <li><%= link_to"Blog",blog_posts_path%></li>
+    <li><%= link_to"Work",gallery_path%></li>
+    <% if user_signed_in? %>
+    <li><%= link_to"My story",oo_path(@user)%></li>
+    <% else %>
+    <li><%= link_to"Tell your story",join_path%></li>
+   <%end%>
+
+    </ul>
+    </div>
+
+    <header class="intro-header" style="background-image: url('assets/homepage.JPG')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="site-heading">
+                        <h1></h1>
+                        <hr class="small">
+                        <span class="subheading"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+ 
 

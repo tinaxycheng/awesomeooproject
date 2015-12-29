@@ -152,7 +152,11 @@ hr.small {
   .intro-header .site-heading,
   .intro-header .post-heading,
   .intro-header .page-heading {
+<<<<<<< HEAD
+    padding: 10px 0;
+=======
     padding: 150px 0;
+>>>>>>> baf3c8b8f43337ab4367c49ab5748ca6026db72d
   }
 }
 .intro-header .site-heading,
