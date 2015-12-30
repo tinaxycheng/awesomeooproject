@@ -51,14 +51,14 @@
                     <li>
                         <%= link_to "Home", root_path %>
                     </li>
-                    <li>
-                        <%= link_to "Storybook", new_oo_path %>
-                    </li>
-                     <li>
-                        <%= link_to "inspriration", new_oo_path %>
-                    </li>
-                    
-                
+                       <li><%= link_to"Studio",about_path%></li>
+                       <li><%= link_to"Blog",blog_posts_path%></li>
+                        <li><%= link_to"Work",gallery_path%></li>
+                        <% if user_signed_in? %>
+                        <li><%= link_to"My story",oo_path(current_user)%></li>
+                        <% else %>
+                        <li><%= link_to"Tell your story",join_path%></li>
+                       <%end%>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -95,45 +95,20 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-preview">
-                    <%= link_to blog_post_path(@blog) do %>
+                <% @blogs.each do |blog| %>
+                    <%= link_to blog_post_path(blog) do %>
                         <h2 class="post-title">
-                            <%= @blog.title %>
+                            <%= blog.title %>
                         </h2>
                         <h3 class="post-subtitle">
-                            <%= @blog.content %>
+                            <%= blog.content %>
                         </h3>
                         <h3 class="post-subtitle">
-                            <%= @blog.user.email %>
+                            <%= blog.user.email %>
                         </h3>
                     <% end %>
-                    <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on September 24, 2014</p>
-                </div>
-                <hr>
-                <div class="post-preview">
-                    <%= link_to blog_post_path(@blog2) do %>
-                        <h2 class="post-title">
-                            <%= @blog2.title %>
-                        </h2>
-                        <h3 class="post-subtitle">
-                            <%= @blog2.content %>
-                        </h3>
-                        <h3 class="post-subtitle">
-                            <%= @blog2.user.email %>
-                        </h3>
                     <% end %>
                     <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on September 24, 2014</p>
-                </div>
-                <hr>
-                <div class="post-preview">
-                    <a href="post.html">
-                        <h2 class="post-title">
-                            Failure is not an option
-                        </h2>
-                        <h3 class="post-subtitle">
-                            Many say exploration is part of our destiny, but it’s actually our duty to future generations.
-                        </h3>
-                    </a>
-                    <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on July 8, 2014</p>
                 </div>
                 <hr>
                 <!-- Pager -->
