@@ -1,6 +1,7 @@
 class OoController < ApplicationController
   def home
     @user = current_user
+    @image = Homepageimage.first
   end
   def new
     @user = current_user

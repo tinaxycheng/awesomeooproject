@@ -32,7 +32,7 @@ $('.navbar-collapse ul li a').click(function() {
 // Grab a random background picture
 var bg = {
     changeBg : function (){
-            var bgSrc='http://lorempixel.com/1280/960/';
+            var bgSrc='<%=@image%>';
             var bgValue = 'url(' + bgSrc + ') no-repeat top center scroll';
             $('.intro').css('background', bgValue);
             return bgValue;

@@ -2,7 +2,7 @@
                 <ul class="nav navbar-nav navbar-right">
     <li><%= link_to"Studio",about_path%></li>
     <li><%= link_to"Blog",blog_posts_path%></li>
-    <li><%= link_to"Work",gallery_path%></li>
+    <li><%= link_to"Work",projects_path%></li>
     <% if user_signed_in? %>
     <li><%= link_to"My story",oo_path(@user)%></li>
     <% else %>
