@@ -1,8 +1,6 @@
 class Blog::PostsController < ApplicationController
 	def index
-    @blog= Blog.first
-    @blog2= Blog.second
-    @blogs = Blog.all
+   @blogs = Blog.all
   end
   def new
     @blog = Blog.new
@@ -33,7 +31,7 @@ class Blog::PostsController < ApplicationController
   end
 
   def blog_params
-    params.require(:blog).permit(:title, :content, :image)
+    params.require(:blog).permit(:title, :content, :image, :category_id)
   end
  
   def edit

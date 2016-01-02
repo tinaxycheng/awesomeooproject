@@ -71,25 +71,21 @@
         <div class="carousel-inner">
             <div class="item active">
                 <!-- Set the first background image using inline CSS below. -->
-                <div class="fill" style="background-image:url('assets/slideone.JPG');"></div>
+                <div><%=image_tag @image.first.name%> </div>
                 <div class="carousel-caption">
-                    <h2>Caption 1</h2>
+                    <h2><%= @project.title %></h2>
+                    <p><%= @project.content %></p>
                 </div>
             </div>
             <div class="item">
                 <!-- Set the second background image using inline CSS below. -->
-                <div class="fill" style="background-image:url('assets/slidetwo.JPG');"></div>
+                <div><%=image_tag @image.second.name%> </div>
                 <div class="carousel-caption">
-                    <h2>Caption 2</h2>
+                    <h2><%= @project.title %></h2>
+                    <p><%= @project.content %></p>
                 </div>
             </div>
-            <div class="item">
-                <!-- Set the third background image using inline CSS below. -->
-                <div class="fill" style="background-image:url('assets/slidethree.JPG');"></div>
-                <div class="carousel-caption">
-                    <h2>Caption 3</h2>
-                </div>
-            </div>
+         
         </div>
 
         <!-- Controls -->
@@ -143,3 +139,10 @@
 </body>
 
 </html>
+
+
+
+                  
+
+
+     

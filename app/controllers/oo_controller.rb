@@ -7,8 +7,8 @@ class OoController < ApplicationController
   end
 
   def show
-    @user = current_user
-    @blog = current_user.blogs
+    @user = User.find(params[:id])
+    @blog = @user.blogs
   end
   
 

@@ -15,8 +15,9 @@
 <h1>Your profile picture is here</h1>
 
 <! edit profile>
-</p>
+<% if @user == current_user %>
 <p><%= link_to "Edit", edit_oo_path %></p>
+<%end%>
 <p><%= @user.email %></p>
 <p><%= @user.name %></p>
 <p><%= @user.story %></p>
@@ -27,7 +28,9 @@
 
 <div>
 <p>my Storybook</p>
+<% if @user == current_user %>
 <p><%= link_to "Add new", new_blog_post_path %></p>
+<%end%>
 <% @blog.each do |story| %>
    <li><%= link_to story.title ,blog_post_path(story)%></li>
    <p><%= image_tag story.image_url(:thumb) if story.image? %></p>
@@ -38,12 +41,13 @@
 
 
 <! sign in and sign out, small, bottom>
+<% if @user == current_user %>
 <p><% if user_signed_in? %>
   <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
 <% else %>
   <%= link_to "Sign up", new_user_registration_path %> | <%= link_to "Sign in", new_user_session_path %>
 <% end %>
-
+<% end %>
 
 
 

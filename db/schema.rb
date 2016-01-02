@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151229173607) do
+ActiveRecord::Schema.define(version: 20160101230526) do
 
   create_table "blogs", force: :cascade do |t|
     t.string   "title"
@@ -19,16 +19,36 @@ ActiveRecord::Schema.define(version: 20151229173607) do
     t.integer  "time_created"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.string   "image"
+    t.text     "image"
+    t.string   "videolink"
     t.integer  "user_id"
+    t.integer  "category_id"
   end
 
+  add_index "blogs", ["category_id"], name: "index_blogs_on_category_id"
   add_index "blogs", ["user_id"], name: "index_blogs_on_user_id"
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "images", force: :cascade do |t|
     t.string   "name"
-    t.string   "tags"
-    t.decimal  "location"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "project_id"
+  end
+
+  add_index "images", ["project_id"], name: "index_images_on_project_id"
+
+  create_table "projects", force: :cascade do |t|
+    t.string   "title"
+    t.decimal  "lat"
+    t.decimal  "lng"
+    t.string   "tag"
+    t.text     "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -52,6 +72,7 @@ ActiveRecord::Schema.define(version: 20151229173607) do
     t.string   "avatar"
     t.string   "provider"
     t.string   "uid"
+    t.boolean  "admin"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

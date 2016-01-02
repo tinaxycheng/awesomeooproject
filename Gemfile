@@ -26,6 +26,8 @@ gem 'devise'
 gem "omniauth-google-oauth2"
 gem 'carrierwave'
 gem "mini_magick"
+
+gem 'rails_admin'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

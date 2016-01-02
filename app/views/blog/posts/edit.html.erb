@@ -15,8 +15,12 @@
     <%= f.text_field :content %>
 </div>
 <div>
+    <%= f.label :category %>
+<%= f.collection_select :category_id, Category.order(:name),:id,:name, include_blank: true %>
+</div>
+<div>
     <%= f.label :image %>
-    <%= f.file_field :image %>
+    <%= f.file_field :image%>
 </div>
 
 </fieldset>
