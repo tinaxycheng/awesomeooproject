@@ -2,6 +2,9 @@ class OoController < ApplicationController
   def home
     @user = current_user
     @image = Homepageimage.first
+    @user1= User.first
+    @blog1=Blog.first
+    @projects=Project.all
   end
   def new
     @user = current_user

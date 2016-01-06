@@ -1,35 +1,3 @@
- <link href="css/bootstrap.min.css" rel="stylesheet">
- <link href="css/clean-blog.min.css" rel="stylesheet">
- 
-  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-    <li><%= link_to"home",oo_index_path%></li>         
-    <li><%= link_to"Studio",about_path%></li>
-    <li><%= link_to"Blog",blog_posts_path%></li>
-    <li><%= link_to"Work",projects_path%></li>
-    <% if user_signed_in? %>
-    <li><%= link_to"My story",oo_path(current_user)%></li>
-    <% else %>
-    <li><%= link_to"Tell your story",join_path%></li>
-   <%end%>
-
-    </ul>
-    </div>
-<!--     <header class="intro-header" style="background-image: url('assets/homepage.JPG')">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <div class="site-heading">
-                        <h1></h1>
-                        <hr class="small">
-                        <span class="subheading"></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header> -->
-
- 
 <!DOCTYPE html>
 <html lang="en">
 
@@ -44,10 +12,11 @@
     <title>OO Studio</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <%= stylesheet_link_tag "css/bootstrap.min.css"%>
+    <%= stylesheet_link_tag "css/grayscale.css"%>
 
     <!-- Custom CSS -->
-    <link href="css/grayscale.css" rel="stylesheet">
+ 
 
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -73,7 +42,7 @@
                     <i class="fa fa-bars"></i>
                 </button>
                 <a class="navbar-brand page-scroll" href="#page-top">
-                    <i class="fa fa-play-circle"></i>  <span class="light">OO</span> Studio
+                    <span class="light">OO</span> Studio
                 </a>
             </div>
 
@@ -85,14 +54,22 @@
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#about">Projects</a>
+                        <a class="page-scroll" href="#storybook">Storybook</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#download">Storybook</a>
+                        <a class="page-scroll" href="#projects">Projects</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href=!!!"#mystory">My Story</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#contact">Contact</a>
                     </li>
+                    <% if user_signed_in? %>
+   <li><%= link_to @user.name,oo_path(current_user)%></li>
+   <% else %>
+   <li><%= link_to"Register",join_path%></li>
+  <%end%>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -106,8 +83,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
-                        <h1 class="brand-heading">OOStudio</h1>
-                        <p class="intro-text"><a href="mailto:oostudio2dian@gmail.com">OOStudio</a> is a photography studio based in Washington DC.</p>
+                        <h1 class="brand-heading">OO</h1>
+                        <p class="intro-text"><a href="mailto:oostudio2dian@gmail.com">OO Studio</a> is a photography studio based in Washington DC.</p>
                         <a href="#about" class="btn btn-circle page-scroll">
                             <i class="fa fa-angle-double-down animated"></i>
                         </a>
@@ -117,21 +94,8 @@
         </div>
     </header>
 
-    <!-- About Section -->
-    <section id="about" class="container content-section text-center">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2">
-                <h2>Projects</h2>
-            <li><%= link_to"Studio",about_path%></li>
-            </div>
-        </div>
-    </section>
-
-    <!-- Map Section -->
-    <div id="map"></div>
-
-    <!-- Download Section -->
-    <section id="download" class="content-section text-center">
+    <!-- Blog Section -->
+    <section id="storybook" class="content-section text-center">
         <div class="download-section">
             <div class="container">
                 <div class="col-lg-8 col-lg-offset-2">
@@ -142,6 +106,19 @@
             </div>
         </div>
     </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="container content-section text-center">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h2>Projects</h2>
+                   
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <div id="map"></div>
 
     <!-- Contact Section -->
     <section id="contact" class="container content-section text-center">
@@ -165,15 +142,8 @@
             </div>
         </div>
     </section>
-   <! calendar Section >
-    <!-- Map Section -->
-    <div id="map">
-<p><a target="_blank" href="https://calendar.google.com/calendar/event?action=TEMPLATE&amp;tmeid=bTE2dWxrNDUzajA4b2g1czU4dnZnNTVvc2sgZmNyMmNmcXNhcm5iNTNjZ2hnODZqNW5rajRAZw&amp;tmsrc=fcr2cfqsarnb53cghg86j5nkj4%40group.calendar.google.com"> Make a reservation</a></p>  
 
-<div id="divifm">
-<iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=fcr2cfqsarnb53cghg86j5nkj4%40group.calendar.google.com&amp;color=%23865A5A&amp;ctz=America%2FNew_York" style="border-width:0" width="800" height="200" frameborder="0" scrolling="no" position="center"></iframe>
-                </div>
-                </div>
+
     <!-- Footer -->
     <footer>
         <div class="container text-center">
@@ -182,21 +152,35 @@
     </footer>
 
     <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+    <script type="text/javascript" src="/assets/jquery.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-    <script src="javascript/googlecalendar.js"></script>
+    <script type="text/javascript" src="/assets/bootstrap.min.js"></script>
     <!-- Plugin JavaScript -->
-    <script src="js/jquery.easing.min.js"></script>
+    <script type="text/javascript" src="/assets/jquery.easing.min.js"></script>
 
     <!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>
-
+   <script type="text/javascript" src="/assets/grayscale.js"></script>
     <!-- Custom Theme JavaScript -->
-    <script src="js/grayscale.js"></script>
+    <%= javascript_include_tag 'jquery'%>
+     <%= javascript_include_tag 'jquery.easing.min'%>
+      <%= javascript_include_tag 'bootstrap.min'%>
+     <%= javascript_include_tag 'grayscale'%>
+
+     <! calendar Section >
+    <!-- Map Section -->
+    <div id="map">
+<p><a target="_blank" href="https://calendar.google.com/calendar/event?action=TEMPLATE&amp;tmeid=bTE2dWxrNDUzajA4b2g1czU4dnZnNTVvc2sgZmNyMmNmcXNhcm5iNTNjZ2hnODZqNW5rajRAZw&amp;tmsrc=fcr2cfqsarnb53cghg86j5nkj4%40group.calendar.google.com"> Make a reservation</a></p>  
+
+<div id="divifm">
+<iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=fcr2cfqsarnb53cghg86j5nkj4%40group.calendar.google.com&amp;color=%23865A5A&amp;ctz=America%2FNew_York" style="border-width:0" width="800" height="200" frameborder="0" scrolling="no" position="center"></iframe>
+                </div>
+                </div>
+
+
+
 
 </body>
 
 </html>
-

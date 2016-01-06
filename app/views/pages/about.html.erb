@@ -1,5 +1,6 @@
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
+                
     <li><%= link_to"Studio",about_path%></li>
     <li><%= link_to"Blog",blog_posts_path%></li>
     <li><%= link_to"Work",projects_path%></li>
@@ -28,6 +29,7 @@
   </head>
   <body>
     <div id="map"></div>
+
     <script type="text/javascript">
 
 function initMap() {
@@ -59,11 +61,19 @@ function initMap() {
 ];
   map.setOptions({styles: styles});
 
-  var myLatLng = {lat: 38.8739225, lng: -76.9949};
-  var marker = new google.maps.Marker({
-    position: myLatLng,
-    map: map,
-    title: 'Old Navy Yard',
+     var projectLocs = #{raw @projects_list};
+    var image = 'http://labs.google.com/ridefinder/images/mm_20_white.png';
+    for (var i = 0; i < projectLocs.length; i++) {
+        var projectLoc = projectLocs[i];
+        var marker = new google.maps.Marker({
+          position: {lat: projectLoc[1], lng: projectLoc[2]},
+          map: map,
+          icon: image,
+          title: projectLoc[0],
+          zIndex: projectLoc[3]
+    });
+    }
+
   });
   var secretMessage =  "old navy yard</br>" +
                       '<img src="http://41.media.tumblr.com/e979ae71b59eac64454a12a93c332c3b/tumblr_not2e5qkCJ1u9c74so1_1280.jpg" alt="Porcelain Factory of Vista Alegre" width="150" height="150" >' +
@@ -92,4 +102,3 @@ function initMap() {
     </script>
   </body>
 </html>
-

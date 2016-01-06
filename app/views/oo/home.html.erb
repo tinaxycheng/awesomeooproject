@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,11 +13,10 @@
     <title>OO Studio</title>
 
     <!-- Bootstrap Core CSS -->
-    <%= stylesheet_link_tag "css/bootstrap.min.css"%>
-    <%= stylesheet_link_tag "css/grayscale.css"%>
+    <link href="/assets/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
- 
+    <link href="/assets/grayscale.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -41,9 +41,11 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top">
+                <%link_to root_path do%>
+                <p class="navbar-brand page-scroll">
                     <span class="light">OO</span> Studio
-                </a>
+                </p>
+                <%end%>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -60,16 +62,16 @@
                         <a class="page-scroll" href="#projects">Projects</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href=!!!"#mystory">My Story</a>
+                        <a class="page-scroll" href="#people">People</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#contact">Contact</a>
                     </li>
                     <% if user_signed_in? %>
-   <li><%= link_to @user.name,oo_path(current_user)%></li>
-   <% else %>
-   <li><%= link_to"Register",join_path%></li>
-  <%end%>
+                    <li><%= link_to"My story",oo_path(current_user)%></li>
+                    <% else %>
+                    <li><%= link_to"Tell your story",join_path%></li>
+                    <%end%>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -94,8 +96,37 @@
         </div>
     </header>
 
+
     <!-- Blog Section -->
     <section id="storybook" class="content-section text-center">
+        <div class="download-section">
+            <div class="container">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <h2>Storybook</h2>
+                    <p>See what our sweet couples are saying.</p>
+                     <%= link_to blog_post_path(@blog1) do %>
+                    <div class="media blog">
+                      <div class="media-left">
+                          <div class="thumbnail">
+                          <img class="media-object" src="<%=@blog1.image%>"alt="OO">
+                          </div>
+                      </div>
+                      <div class="media-body">
+                        <h4 class="media-heading">Story 1</h4>
+                        <p><%=@blog1.title%></p>
+                      </div>
+                    </div>
+                     <%end%>
+                      <%= link_to blog_posts_path do %>
+                    <a class="btn btn-default btn-lg">See more...</a>
+                    <%end%>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+<!--     <section id="storybook" class="content-section text-center">
         <div class="download-section">
             <div class="container">
                 <div class="col-lg-8 col-lg-offset-2">
@@ -105,7 +136,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Projects Section -->
     <section id="projects" class="container content-section text-center">
@@ -115,10 +146,82 @@
                    
             </div>
         </div>
-    </section>
-
+    </section> 
     <!-- Map Section -->
+
+
     <div id="map"></div>
+
+    <section id="people" class="container content-section text-center">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-lg-10 col-lg-offset-1">
+                    <h2>People</h2>
+
+                    <div class="row">
+                        <div class="col-md-2 col-sm-4">
+                            <div class="service-item">  
+                            <%= link_to oo_path(@user1) do %>                            
+                                <div class="thumbnail">
+                                      <%=image_tag @user1.avatar%>
+                                </div><!-- /thumbnail -->
+                                <a class="btn btn-light"><%= @user1.name%></a>
+                            </div>
+                            <%end%>
+                        </div>
+                        <div class="col-md-2 col-sm-4">
+                            <div class="service-item">    
+                            <%= link_to oo_path(@user1) do %>                            
+                                <div class="thumbnail">
+                                    <%=image_tag @user1.avatar%>
+                                </div><!-- /thumbnail -->
+                                <a href="#" class="btn btn-light"><%=@user1.name%></a>
+                            </div>
+                             <%end%>
+                        </div>
+                        <div class="col-md-2 col-sm-4">
+                            <div class="service-item"> 
+                            <%= link_to oo_path(@user1) do %>                              
+                                <div class="thumbnail">
+                                    <img src="http://lorempixel.com/180/180/nature" alt="Marcel Newman">
+                                </div><!-- /thumbnail -->
+                                <a href="#" class="btn btn-light"><%=@user1.name%></a>
+                                   <%end%>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-4">
+                            <div class="service-item">                              
+                                <div class="thumbnail">
+                                    <img src="http://lorempixel.com/180/180/abstract" alt="Marcel Newman">
+                                </div><!-- /thumbnail -->
+                                <a href="#" class="btn btn-light"><%=@user1.name%></a>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-4">
+                            <div class="service-item">                              
+                                <div class="thumbnail">
+                                    <img src="http://lorempixel.com/180/180/nightlife" alt="Marcel Newman">
+                                </div><!-- /thumbnail -->
+                                <a href="#" class="btn btn-light"><%=@user1.name%></a>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-4">
+                            <div class="service-item">                              
+                                <div class="thumbnail">
+                                    <img src="http://lorempixel.com/180/180/" alt="Marcel Newman">
+                                </div><!-- /thumbnail -->
+                                <a href="#" class="btn btn-light"><%=@user1.name%></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.row (nested) -->
+                </div>
+                <!-- /.col-lg-10 -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </section>
 
     <!-- Contact Section -->
     <section id="contact" class="container content-section text-center">
@@ -143,6 +246,15 @@
         </div>
     </section>
 
+     <! calendar Section >
+    <!-- Map Section -->
+    <div id="calendar">
+<p><a target="_blank" href="https://calendar.google.com/calendar/event?action=TEMPLATE&amp;tmeid=bTE2dWxrNDUzajA4b2g1czU4dnZnNTVvc2sgZmNyMmNmcXNhcm5iNTNjZ2hnODZqNW5rajRAZw&amp;tmsrc=fcr2cfqsarnb53cghg86j5nkj4%40group.calendar.google.com"> Make a reservation</a></p>  
+
+<div id="divifm">
+<iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=fcr2cfqsarnb53cghg86j5nkj4%40group.calendar.google.com&amp;color=%23865A5A&amp;ctz=America%2FNew_York" style="border-width:0" width="800" height="200" frameborder="0" scrolling="no" position="center"></iframe>
+                </div>
+                </div>
 
     <!-- Footer -->
     <footer>
@@ -151,36 +263,109 @@
         </div>
     </footer>
 
-    <!-- jQuery -->
-    <script type="text/javascript" src="/assets/jquery.min.js"></script>
+ 
+        <!-- jQuery -->
+    <script type="text/javascript" src="/assets/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script type="text/javascript" src="/assets/bootstrap.min.js"></script>
     <!-- Plugin JavaScript -->
     <script type="text/javascript" src="/assets/jquery.easing.min.js"></script>
 
-    <!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>
-   <script type="text/javascript" src="/assets/grayscale.js"></script>
-    <!-- Custom Theme JavaScript -->
-    <%= javascript_include_tag 'jquery'%>
-     <%= javascript_include_tag 'jquery.easing.min'%>
-      <%= javascript_include_tag 'bootstrap.min'%>
+
+     <script type="text/javascript" src="/assets/grayscale.js"></script>
      <%= javascript_include_tag 'grayscale'%>
 
-     <! calendar Section >
-    <!-- Map Section -->
-    <div id="map">
-<p><a target="_blank" href="https://calendar.google.com/calendar/event?action=TEMPLATE&amp;tmeid=bTE2dWxrNDUzajA4b2g1czU4dnZnNTVvc2sgZmNyMmNmcXNhcm5iNTNjZ2hnODZqNW5rajRAZw&amp;tmsrc=fcr2cfqsarnb53cghg86j5nkj4%40group.calendar.google.com"> Make a reservation</a></p>  
 
-<div id="divifm">
-<iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=fcr2cfqsarnb53cghg86j5nkj4%40group.calendar.google.com&amp;color=%23865A5A&amp;ctz=America%2FNew_York" style="border-width:0" width="800" height="200" frameborder="0" scrolling="no" position="center"></iframe>
-                </div>
-                </div>
+<!--          <%= javascript_tag do%>
+       window.projects= <%=raw @projects.to_json %>;
+    <%end%> -->
 
 
+     <script type="text/javascript">
+
+function initMap() {
+  map = new google.maps.Map(document.getElementById('map'), {
+  });
+ var bounds = new google.maps.LatLngBounds();
+  var styles = [
+  {
+    stylers: [
+      { hue: "#00ffe6" },
+      { saturation: -20 }
+    ]
+  },{
+    featureType: "road",
+    elementType: "geometry",
+    stylers: [
+      { lightness: 100 },
+      { visibility: "simplified" }
+    ]
+  },{
+    featureType: "road",
+    elementType: "labels",
+    stylers: [
+      { visibility: "off" }
+    ]
+  }
+];
+  map.setOptions({styles: styles});
+
+    // var projectLocs=[];
+    // var infoWindowContent=[];
+    // $.each(projects, function(index) { 
+    //     projectLocs.push([projects[index]["title"], projects[index]["lat"],projects[index]["lng"]]);
+    //     infoWindowContent.push(['<div class="info_content" >' +
+    //     '<h3 style="color: rgb(<%= rand(0..200)%>,<%= rand(0..200)%> ,<%= rand(0..200)%>);">'+nearbys[index]['title']+'</h3>' +'</br>'+
+    //     '<p>'+nearbys[index]['about']+'</p>' +       
+    //      '</div>']);
+
+    //     });  
+
+    var projectLocs = [["duoduo", 38.8738225, -76.9949, 1],["daojie", 38.897676, -77.036530,2],["lainanddaniel",40.7127,-74.0059,3]]
+      var infoWindowContent =  [["Duoduo's engagement photo</br>" +
+                      '<img src="http://41.media.tumblr.com/e979ae71b59eac64454a12a93c332c3b/tumblr_not2e5qkCJ1u9c74so1_1280.jpg" >' +
+                      '<p>duoduo engagement photo</p>' +
+                       '<p><a href="http://localhost:3000/projects">'+ 
+                       'More pictures</a> '],["projectLocs[0]</br>"] ]
+
+    var image = 'http://labs.google.com/ridefinder/images/mm_20_white.png';
+    var infoWindow = new google.maps.InfoWindow({ maxWidth: 200 }), marker, i; 
+    for (var i = 0; i < projectLocs.length; i++) {
+        var position = new google.maps.LatLng(projectLocs[i][1], projectLocs[i][2]);
+          bounds.extend(position);
+        var projectLoc = projectLocs[i];
+        var marker = new google.maps.Marker({
+          position: position,
+          map: map,
+          icon: image,
+          title: projectLoc[0]
+    });
+   // Allow each marker to have an info window    
+        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+            return function() {
+                infoWindow.setContent(infoWindowContent[i][0]);
+                infoWindow.open(map, marker);
+            }
+        })(marker, i));
+  
+      map.fitBounds(bounds);
+
+    }
+
+    // Override our map zoom level once our fitBounds function runs (Make sure it only runs once)
+    var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
+        this.setZoom(8);
+        google.maps.event.removeListener(boundsListener);
+    });
+
+}//initialize ends
 
 
+    </script>
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDXobtnTAieRk5q1VlKXLL6g660aSZRDPE&callback=initMap">
+    </script>
 </body>
 
 </html>
