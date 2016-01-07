@@ -1,7 +1,8 @@
 class OoController < ApplicationController
   def home
     @user = current_user
-    @image = Homepageimage.first
+    @image1 = Homepageimage.first
+    @images = Homepageimage.all
     @user1= User.first
     @blog1=Blog.first
     @projects=Project.all
@@ -13,6 +14,7 @@ class OoController < ApplicationController
   def show
     @user = User.find(params[:id])
     @blog = @user.blogs
+    @blog2= Blog.limit(3).order('created_at')
   end
   
 

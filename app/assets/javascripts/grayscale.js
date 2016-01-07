@@ -29,16 +29,18 @@ $('.navbar-collapse ul li a').click(function() {
     $('.navbar-toggle:visible').click();
 });
 
+/*
 // Grab a random background picture
 var bg = {
     changeBg : function (){
-            var bgSrc='<%=@image%>';
+            var bgSrc='http://lorempixel.com/1280/960/';
             var bgValue = 'url(' + bgSrc + ') no-repeat top center scroll';
             $('.intro').css('background', bgValue);
             return bgValue;
     },
 };
 bg.changeBg();
+*/
 
 // Google Maps Scripts
 // When the window has finished loading create our google map below
@@ -195,7 +197,100 @@ function init() {
                 "color": "#000000"
             }, {
                 "lightness": 20
-     
+            }]
+        }, {
+            "featureType": "road.highway",
+            "elementType": "geometry.fill",
+            "stylers": [{
+                "color": "#000000"
+            }, {
+                "lightness": 17
+            }]
+        }, {
+            "featureType": "road.highway",
+            "elementType": "geometry.stroke",
+            "stylers": [{
+                "color": "#000000"
+            }, {
+                "lightness": 29
+            }, {
+                "weight": 0.2
+            }]
+        }, {
+            "featureType": "road.arterial",
+            "elementType": "geometry",
+            "stylers": [{
+                "color": "#000000"
+            }, {
+                "lightness": 18
+            }]
+        }, {
+            "featureType": "road.local",
+            "elementType": "geometry",
+            "stylers": [{
+                "color": "#000000"
+            }, {
+                "lightness": 16
+            }]
+        }, {
+            "featureType": "poi",
+            "elementType": "geometry",
+            "stylers": [{
+                "color": "#000000"
+            }, {
+                "lightness": 21
+            }]
+        }, {
+            "elementType": "labels.text.stroke",
+            "stylers": [{
+                "visibility": "on"
+            }, {
+                "color": "#000000"
+            }, {
+                "lightness": 16
+            }]
+        }, {
+            "elementType": "labels.text.fill",
+            "stylers": [{
+                "saturation": 36
+            }, {
+                "color": "#000000"
+            }, {
+                "lightness": 40
+            }]
+        }, {
+            "elementType": "labels.icon",
+            "stylers": [{
+                "visibility": "off"
+            }]
+        }, {
+            "featureType": "transit",
+            "elementType": "geometry",
+            "stylers": [{
+                "color": "#000000"
+            }, {
+                "lightness": 19
+            }]
+        }, {
+            "featureType": "administrative",
+            "elementType": "geometry.fill",
+            "stylers": [{
+                "color": "#000000"
+            }, {
+                "lightness": 20
+            }]
+        }, {
+            "featureType": "administrative",
+            "elementType": "geometry.stroke",
+            "stylers": [{
+                "color": "#000000"
+            }, {
+                "lightness": 17
+            }, {
+                "weight": 1.2
+            }]
+        }]
+        */
     };
 
     // Get the HTML DOM element that will contain your map 
@@ -206,11 +301,13 @@ function init() {
     var map = new google.maps.Map(mapElement, mapOptions);
 
     // Custom Map Marker Icon - Customize the map-marker.png file to customize your icon
-  /*   var projectLocs = <%= escape_javascript @projects_list.to_json %>;*/
+    var projectLocs = [
+      ['Arlington, VA', 38.881594, -77.108681, 1],
+      ['Bethesda, MD', 38.984114, -77.097304, 2],
+      ['Foggy Bottom', 38.900736, -77.053870, 3]
+    ];
     var image = 'http://labs.google.com/ridefinder/images/mm_20_white.png';
-
-   
-    /*for (var i = 0; i < projectLocs.length; i++) {
+    for (var i = 0; i < projectLocs.length; i++) {
         var projectLoc = projectLocs[i];
         var marker = new google.maps.Marker({
           position: {lat: projectLoc[1], lng: projectLoc[2]},
@@ -219,7 +316,7 @@ function init() {
           title: projectLoc[0],
           zIndex: projectLoc[3]
     });
-    }*/
+    }
 /*    var image = 'img/map-marker.png';
     var myLatLng = new google.maps.LatLng(40.6700, -73.9400);
     var beachMarker = new google.maps.Marker({
@@ -228,26 +325,4 @@ function init() {
         icon: image
     });
 */
-var secretMessage =  "old navy yard</br>" +
-                      '<img src="http://41.media.tumblr.com/e979ae71b59eac64454a12a93c332c3b/tumblr_not2e5qkCJ1u9c74so1_1280.jpg" alt="Porcelain Factory of Vista Alegre" width="150" height="150" >' +
-                      '<p>duoduo engagement photo</p>' +
-                       '<p><a href="http://localhost:3000/projects">'+ 
-                       'More pictures</a> '
-
-  function attachSecretMessage(marker, secretMessage) {
-  var infowindow = new google.maps.InfoWindow({
-    content: secretMessage,
-    maxWidth: 500
-  });
-  marker.addListener('click', function() {
-    infowindow.open(marker.get('map'), marker);
-  });
-  google.maps.event.addListener(map, 'click', function() {
-    infowindow.close();
-  });
 }
-  attachSecretMessage(marker, secretMessage);
-
-
-}
-

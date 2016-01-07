@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160102205518) do
+ActiveRecord::Schema.define(version: 20160107014243) do
 
   create_table "blogs", force: :cascade do |t|
     t.string   "title"
@@ -38,7 +38,10 @@ ActiveRecord::Schema.define(version: 20160102205518) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "project_id"
   end
+
+  add_index "homepageimages", ["project_id"], name: "index_homepageimages_on_project_id"
 
   create_table "images", force: :cascade do |t|
     t.string   "name"

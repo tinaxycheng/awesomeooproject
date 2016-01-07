@@ -34,18 +34,16 @@
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
-    <!-- Navigation -->
+   <!-- Navigation -->
     <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                     <i class="fa fa-bars"></i>
                 </button>
-                <%link_to root_path do%>
-                <p class="navbar-brand page-scroll">
+                <a class="navbar-brand page-scroll" href="#page-top">
                     <span class="light">OO</span> Studio
-                </p>
-                <%end%>
+                </a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -80,6 +78,7 @@
     </nav>
 
     <!-- Intro Header -->
+<!-- Intro Header
     <header class="intro">
         <div class="intro-body">
             <div class="container">
@@ -95,6 +94,54 @@
             </div>
         </div>
     </header>
+ -->
+    <!-- Carousel -->
+    <div id="mycarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#mycarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#mycarousel" data-slide-to="1"></li>
+        <li data-target="#mycarousel" data-slide-to="2"></li>
+        <li data-target="#mycarousel" data-slide-to="3"></li>
+        <li data-target="#mycarousel" data-slide-to="4"></li>
+      </ol>
+
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <%=image_tag @image1.name%>
+          <div class="carousel-caption">
+            <h3>first image</h3>
+          </div>
+        </div>
+
+        <% @images.each do |image| %>
+    
+        <div class="item">
+        <%= link_to project_path(image.project) do %>
+        <%=image_tag image.name%>
+        <%end%>
+          <div class="carousel-caption">
+            <h3><%=image.project.title%>/h3>
+          </div>
+        </div>
+        
+        <%end%>
+
+
+        </div>
+       <!-- more slides here -->
+     
+      <!-- Controls -->
+      <a class="left carousel-control" href="#mycarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#mycarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
 
 
     <!-- Blog Section -->
@@ -108,7 +155,7 @@
                     <div class="media blog">
                       <div class="media-left">
                           <div class="thumbnail">
-                          <img class="media-object" src="<%=@blog1.image%>"alt="OO">
+                          <%= image_tag @blog.image_url, class:"media-object"%>
                           </div>
                       </div>
                       <div class="media-body">
@@ -118,7 +165,7 @@
                     </div>
                      <%end%>
                       <%= link_to blog_posts_path do %>
-                    <a class="btn btn-default btn-lg">See more...</a>
+                    <p class="btn btn-default btn-lg">See more...</p>
                     <%end%>
                 </div>
                 
@@ -285,8 +332,14 @@
      <script type="text/javascript">
 
 function initMap() {
-  map = new google.maps.Map(document.getElementById('map'), {
-  });
+
+ var mapOptions={
+    // Disables the default Google Maps UI components
+    disableDefaultUI: true,
+    scrollwheel: false,
+    draggable: false
+ }
+map = new google.maps.Map(document.getElementById('map'), mapOptions);
  var bounds = new google.maps.LatLngBounds();
   var styles = [
   {
@@ -324,7 +377,7 @@ function initMap() {
 
     var projectLocs = [["duoduo", 38.8738225, -76.9949, 1],["daojie", 38.897676, -77.036530,2],["lainanddaniel",40.7127,-74.0059,3]]
       var infoWindowContent =  [["Duoduo's engagement photo</br>" +
-                      '<img src="http://41.media.tumblr.com/e979ae71b59eac64454a12a93c332c3b/tumblr_not2e5qkCJ1u9c74so1_1280.jpg" >' +
+                      '<img class="thumbnail">src="http://41.media.tumblr.com/e979ae71b59eac64454a12a93c332c3b/tumblr_not2e5qkCJ1u9c74so1_1280.jpg" >' +
                       '<p>duoduo engagement photo</p>' +
                        '<p><a href="http://localhost:3000/projects">'+ 
                        'More pictures</a> '],["projectLocs[0]</br>"] ]

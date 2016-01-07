@@ -12,10 +12,10 @@
     <title>1 Col Portfolio</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min 3.css" rel="stylesheet">
+    <link href="/assets/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="css/1-col-portfolio.css" rel="stylesheet">
+    <link href="/assets/1-col-portfolio.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -25,28 +25,122 @@
     <![endif]-->
 
 </head>
- <!-- Navigation -->
-    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
-          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-    <li><%= link_to"Studio",about_path%></li>
-    <li><%= link_to"Blog",blog_posts_path%></li>
-    <li><%= link_to"Work",projects_path%></li>
-    <% if user_signed_in? %>
-    <li><%= link_to"My story",oo_path(current_user)%></li>
-    <% else %>
-    <li><%= link_to"Tell your story",join_path%></li>
-   <%end%>
 
-    </ul>
-    </div>
-</nav>
 <body>
-    <!-- Page Content -->
+
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>OO Studio : Projects</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/grayscale.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+
+
+</head>
+
+<body>
+    <!-- NAVIGATION MENU -->
+
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+         <div class="container">
+         <%= link_to root_path do %>
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    <i class="fa fa-bars"></i>
+                </button>
+                
+                <p class="navbar-brand page-scroll" >
+                    <span class="light">OO</span> Studio
+                </>
+                <%end%>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                   
+                    <li><%= link_to"Storybook",blog_posts_path%></li>
+                    
+                    <li><%= link_to"Work",projects_path%></li>
+                   <% if user_signed_in? %>
+                       <li><%= link_to"My story",oo_path(current_user)%></li>
+                   <% else %>
+                    <li><%= link_to"Tell your story",join_path%></li>
+                   <%end%>
+<!--                     <% if user_signed_in? %>
+                    <li><%= link_to"My story",oo_path(current_user)%></li>
+                    <% else %>
+                    <li><%= link_to"Tell your story",join_path%></li>
+                    <%end%> -->
+
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+
+
+        <div class="container">
+
+            <div class="row content-section text-center">
+                <div class="col-lg-10 col-lg-offset-1">
+                    <div class="row content-section">
+                        <% @projects.each do |project| %>
+                        <%= link_to project_path(project) do %>
+                        <div class="col-md-3 col-sm-4">
+                            <div class="dash-unit">                              
+                                <div class="thumbnail">
+                                    <%= image_tag project.images.first.name, size: 100*100%>
+                                    <div class="caption">
+                                        <h1><%=project.title%></h1>
+                                        <small><%= project.tag%></small>
+                                        <p><%=project.content%>
+                                        </p>
+                                     
+                                    </div>
+                                </div><!-- /thumbnail -->
+                            </div>
+                        </div>
+                        <% end %>  
+                        <% end %>
+
+                    </div>
+                    <!-- /.row (nested) -->
+                </div>
+                <!-- /.col-lg-10 -->
+            </div>
+            <!-- /.row -->
+        </div>
+
+</body>
+</html>
+<!--    
     <div class="container">
     <% @projects.each do |project| %>
       <%= link_to project_path(project) do %>
-        <!-- Page Heading -->
+
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header"><%=project.title%>
@@ -55,62 +149,17 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-7", width = 200px>
-            <%= image_tag project.images.first.name, size: "200"%>
+            <div class="col-md-7", width = 100px >
+            <%= image_tag project.images.first.name, size: 100*100%>
             </div>
             <div class="col-md-5">
          <% end %>  
         <% end %>
             </div>
-        </div>
-        <!-- /.row -->
+        </div>-->
 
         <hr>
 
-        <!-- Pagination -->
-        <div class="row text-center">
-            <div class="col-lg-12">
-                <ul class="pagination">
-                    <li>
-                        <a href="#">&laquo;</a>
-                    </li>
-                    <li class="active">
-                        <a href="#">1</a>
-                    </li>
-                    <li>
-                        <a href="#">2</a>
-                    </li>
-                    <li>
-                        <a href="#">3</a>
-                    </li>
-                    <li>
-                        <a href="#">4</a>
-                    </li>
-                    <li>
-                        <a href="#">5</a>
-                    </li>
-                    <li>
-                        <a href="#">&raquo;</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <!-- /.row -->
-
-        <hr>
-
-        <!-- Footer -->
-        <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2014</p>
-                </div>
-            </div>
-            <!-- /.row -->
-        </footer>
-
-    </div>
-    <!-- /.container -->
 
     <!-- jQuery -->
     <script src="js/jquery 3.js"></script>
