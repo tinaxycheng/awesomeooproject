@@ -2,7 +2,8 @@ class OoController < ApplicationController
   def home
     @user = current_user
     @image1 = Homepageimage.first
-    @images = Homepageimage.all
+   
+    @images = Homepageimage.all_except(@image1)
     @user1= User.first
     @blog1=Blog.first
     @projects=Project.all

@@ -111,18 +111,17 @@
         <div class="item active">
           <%=image_tag @image1.name%>
           <div class="carousel-caption">
-            <h3>first image</h3>
+            <h3><%=@image1.project.title%>/</h3>
           </div>
         </div>
 
         <% @images.each do |image| %>
-    
         <div class="item">
         <%= link_to project_path(image.project) do %>
         <%=image_tag image.name%>
         <%end%>
           <div class="carousel-caption">
-            <h3><%=image.project.title%>/h3>
+            <h3><%=image.project.title%></h3>
           </div>
         </div>
         
@@ -154,8 +153,8 @@
                      <%= link_to blog_post_path(@blog1) do %>
                     <div class="media blog">
                       <div class="media-left">
-                          <div class="thumbnail">
-                          <%= image_tag @blog.image_url, class:"media-object"%>
+                         <div class="col-md-2 col-sm-4">
+                          <%= image_tag @blog1.image_url(:thumb), class:"media-object"%>
                           </div>
                       </div>
                       <div class="media-body">
@@ -189,7 +188,9 @@
     <section id="projects" class="container content-section text-center">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
+             <%= link_to projects_path do %>
                 <h2>Projects</h2>
+                <%end%>
                    
             </div>
         </div>
@@ -337,10 +338,14 @@ function initMap() {
     // Disables the default Google Maps UI components
     disableDefaultUI: true,
     scrollwheel: false,
-    draggable: false
+    draggable: false,
+    
+    center: {lat: 38.884, lng: -77.016},
+    zoom: 12
+  
  }
 map = new google.maps.Map(document.getElementById('map'), mapOptions);
- var bounds = new google.maps.LatLngBounds();
+ /*var bounds = new google.maps.LatLngBounds();*/
   var styles = [
   {
     stylers: [
@@ -375,18 +380,26 @@ map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
     //     });  
 
-    var projectLocs = [["duoduo", 38.8738225, -76.9949, 1],["daojie", 38.897676, -77.036530,2],["lainanddaniel",40.7127,-74.0059,3]]
-      var infoWindowContent =  [["Duoduo's engagement photo</br>" +
-                      '<img class="thumbnail">src="http://41.media.tumblr.com/e979ae71b59eac64454a12a93c332c3b/tumblr_not2e5qkCJ1u9c74so1_1280.jpg" >' +
-                      '<p>duoduo engagement photo</p>' +
-                       '<p><a href="http://localhost:3000/projects">'+ 
-                       'More pictures</a> '],["projectLocs[0]</br>"] ]
+    var projectLocs = [["duoduo", 38.8738225, -76.9949, 1],["daojie", 38.897676, -77.036530,2],["yuan&chen",38.897855,-77.0226467,4],["yuan&chen2",38.9133116,-76.9696974,4]]
+      var infoWindowContent =  [["<b>Duoduo's engagement photo</b>" +
+                      '<img class="media-object" src="http://41.media.tumblr.com/e979ae71b59eac64454a12a93c332c3b/tumblr_not2e5qkCJ1u9c74so1_1280.jpg" >' +
+                       '<a href="http://localhost:3000/projects">'+ 
+                       'More pictures</a> '],["daojie</br>"+
+                      '<img class="media-object" src="https://40.media.tumblr.com/6411b8bcdb31bbf3cbce192d1e4252de/tumblr_o0kdd3vj9Y1u9c74so1_540.jpg" >' +
+                       '<a href="http://localhost:3000/projects">'+ 
+                       'More pictures</a>'], ["yuan&chen</br>" + 
+                      '<img class="media-object" src="https://41.media.tumblr.com/159adf28068b0b2143e63c249ca70f93/tumblr_nk2oedqjpI1u9c74so1_1280.jpg" >' +
+                       '<a href="http://localhost:3000/projects">'+ 
+                       'More pictures</a> '],["yuan&chen2</br>" + 
+                      '<img class="media-object" src="https://40.media.tumblr.com/c43b7fe91d1d71df24f45aa649d409b6/tumblr_nk2nj5gxan1u9c74so1_1280.jpg" >' +
+                       '<a href="http://localhost:3000/projects">'+ 
+                       'More pictures</a> '] ]
 
     var image = 'http://labs.google.com/ridefinder/images/mm_20_white.png';
-    var infoWindow = new google.maps.InfoWindow({ maxWidth: 200 }), marker, i; 
+    var infoWindow = new google.maps.InfoWindow({ maxWidth: 250 }), marker, i; 
     for (var i = 0; i < projectLocs.length; i++) {
         var position = new google.maps.LatLng(projectLocs[i][1], projectLocs[i][2]);
-          bounds.extend(position);
+          /*bounds.extend(position);*/
         var projectLoc = projectLocs[i];
         var marker = new google.maps.Marker({
           position: position,
@@ -394,7 +407,7 @@ map = new google.maps.Map(document.getElementById('map'), mapOptions);
           icon: image,
           title: projectLoc[0]
     });
-   // Allow each marker to have an info window    
+ // Allow each marker to have an info window    
         google.maps.event.addListener(marker, 'click', (function(marker, i) {
             return function() {
                 infoWindow.setContent(infoWindowContent[i][0]);
@@ -402,15 +415,15 @@ map = new google.maps.Map(document.getElementById('map'), mapOptions);
             }
         })(marker, i));
   
-      map.fitBounds(bounds);
+      /*map.fitBounds(bounds);*/
 
     }
 
     // Override our map zoom level once our fitBounds function runs (Make sure it only runs once)
-    var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
+   /* var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
         this.setZoom(8);
         google.maps.event.removeListener(boundsListener);
-    });
+    });*/
 
 }//initialize ends
 

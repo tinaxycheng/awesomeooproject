@@ -31,22 +31,8 @@
     <![endif]-->
 
 </head>
- <!-- Navigation -->
-    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
-          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-    <li><%= link_to"Studio",about_path%></li>
-    <li><%= link_to"Blog",blog_posts_path%></li>
-    <li><%= link_to"Work",projects_path%></li>
-    <% if user_signed_in? %>
-    <li><%= link_to"My story",oo_path(current_user)%></li>
-    <% else %>
-    <li><%= link_to"Tell your story",join_path%></li>
-   <%end%>
 
-    </ul>
-    </div>
-    </nav>
 <h1> Welcome, <%= @user.email%></h1>
 <p>more info, tell us about your story</p>
 <%= render 'form' %>
+<%= link_to "Cancel", oo_path(@user) %>

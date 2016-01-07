@@ -49,7 +49,7 @@ p {
 }
 
 a {
-    color: #42dca3;
+    color: silver;
     -webkit-transition: all .2s ease-in-out;
     -moz-transition: all .2s ease-in-out;
     transition: all .2s ease-in-out;
@@ -309,7 +309,7 @@ a:focus {
 }
 
 .btn-default {
-    border: 1px solid #42dca3;
+    border: 1px solid silver;
     /*color: #42dca3;*/
     color:silver;
     background-color: transparent;
@@ -388,8 +388,17 @@ body {
     
 }
 
-input[type='text'] {
+input[type="text"][id="user_name"] {
     width: 200px;
+    margin-bottom: 10px;
+    background-color: transparent;
+}
+
+input[type="text"][id="user_story"] {
+    width: 200px;
+    height: 100px;
+    margin-bottom: 10px;
+    background-color: transparent;
 }
 
 .blog {
@@ -418,7 +427,7 @@ input[type='text'] {
     background-image:url('../img/sep-half.png');
     background-color: #101010;
     color:white;
-    height:290px;
+/*    height:290px;*/
 }
 
 .picture.dash-unit {        
@@ -461,6 +470,7 @@ input[type='text'] {
     margin-top:2px;
     text-align:center;
     margin: 0 0 10px;
+    overflow: hidden;
 }
 
 .dash-unit h2 {
@@ -569,10 +579,7 @@ input[type='text'] {
 }
 
 
-
-
-.item {
-   width: 1280px;
+.item img {
+   width: 100%;
    height: auto; 
-   width: auto; 
 }
