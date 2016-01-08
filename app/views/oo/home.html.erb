@@ -147,8 +147,8 @@
     <section id="storybook" class="content-section text-center">
         <div class="download-section">
             <div class="container">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <h2>Storybook</h2>
+                <div class="col-lg-10 col-lg-offset-1">
+                    <h2><%= link_to"Storybook",blog_posts_path%></h2>
                     <p>See what our sweet couples are saying.</p>
                      <%= link_to blog_post_path(@blog1) do %>
                     <div class="media blog">
@@ -207,60 +207,20 @@
                     <h2>People</h2>
 
                     <div class="row">
+                        <% @users.each do |user| %>
                         <div class="col-md-2 col-sm-4">
                             <div class="service-item">  
-                            <%= link_to oo_path(@user1) do %>                            
+                            <%= link_to oo_path(user) do %>                            
                                 <div class="thumbnail">
-                                      <%=image_tag @user1.avatar%>
+                                      <%=image_tag user.avatar%>
                                 </div><!-- /thumbnail -->
-                                <a class="btn btn-light"><%= @user1.name%></a>
+                                <a class="btn btn-light"><%= user.name%></a>
                             </div>
                             <%end%>
                         </div>
-                        <div class="col-md-2 col-sm-4">
-                            <div class="service-item">    
-                            <%= link_to oo_path(@user1) do %>                            
-                                <div class="thumbnail">
-                                    <%=image_tag @user1.avatar%>
-                                </div><!-- /thumbnail -->
-                                <a href="#" class="btn btn-light"><%=@user1.name%></a>
-                            </div>
-                             <%end%>
-                        </div>
-                        <div class="col-md-2 col-sm-4">
-                            <div class="service-item"> 
-                            <%= link_to oo_path(@user1) do %>                              
-                                <div class="thumbnail">
-                                    <img src="http://lorempixel.com/180/180/nature" alt="Marcel Newman">
-                                </div><!-- /thumbnail -->
-                                <a href="#" class="btn btn-light"><%=@user1.name%></a>
-                                   <%end%>
-                            </div>
-                        </div>
-                        <div class="col-md-2 col-sm-4">
-                            <div class="service-item">                              
-                                <div class="thumbnail">
-                                    <img src="http://lorempixel.com/180/180/abstract" alt="Marcel Newman">
-                                </div><!-- /thumbnail -->
-                                <a href="#" class="btn btn-light"><%=@user1.name%></a>
-                            </div>
-                        </div>
-                        <div class="col-md-2 col-sm-4">
-                            <div class="service-item">                              
-                                <div class="thumbnail">
-                                    <img src="http://lorempixel.com/180/180/nightlife" alt="Marcel Newman">
-                                </div><!-- /thumbnail -->
-                                <a href="#" class="btn btn-light"><%=@user1.name%></a>
-                            </div>
-                        </div>
-                        <div class="col-md-2 col-sm-4">
-                            <div class="service-item">                              
-                                <div class="thumbnail">
-                                    <img src="http://lorempixel.com/180/180/" alt="Marcel Newman">
-                                </div><!-- /thumbnail -->
-                                <a href="#" class="btn btn-light"><%=@user1.name%></a>
-                            </div>
-                        </div>
+                        <%end%>
+                    
+                     
                     </div>
                     <!-- /.row (nested) -->
                 </div>
@@ -281,13 +241,13 @@
                 </p>
                 <ul class="list-inline banner-social-buttons">
                     <li>
-                        <a href="https://twitter.com/SBootstrap" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
+                        <a href="http://oostudio2dian.tumblr.com/" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Tumblr</span></a>
                     </li>
                     <li>
-                        <a href="https://github.com/IronSummitMedia/startbootstrap" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
+                        <a href="https://plus.google.com/u/1/108512845084415481185" class="btn btn-default btn-lg"><i class="fa fa-google-plus fa-fw"></i> <span class="network-name">Google+</span></a>
                     </li>
-                    <li>
-                        <a href="https://plus.google.com/+Startbootstrap/posts" class="btn btn-default btn-lg"><i class="fa fa-google-plus fa-fw"></i> <span class="network-name">Google+</span></a>
+                     <li>
+                    <p class="btn btn-default btn-lg"><a target="_blank" href="https://calendar.google.com/calendar/event?action=TEMPLATE&amp;tmeid=bTE2dWxrNDUzajA4b2g1czU4dnZnNTVvc2sgZmNyMmNmcXNhcm5iNTNjZ2hnODZqNW5rajRAZw&amp;tmsrc=fcr2cfqsarnb53cghg86j5nkj4%40group.calendar.google.com"> Make a reservation</a></p> 
                     </li>
                 </ul>
             </div>
@@ -295,13 +255,9 @@
     </section>
 
      <! calendar Section >
-    <!-- Map Section -->
-    <div id="calendar">
-<p><a target="_blank" href="https://calendar.google.com/calendar/event?action=TEMPLATE&amp;tmeid=bTE2dWxrNDUzajA4b2g1czU4dnZnNTVvc2sgZmNyMmNmcXNhcm5iNTNjZ2hnODZqNW5rajRAZw&amp;tmsrc=fcr2cfqsarnb53cghg86j5nkj4%40group.calendar.google.com"> Make a reservation</a></p>  
 
-<div id="divifm">
+<div class="row">
 <iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=fcr2cfqsarnb53cghg86j5nkj4%40group.calendar.google.com&amp;color=%23865A5A&amp;ctz=America%2FNew_York" style="border-width:0" width="800" height="200" frameborder="0" scrolling="no" position="center"></iframe>
-                </div>
                 </div>
 
     <!-- Footer -->
@@ -381,6 +337,7 @@ map = new google.maps.Map(document.getElementById('map'), mapOptions);
     //     });  
 
     var projectLocs = [["duoduo", 38.8738225, -76.9949, 1],["daojie", 38.897676, -77.036530,2],["yuan&chen",38.897855,-77.0226467,4],["yuan&chen2",38.9133116,-76.9696974,4]]
+  /*   var projectLocs = <%= Project.pluck(:title, :lat, :lng, :id).to_json.html_safe %>*/
       var infoWindowContent =  [["<b>Duoduo's engagement photo</b>" +
                       '<img class="media-object" src="http://41.media.tumblr.com/e979ae71b59eac64454a12a93c332c3b/tumblr_not2e5qkCJ1u9c74so1_1280.jpg" >' +
                        '<a href="http://localhost:3000/projects">'+ 

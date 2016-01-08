@@ -387,16 +387,19 @@ body {
     text-align: center;      
     
 }
+.video {
 
+    width:80px;
+}
 input[type="text"][id="user_name"] {
-    width: 200px;
+    width: 500px;
     margin-bottom: 10px;
     background-color: transparent;
 }
 
 input[type="text"][id="user_story"] {
-    width: 200px;
-    height: 100px;
+    width: 500px;
+    height: 300px;
     margin-bottom: 10px;
     background-color: transparent;
 }
@@ -470,7 +473,7 @@ input[type="text"][id="user_story"] {
     margin-top:2px;
     text-align:center;
     margin: 0 0 10px;
-    overflow: hidden;
+    word-wrap:break-word;
 }
 
 .dash-unit h2 {
