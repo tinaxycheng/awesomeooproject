@@ -1,6 +1,6 @@
 class Blog::PostsController < ApplicationController
 	def index
-    @blog= Blog.first
+   @blogs = Blog.all
   end
   def new
     @blog = Blog.new
@@ -19,11 +19,10 @@ class Blog::PostsController < ApplicationController
       render 'new'
     end
   end
-  
 
   def update
     @blog = Blog.find(params[:id])
-    if @blog.update_attributes(user_params)
+    if @blog.update_attributes(blog_params)
       redirect_to blog_post_path(@blog)
     else
       flash.now[:error] = @blog.errors.messages.first.join(" ")
@@ -32,11 +31,16 @@ class Blog::PostsController < ApplicationController
   end
 
   def blog_params
-    params.require(:blog).permit(:title, :content, :image)
+    params.require(:blog).permit(:title, :content, :image, :category_id)
   end
-  def blog
-  end
+ 
   def edit
     @blog = Blog.find(params[:id])
+  end
+
+    def destroy
+    @blog = Blog.find(params[:id])
+    @blog.destroy
+    redirect_to blog_posts_path(current_user)
   end
 end

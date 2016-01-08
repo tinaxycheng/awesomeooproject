@@ -1,6 +1,62 @@
-<h1>Log in or your profile picture </h1>
+ <!-- Navigation -->
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+    <li><%= link_to"Studio",about_path%></li>
+    <li><%= link_to"Blog",blog_posts_path%></li>
+    <li><%= link_to"Work",projects_path%></li>
+    <% if user_signed_in? %>
+    <li><%= link_to"My story",oo_path(current_user)%></li>
+    <% else %>
+    <li><%= link_to"Tell your story",join_path%></li>
+   <%end%>
+
+    </ul>
+    </div>
+    </nav>
+
+
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+    <li><%= link_to"Studio",about_path%></li>
+    <li><%= link_to"Blog",blog_posts_path%></li>
+    <li><%= link_to"Work",projects_path%></li>
+    <% if user_signed_in? %>
+    <li><%= link_to"My story",oo_path(current_user)%></li>
+    <% else %>
+    <li><%= link_to"Tell your story",join_path%></li>
+   <%end%>
+
+    </ul>
+    </div>
+
+
+
 <% if user_signed_in? %>
+<h1> Welcome, <%= @user.email%></h1>
+<p>more info, tell us about your story</p>
+<%= form_for @user, url: oo_path(@user), html:{method: 'PATCH'} do |f| %>
+<fieldset>
+<div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+</div>
+<div>
+    <%= f.label :story %>
+    <%= f.text_field :story %>
+</div>
+<div>
+    <%= f.label :avatar %>
+    <%= f.file_field :avatar %>
+</div>
+</fieldset>
+<%=f.submit "Add"%>
+<%end%>
   <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
 <% else %>
+<h1>Welcome, please join us </h1>
   <%= link_to "Sign up", new_user_registration_path %> | <%= link_to "Sign in", new_user_session_path %>
+  <p><%= link_to "Sign in with Google", user_omniauth_authorize_path(:google_oauth2) %></p>
+
 <% end %>
+

@@ -1,14 +1,21 @@
 class OoController < ApplicationController
   def home
     @user = current_user
+    @image1 = Homepageimage.first
+   
+    @images = Homepageimage.all_except(@image1)
+    @user1= User.first
+    @blog1=Blog.first
+    @projects=Project.all
   end
   def new
     @user = current_user
   end
 
   def show
-    @user = current_user
-    @blog = current_user.blogs.first
+    @user = User.find(params[:id])
+    @blog = @user.blogs
+    @blog2= Blog.limit(3).order('created_at')
   end
   
 

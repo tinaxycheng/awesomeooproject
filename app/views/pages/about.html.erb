@@ -1,47 +1,24 @@
-
-
- <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-        
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <%= link_to "Home", root_path %>
-                    </li>
-                    <li>
-                        <%= link_to "Storybook", new_oo_path %>
-                    </li>
-                     <li>
-                        <%= link_to "inspriration", new_oo_path %>
-                    </li>
-                    
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
                 
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
- </nav>
+    <li><%= link_to"Studio",about_path%></li>
+    <li><%= link_to"Blog",blog_posts_path%></li>
+    <li><%= link_to"Work",projects_path%></li>
+    <% if user_signed_in? %>
+    <li><%= link_to"My story",oo_path(current_user)%></li>
+    <% else %>
+    <li><%= link_to"Tell your story",join_path%></li>
+   <%end%>
 
-<%- unless @lat_lng %>
-<script>
-  getGeoLocation();
-</script>
-<%- end %>
+    </ul>
+    </div>
+
 
 <p>Oostudio </p>
 <p> oostudio is a photography studio based in Washington DC. </p>
 <p> Our email address is oostudio2dian@gmail.com </p>
+
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -52,6 +29,7 @@
   </head>
   <body>
     <div id="map"></div>
+
     <script type="text/javascript">
 
 function initMap() {
@@ -83,16 +61,25 @@ function initMap() {
 ];
   map.setOptions({styles: styles});
 
-  var myLatLng = {lat: 38.8739225, lng: -76.9949};
-  var marker = new google.maps.Marker({
-    position: myLatLng,
-    map: map,
-    title: 'Old Navy Yard',
+     var projectLocs = #{raw @projects_list};
+    var image = 'http://labs.google.com/ridefinder/images/mm_20_white.png';
+    for (var i = 0; i < projectLocs.length; i++) {
+        var projectLoc = projectLocs[i];
+        var marker = new google.maps.Marker({
+          position: {lat: projectLoc[1], lng: projectLoc[2]},
+          map: map,
+          icon: image,
+          title: projectLoc[0],
+          zIndex: projectLoc[3]
+    });
+    }
+
   });
-  var secretMessage =  'old navy yard<br>' +
-                        '<a href="/projects/' + project 1+ '">' 
+  var secretMessage =  "old navy yard</br>" +
                       '<img src="http://41.media.tumblr.com/e979ae71b59eac64454a12a93c332c3b/tumblr_not2e5qkCJ1u9c74so1_1280.jpg" alt="Porcelain Factory of Vista Alegre" width="150" height="150" >' +
-                      '<p>duoduo engagement photo</p>';
+                      '<p>duoduo engagement photo</p>' +
+                       '<p><a href="http://localhost:3000/projects">'+ 
+                       'More pictures</a> '
 
   function attachSecretMessage(marker, secretMessage) {
   var infowindow = new google.maps.InfoWindow({
@@ -107,8 +94,6 @@ function initMap() {
   });
 }
   attachSecretMessage(marker, secretMessage);
-
-  
 }
 
     </script>
@@ -117,4 +102,3 @@ function initMap() {
     </script>
   </body>
 </html>
-

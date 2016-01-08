@@ -13,49 +13,52 @@
 
     <!-- Custom CSS -->
     <link href="css/clean-blog.min.css" rel="stylesheet">
+        <link href="css/grayscale.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    </head>
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-</head>
-
-<body>
-
-      <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
+    <! the navigation bar >
+   <!-- Navigation -->
+   <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+         <div class="container">
+         <%= link_to root_path do %>
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    <i class="fa fa-bars"></i>
                 </button>
-        
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <%= link_to "Home", root_path %>
-                    </li>
-                    <li>
-                        <%= link_to "Storybook", new_oo_path %>
-                    </li>
-                     <li>
-                        <%= link_to "inspriration", new_oo_path %>
-                    </li>
-                    
                 
+                <p class="navbar-brand page-scroll" >
+                    <span class="light">OO</span> Studio
+                </>
+                <%end%>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                   
+                    <li><%= link_to"Storybook",blog_posts_path%></li>
+                    
+                    <li><%= link_to"Work",projects_path%></li>
+                   <% if user_signed_in? %>
+                       <li><%= link_to"My story",oo_path(current_user)%></li>
+                   <% else %>
+                    <li><%= link_to"Tell your story",join_path%></li>
+                   <%end%>
+<!--                     <% if user_signed_in? %>
+                    <li><%= link_to"My story",oo_path(current_user)%></li>
+                    <% else %>
+                    <li><%= link_to"Tell your story",join_path%></li>
+                    <%end%> -->
+
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -63,9 +66,57 @@
         <!-- /.container -->
     </nav>
 
+<!the scroll down bar>
 
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">
+                    <i class="fa fa-play-circle"></i>  <span class="light">OO</span> Studio
+                </a>
+            </div>
+
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#inspiration">Projects</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#interviews">Interviews</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#news">News</a>
+                    </li>
+                     <li>
+                        <a class="page-scroll" href="#story">Story</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#other">Other</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+<!content>
 <h1>Here is your well-written post</h1>
 <p><%= @blog.title %></p>
 <p><%= @blog.content %></p>
 <p><%= @blog.user.name %></p>
-<p><%= image_tag @blog.image_url if @blog.image? %></p>
+<p><%= image_tag @blog.image_url%></p>
+
+<p><%= link_to "Edit", edit_blog_post_path %>
+<p><%= link_to "Delete", blog_post_path(@blog), method: "DELETE" %></p>
+</p>
