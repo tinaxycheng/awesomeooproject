@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  acts_as_voter
+  has_karma :blogs, :as => :submitter, :weight => 0.5
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   attr_accessor :avatar

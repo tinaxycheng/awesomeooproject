@@ -98,12 +98,12 @@ $(document).ready(function () {
         <div class="thumbnail">
           <%= link_to blog_post_path(story) do%>
           <% if  story.videolink.present? %>
-          <p><%= raw (youtube_embed(story.videolink))%></p>
+          <iframe title="YouTube video player" width="180" height="180" src=<%= story.videolink%> frameborder="0" allowfullscreen></iframe>
           <%else%>
           <%= image_tag story.image_url(:thumb) if story.image? %>
           <%end%>
         </div>
-        <h1><%= @user.name %></h1>
+        <h1><%= story.category.name %></h1>
         <h3><%=story.created_at%></h3>
         </div>
         </div>

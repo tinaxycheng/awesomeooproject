@@ -12,7 +12,9 @@ Rails.application.routes.draw do
   get '/projects', to: 'pages#projects'
   get '/join', to: 'pages#join'
   namespace :blog do
-  resources :posts
+    resources :posts do
+        post :vote_up
+    end
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

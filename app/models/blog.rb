@@ -1,4 +1,5 @@
 class Blog < ActiveRecord::Base
+	acts_as_voteable
 	def self.search(query)
     where('title LIKE :query OR category LIKE :query', query: "%#{query}%")
     end

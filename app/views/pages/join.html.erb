@@ -1,6 +1,6 @@
  <!-- Navigation -->
+ <%= render 'shared/nav' %>
 
-<%= render 'shared/nav' %>
 <% if user_signed_in? %>
 <h1> Welcome, <%= @user.email%></h1>
 <p>more info, tell us about your story</p>
@@ -23,9 +23,14 @@
 <%end%>
   <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
 <% else %>
-<h1>Welcome, please join us </h1>
-  <%= link_to "Sign up", new_user_registration_path %> | <%= link_to "Sign in", new_user_session_path %>
-  <p><%= link_to "Sign in with Google", user_omniauth_authorize_path(:google_oauth2) %></p>
-
-<% end %>
+	<div class="container">
+		<div class="row">
+			<br><br><br><br><br>
+			
+			<h1>Welcome, please join us </h1>
+			<%= link_to "Sign up", new_user_registration_path %> | <%= link_to "Sign in", new_user_session_path %>
+			<p><%= link_to "Sign in with Google", user_omniauth_authorize_path(:google_oauth2) %></p>
+			<% end %>
+		</div>
+	</div>
 

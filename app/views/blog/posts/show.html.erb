@@ -19,19 +19,20 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     </head>
 <body>
-    <! the navigation bar >
+    <!-- the navigation bar -->
    <!-- Navigation -->
- <%= render 'shared/nav' %>
+<%= render 'shared/nav' %>
 
-<!content>
+<br><br><br><br><br><br>
+<!--content-->
 <div class="container">
 <div class="row">
 <h1>Here is your well-written post</h1>
 <p><%= @blog.title %></p>
 <p><%= @blog.content %></p>
-
 <% if  @blog.videolink.present? %>
-<p><%= raw (youtube_embed(@blog.videolink))%></p>
+
+<iframe title="YouTube video player" width="640" height="390" src=<%= @blog.videolink%> frameborder="0" allowfullscreen></iframe>
 <%end%>
 <p><%= @blog.user.name %></p>
 <p><%= image_tag @blog.image_url%></p>

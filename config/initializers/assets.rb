@@ -6,7 +6,7 @@ Rails.application.config.assets.precompile += %w( grayscale.js )
 Rails.application.config.assets.precompile += %w( jquery.js )
 Rails.application.config.assets.precompile += %w( jquery.easing.min.js )
 Rails.application.config.assets.precompile += %w( bootstrap.min.js )
-
+Rails.application.config.assets.precompile += %w( votecount.js )
 # Add additional assets to the asset load path
 # Rails.application.config.assets.paths << Emoji.images_path
 

@@ -31,7 +31,56 @@
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
     <!-- Navigation -->
-<%= render 'shared/nav' %>
+<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+         <div class="container">
+         <%= link_to root_path do %>
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    <i class="fa fa-bars"></i>
+                </button>
+                
+                <p class="navbar-brand page-scroll" >
+                    <span class="light">OO</span> Studio
+                </>
+                <%end%>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                   
+                    <li><%= link_to"Storybook",blog_posts_path%></li>
+                     <ul class="nav navbar-nav navbar-sub">
+                     
+                     <li><a class="page-scroll" href="#inspiration">|  Inspiration</a></li>
+                
+                     <li> <a class="page-scroll" href="#interview">Interviews</a> </li>
+                  
+                     <li> <a class="page-scroll" href="#news">News   |</a></li>
+                    </ul>
+                    
+                    <li><%= link_to"Work",projects_path%></li>
+                   <% if user_signed_in? %>
+                       <li><%= link_to"My story",oo_path(current_user)%></li>
+                   <% else %>
+                    <li><%= link_to"Tell your story",join_path%></li>
+                   <%end%>
+<!--                     <% if user_signed_in? %>
+                    <li><%= link_to"My story",oo_path(current_user)%></li>
+                    <% else %>
+                    <li><%= link_to"Tell your story",join_path%></li>
+                    <%end%> -->
+
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
             <!-- Collect the nav links, forms, and other content for toggling -->
          
   
@@ -40,168 +89,159 @@
 <!create new and search bar>
    
                     <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
-                 
-                        <a href="#page-top"></a>
+<nav class="navbar navbar-custom" role="navigation">
+         <div class="container">
+
+                <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                <ul class="nav navbar-nav">
+                     
+                     <li><a class="page-scroll" href="#inspiration">Inspiration</a></li>
                 
-                        <a  href="#about">Inspirations</a>
-                 
-             
-                        <a class="page-scroll" href="#download">Interviews</a>
+                     <li> <a class="page-scroll" href="#interview">Interviews</a> </li>
                   
-                        <a class="page-scroll" href="#contact">News</a>
-             
+                     <li> <a class="page-scroll" href="#news">News</a></li>
+             </ul>
+             </div>
+
+             </div>
+</nav>>
             <!-- /.navbar-collapse -->
-
-<h3>Search Title or Category Here:</h3>
-<%=  form_tag blog_posts_path, method: :get do %>
-  <%=  text_field_tag :q  %>
-  <%=  submit_tag "Search" %>
-<% end %>
-  
-    <%= link_to new_blog_post_path  do%>
-    <p class="btn btn-default btn-lg">Add new</p>
-    <%end%>
-
+         <div class="container">
+             <div class="row">
+                <h3>Search Title or Category Here:</h3>
+                <%=  form_tag blog_posts_path, method: :get do %>
+                  <%=  text_field_tag :q  %>
+                  <%=  submit_tag "Search" %>
+                <% end %>
+                  
+                    <%= link_to new_blog_post_path  do%>
+                    <p class="btn btn-default btn-lg">Add new</p>
+                    <%end%>
+            </div>
   <!-- Main Content -->
-    <div class="container">
+    <section id="inspiration">
+      <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-preview">
                  <% @blogs.each do |blog| %>
-            
                     <%= link_to blog_post_path(blog) do %>
                         <h2 class="post-title">
                             <%= blog.title %>
                         </h2>
-                        <h3 class="post-subtitle">
+                        <p class="post-subtitle">
                             <%= blog.content %>
-                        </h3>
+                        </p>
                     <% end %>
+                    <!-- show user's name and direct to dashboard -->
                     <%= link_to oo_path(blog.user) do %>
-                    <h3 class="post-subtitle">
-                            <%= blog.user.email %>
-                        </h3>
-                       <%end%> 
-                   
+                    <a class="post-subtitle">
+                            <%= blog.user.name %>
+                    </a>
+                    <%end%> 
+                   <!--  display votes -->
+                   <%= button_to("Like",blog_post_vote_up_path(blog)) %>
+                   <%= blog.votes_for%>
+                   <!-- end of loop -->
                     <% end %>
-                    <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on September 24, 2014</p>
                 </div>
                 <hr>
-                <!-- Pager -->
-                <ul class="pager">
-                    <li class="next">
-                        <a href="#">Older Posts &rarr;</a>
-                    </li>
-                </ul>
             </div>
         </div>
-    </div>
+        </div>
+    </section>
 
 
 
-
-    <section id="about">
-           <div class="container">
+       <section id="interview">
+        <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-preview">
-               <% @blogs.each do |blog| %>
-               <%if blog.category_id == 1%>
+               <% @blogs3.each do |blog| %>
+             
                     <%= link_to blog_post_path(blog) do %>
                         <h2 class="post-title">
                             <%= blog.title %>
                         </h2>
-                        <h3 class="post-subtitle">
-                            <%= blog.content %>
-                        </h3>
+                        <div class="post-subtitle">
+                            <p>
+                                <%= blog.content %>
+                            </p>
+                        </div>
                     <% end %>
                     <%= link_to oo_path(blog.user) do %>
-                    <h3 class="post-subtitle">
-                            <%= blog.user.email %>
-                        </h3>
+                    <p class="post-subtitle">
+                            <%= blog.user.name %>
+                        </p>
                        <% end %> 
-                       <%end%> 
+                         <!--  display votes -->
+                   <%= button_to("Like",blog_post_vote_up_path(blog)) %>
+                   <%= blog.votes_for%>
                     <% end %>
-                     <ul class="pager">
-                    <li class="next">
-                    </li>
-                </ul>
+            <hr>
           </div>
         </div>
-    </div>
+    </section>
 
-        <section id="download">
-           <div class="container">
+        <section id="news">
+        <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <% @blogs2.each do |blog| %>
                 <div class="post-preview">
-               <% @blogs.each do |blog| %>
-               <%if blog.category_id == 3%>
-                    <%= link_to blog_post_path(blog) do %>
+            
+             <%= link_to blog_post_path(blog) do %>
                         <h2 class="post-title">
                             <%= blog.title %>
                         </h2>
-                        <h3 class="post-subtitle">
-                            <%= blog.content %>
-                        </h3>
+                        <div>
+                            <p class="post-subtitle">
+                                <%= blog.content %>
+                            </p>
+                        </div>
                     <% end %>
                     <%= link_to oo_path(blog.user) do %>
-                    <h3 class="post-subtitle">
-                            <%= blog.user.email %>
-                        </h3>
+                    <div class="post-subtitle">
+                            <%= blog.user.name %>
+                        </div>
                        <% end %> 
-                       <%end%> 
+                   <!--  display votes -->
+                   <%= button_to("Like",blog_post_vote_up_path(blog)) %>
+                   <%= blog.votes_for%>
                     <% end %>
+                     <hr>
           </div>
         </div>
-    </div>
+        </section>
+
+    <!-- Pager -->
+    <ul class="pager">
+        <li class="next">
+            <a href="#">Older Posts &rarr;</a>
+        </li>
+    </ul>
+
     <hr>
+    </div>
 
     <!-- Footer -->
     <footer>
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <ul class="list-inline text-center">
-                        <li>
-                            <a href="#">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                    </ul>
-                    <p class="copyright text-muted">Copyright &copy; Your Website 2014</p>
-                </div>
+
             </div>
         </div>
     </footer>
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+     <script type="text/javascript" src="/assets/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
+     <script type="text/javascript" src="/assets/jquery.easing.min.js"></script>
 
-    <!-- Custom Theme JavaScript -->
-    <script src="js/clean-blog.min.js"></script>
+
+     <script type="text/javascript" src="/assets/grayscale.js"></script>
+
 
 </body>
 

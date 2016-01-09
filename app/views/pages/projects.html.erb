@@ -72,8 +72,8 @@
                                 <div class="thumbnail">
                                     <%= image_tag project.images.first.name, size: 100*100%>
                                     <div class="caption">
-                                        <h1><%=project.title%></h1>
-                                        <small><%= project.tag%></small>
+                                        <div class="post-title"><h1><%=project.title%></h1></div>
+                                        <h3><%= project.tag%></h3>
                                         <p><%=project.content%>
                                         </p>
                                      
