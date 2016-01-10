@@ -49,6 +49,18 @@
           <%=image_tag @image1.name%>
           <div class="carousel-caption">
             <h3><%=@image1.project.title%>/</h3>
+            <p><%=@image1.project.content%></p>
+          </div>
+        </div>
+
+
+        <div class="item">
+        <% if  @project.videolink.present? %>
+        <iframe title="YouTube video player" width=100% height=600 src=<%= @project.videolink%> frameborder="0" allowfullscreen></iframe>
+        <%end%>
+        <div class="carousel-caption">
+            <h3><%=@project.title%></h3>
+            <p><%=@project.content%></p>
           </div>
         </div>
         
@@ -59,10 +71,10 @@
         <%end%>
           <div class="carousel-caption">
             <h3><%=image.project.title%></h3>
+            <p><%=image.project.content%></p>
           </div>
         </div>
-        
-        <%end%>
+         <%end%>
 
 
         </div>

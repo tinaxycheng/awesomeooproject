@@ -18,13 +18,10 @@
     <!-- Custom CSS -->
     <link href="/assets/grayscale.css" rel="stylesheet">
 
-    <!-- Bootstrap Core CSS -->
-    <link href="/assets/bootstrap.min.css" rel="stylesheet">
-
     <!-- Custom Fonts -->
-    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href="/assets/fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
 
 </head>
 
@@ -85,39 +82,60 @@
          
   
 <%=image_tag "about-bg.jpg"%>
-
-<!create new and search bar>
-   
-                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
-<nav class="navbar navbar-custom" role="navigation">
-         <div class="container">
-
-                <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
-                <ul class="nav navbar-nav">
-                     
-                     <li><a class="page-scroll" href="#inspiration">Inspiration</a></li>
-                
-                     <li> <a class="page-scroll" href="#interview">Interviews</a> </li>
-                  
-                     <li> <a class="page-scroll" href="#news">News</a></li>
-             </ul>
-             </div>
-
-             </div>
-</nav>>
-            <!-- /.navbar-collapse -->
+<br><br>
+<!-- search bar and edit -->
          <div class="container">
              <div class="row">
-                <h3>Search Title or Category Here:</h3>
-                <%=  form_tag blog_posts_path, method: :get do %>
-                  <%=  text_field_tag :q  %>
+                <h3>Search Title or Content Here:</h3>
+                <%= form_tag blog_posts_path, method: :get do %>
+                  <%=  text_field_tag 'search', @search %>
                   <%=  submit_tag "Search" %>
-                <% end %>
-                  
+                  <% end %>
                     <%= link_to new_blog_post_path  do%>
-                    <p class="btn btn-default btn-lg">Add new</p>
+                    <p class="btn btn-default btn-lg">Add new Post</p>
                     <%end%>
             </div>
+        </div>
+<!-- displaying search result if search otherwise category -->
+ <% if @search %>
+<section>
+ <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-preview">
+                 <% @blogs_search.each do |blog| %>
+                    <%= link_to blog_post_path(blog) do %>
+                        <h2 class="post-title">
+                            <%= blog.title %>
+                        </h2>
+                        <div class="post-subtitle">
+                        <p>
+                            <%= blog.content %>
+                        </p>
+                        </div>
+                    <% end %>
+                    <!-- show user's name and direct to dashboard -->
+                    <%= link_to oo_path(blog.user) do %>
+                    <a class="post-subtitle">
+                            <%= blog.user.name %>
+                    </a>
+                    <%end%> 
+                     <!--  display votes -->
+                    <div class="vote">
+                       <%=link_to(blog_post_vote_up_path(blog),:method=>:post) do %>
+                       <i class="glyphicon glyphicon-heart btn-default bg-red"></i>
+                       <%end%>
+                       <span class="btn btn-red"><%= blog.votes_for%></span>
+                    </div>
+                <!-- end of loop -->
+                <% end %>
+                </div>
+                <hr>
+            </div>
+        </div>
+        </div>
+        </section>
+<%else%>
   <!-- Main Content -->
     <section id="inspiration">
       <div class="container">
@@ -129,9 +147,11 @@
                         <h2 class="post-title">
                             <%= blog.title %>
                         </h2>
-                        <p class="post-subtitle">
+                        <div class="post-subtitle">
+                        <p>
                             <%= blog.content %>
                         </p>
+                        </div>
                     <% end %>
                     <!-- show user's name and direct to dashboard -->
                     <%= link_to oo_path(blog.user) do %>
@@ -139,11 +159,15 @@
                             <%= blog.user.name %>
                     </a>
                     <%end%> 
-                   <!--  display votes -->
-                   <%= button_to("Like",blog_post_vote_up_path(blog)) %>
-                   <%= blog.votes_for%>
-                   <!-- end of loop -->
-                    <% end %>
+                     <!--  display votes -->
+                    <div class="vote">
+                       <%=link_to(blog_post_vote_up_path(blog),:method=>:post) do %>
+                       <i class="glyphicon glyphicon-heart btn-default bg-red"></i>
+                       <%end%>
+                       <span class="btn btn-red"><%= blog.votes_for%></span>
+                    </div>
+                <!-- end of loop -->
+                <% end %>
                 </div>
                 <hr>
             </div>
@@ -176,8 +200,13 @@
                         </p>
                        <% end %> 
                          <!--  display votes -->
-                   <%= button_to("Like",blog_post_vote_up_path(blog)) %>
-                   <%= blog.votes_for%>
+                        <div class="vote">
+                       <%=link_to(blog_post_vote_up_path(blog),:method=>:post) do %>
+                       <i class="glyphicon glyphicon-heart btn-default bg-red"></i>
+                       <%end%>
+                       <span class="btn btn-red"><%= blog.votes_for%></span>
+                      </div>
+                    <!-- end of loop -->
                     <% end %>
             <hr>
           </div>
@@ -195,8 +224,8 @@
                         <h2 class="post-title">
                             <%= blog.title %>
                         </h2>
-                        <div>
-                            <p class="post-subtitle">
+                        <div class="post-subtitle">
+                            <p>
                                 <%= blog.content %>
                             </p>
                         </div>
@@ -205,16 +234,20 @@
                     <div class="post-subtitle">
                             <%= blog.user.name %>
                         </div>
-                       <% end %> 
-                   <!--  display votes -->
-                   <%= button_to("Like",blog_post_vote_up_path(blog)) %>
-                   <%= blog.votes_for%>
-                    <% end %>
-                     <hr>
+                    <% end %> 
+                    <!--  display votes -->
+                    <div class="vote">
+                       <%=link_to(blog_post_vote_up_path(blog),:method=>:post) do %>
+                       <i class="glyphicon glyphicon-heart btn-default bg-red"></i>
+                       <%end%>
+                       <span class="btn btn-red"><%= blog.votes_for%></span>
+                    </div>
+             <% end %>
+             <hr>
           </div>
         </div>
         </section>
-
+ <%end%>
     <!-- Pager -->
     <ul class="pager">
         <li class="next">

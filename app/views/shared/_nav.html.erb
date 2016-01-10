@@ -1,16 +1,18 @@
 <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
          <div class="container">
-         <%= link_to root_path do %>
+
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
-                    <i class="fa fa-bars"></i>
+                    <i class="glyphicon glyphicon-menu-hamburger"></i>
                 </button>
-                
+            <%= link_to root_path do %>
                 <p class="navbar-brand page-scroll" >
                     <span class="light">OO</span> Studio
-                </>
-                <%end%>
+                </p>
+            <%end%>
             </div>
+
+
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
@@ -20,20 +22,14 @@
                         <a href="#page-top"></a>
                     </li>
                    
-                    <li><%= link_to"Storybook",blog_posts_path%></li>
+                    <li><%= link_to"Storybook",blog_posts_path, class:"page-scroll"%></li>
                     
-                    <li><%= link_to"Work",projects_path%></li>
+                    <li><%= link_to"Work",projects_path, class:"page-scroll"%></li>
                    <% if user_signed_in? %>
-                       <li><%= link_to"My story",oo_path(current_user)%></li>
+                       <li><%= link_to"My story",oo_path(current_user), class:"page-scroll"%></li>
                    <% else %>
-                    <li><%= link_to"Tell your story",join_path%></li>
+                    <li><%= link_to"Tell your story",join_path, class:"page-scroll"%></li>
                    <%end%>
-<!--                     <% if user_signed_in? %>
-                    <li><%= link_to"My story",oo_path(current_user)%></li>
-                    <% else %>
-                    <li><%= link_to"Tell your story",join_path%></li>
-                    <%end%> -->
-
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

@@ -19,7 +19,7 @@
     <link href="/assets/grayscale.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="/assets/fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
 
@@ -39,7 +39,7 @@
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
-                    <i class="fa fa-bars"></i>
+                    <i class="glyphicon glyphicon-menu-hamburger"></i>
                 </button>
                 <a class="navbar-brand page-scroll" href="#page-top">
                     <span class="light">OO</span> Studio
@@ -108,36 +108,36 @@
 
       <!-- Wrapper for slides -->
       <div class="carousel-inner" role="listbox">
-        <div class="item active">
-          <%=image_tag @image1.name%>
-          <div class="carousel-caption">
-            <h3><%=@image1.project.title%>/</h3>
+          <div class="item active">
+            <%=image_tag @image1.name%>
+            <div class="carousel-caption">
+              <h3><%=@image1.project.title%>/</h3>
+            </div>
           </div>
-        </div>
 
-        <% @images.each do |image| %>
-        <div class="item">
-        <%= link_to project_path(image.project) do %>
-        <%=image_tag image.name%>
-        <%end%>
-          <div class="carousel-caption">
-            <h3><%=image.project.title%></h3>
+          <% @images.each do |image| %>
+          <div class="item">
+          <%= link_to project_path(image.project) do %>
+          <%=image_tag image.name%>
+          <%end%>
+            <div class="carousel-caption">
+              <h3><%=image.project.title%></h3>
+            </div>
           </div>
-        </div>
-        
-        <%end%>
+          
+          <%end%>
 
 
-        </div>
+      </div>
        <!-- more slides here -->
      
       <!-- Controls -->
       <a class="left carousel-control" href="#mycarousel" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="icon-prev" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
       </a>
       <a class="right carousel-control" href="#mycarousel" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="icon-next" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
       </a>
     </div>
@@ -205,18 +205,18 @@
             <div class="row text-center">
                 <div class="col-lg-10 col-lg-offset-1">
                     <h2>People</h2>
-                    <br><br>
+                     <p>More couples are being inspired by us!</p>
 
                     <div class="row">
                         <% @users.each do |user| %>
-                        <div class="col-md-2 col-sm-4">
-                            <div class="service-item">  
+                        <div class="col-md-2 col-sm-4 col-xs-6">
+
                             <%= link_to oo_path(user) do %>                            
                                 <div class="thumbnail">
                                       <%=image_tag user.avatar%>
                                 </div><!-- /thumbnail -->
                                 <a class="btn btn-light"><%= user.name%></a>
-                            </div>
+
                             <%end%>
                         </div>
                         <%end%>
@@ -274,8 +274,8 @@
     <script type="text/javascript" src="/assets/jquery.easing.min.js"></script>
 
 
-     <script type="text/javascript" src="/assets/grayscale.js"></script>
-     <%= javascript_include_tag 'grayscale'%>
+    <script type="text/javascript" src="/assets/grayscale.js"></script>
+
 
 
 <!--          <%= javascript_tag do%>
@@ -300,25 +300,273 @@ function initMap() {
 map = new google.maps.Map(document.getElementById('map'), mapOptions);
  /*var bounds = new google.maps.LatLngBounds();*/
   var styles = [
-  {
-    stylers: [
-      { hue: "#00ffe6" },
-      { saturation: -20 }
-    ]
-  },{
-    featureType: "road",
-    elementType: "geometry",
-    stylers: [
-      { lightness: 100 },
-      { visibility: "simplified" }
-    ]
-  },{
-    featureType: "road",
-    elementType: "labels",
-    stylers: [
-      { visibility: "off" }
-    ]
-  }
+    {
+        "featureType": "administrative.province",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "administrative.province",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "administrative.locality",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "administrative.neighborhood",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape",
+        "elementType": "all",
+        "stylers": [
+            {
+                "saturation": -100
+            },
+            {
+                "lightness": 65
+            },
+            {
+                "visibility": "on"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape.natural",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape.natural.landcover",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape.natural.landcover",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "saturation": "22"
+            }
+        ]
+    },
+    {
+        "featureType": "poi",
+        "elementType": "all",
+        "stylers": [
+            {
+                "saturation": -100
+            },
+            {
+                "lightness": 51
+            },
+            {
+                "visibility": "simplified"
+            }
+        ]
+    },
+    {
+        "featureType": "poi",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.park",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "simplified"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.park",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "hue": "#a5ff00"
+            },
+            {
+                "saturation": "80"
+            },
+            {
+                "visibility": "simplified"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.park",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway",
+        "elementType": "all",
+        "stylers": [
+            {
+                "saturation": -100
+            },
+            {
+                "visibility": "simplified"
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "road.arterial",
+        "elementType": "all",
+        "stylers": [
+            {
+                "saturation": -100
+            },
+            {
+                "lightness": 30
+            },
+            {
+                "visibility": "on"
+            }
+        ]
+    },
+    {
+        "featureType": "road.arterial",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "road.local",
+        "elementType": "all",
+        "stylers": [
+            {
+                "saturation": -100
+            },
+            {
+                "lightness": 40
+            },
+            {
+                "visibility": "on"
+            }
+        ]
+    },
+    {
+        "featureType": "road.local",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "transit",
+        "elementType": "all",
+        "stylers": [
+            {
+                "saturation": -100
+            },
+            {
+                "visibility": "simplified"
+            }
+        ]
+    },
+    {
+        "featureType": "transit",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "hue": "#ffff00"
+            },
+            {
+                "lightness": -25
+            },
+            {
+                "saturation": -97
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "visibility": "off"
+            },
+            {
+                "lightness": -25
+            },
+            {
+                "saturation": -100
+            }
+        ]
+    }
 ];
   map.setOptions({styles: styles});
 
