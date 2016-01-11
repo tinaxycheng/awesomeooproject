@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,10 +23,42 @@
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
 
 </head>
- <!-- Navigation -->
- <%= render 'shared/nav' %>
- <br> <br> <br> <br> <br>
-<h1> Welcome, <%= @user.email%></h1>
-<p>more info, tell us about your story</p>
-<%= render 'form' %>
-<%= link_to "Cancel", oo_path(@user) %>
+
+<body>
+
+    <!-- Navigation -->
+    <%= render 'shared/nav' %>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <br> <br> <br> <br> <br>
+                <h1> Welcome, <%= @user.email%></h1>
+                <p>more info, tell us about your story</p>
+                <%= render 'form' %>
+                <%= link_to "Cancel", oo_path(@user) %>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+
+            </div>
+        </div>
+    </footer>
+    
+    <!-- jQuery -->
+    <script type="text/javascript" src="/assets/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script type="text/javascript" src="/assets/bootstrap.min.js"></script>
+    <!-- Plugin JavaScript -->
+    <script type="text/javascript" src="/assets/jquery.easing.min.js"></script>
+
+
+    <script type="text/javascript" src="/assets/grayscale.js"></script>
+
+</body>
+
+</html>
