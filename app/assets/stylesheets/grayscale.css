@@ -431,6 +431,57 @@ input[type="text"][id="user_story"] {
     background-color: transparent;
 }
 
+/*Blog index and add new blog input field*/
+label{
+    display:inline-block;
+    width:100px;
+}
+input[type="text"][id="search"] {
+    width: 200px;
+    height: 30px;
+    margin-bottom: 10px;
+    background-color: transparent;
+}
+input[type="text"][id="blog_title"] {
+    width: 600px;
+    height: 30px;
+    margin-bottom: 20px;
+    background-color: transparent;
+    position: relative;
+    margin : 10 auto;
+
+}
+textarea {
+  width: 600px;
+  background: transparent;
+  border: 1px solid #888; 
+  margin-bottom: 20px;
+  vertical-align: top; 
+  position: relative;
+  margin : 10 auto;
+}
+select {
+   background: transparent;
+   width: 200px;
+   font-size: 16px;
+   line-height: 1;
+   border: 1;
+   border-radius: 0;
+   height: 34px;
+   margin-bottom: 20px;
+   vertical-align: top; 
+   position: relative;
+   }
+input[type="file"][id="blog_image"] {
+width: 200px;
+height: 30px;
+margin-bottom: 20px;
+vertical-align: middle;
+background-color: transparent;
+position: relative;
+margin : 10 auto;
+
+}
 
 
 .blog {
@@ -459,6 +510,7 @@ input[type="text"][id="user_story"] {
     background-image:url('../img/sep-half.png');
     background-color: #101010;
     color:white;
+    position: relative;
 /*    height:290px;*/
 
 /*Pinterest*/

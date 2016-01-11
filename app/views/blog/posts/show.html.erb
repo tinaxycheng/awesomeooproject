@@ -29,15 +29,33 @@
 <div class="row">
 <h1>Here is your well-written post</h1>
 <p><%= @blog.title %></p>
-<p><%= @blog.content %></p>
+<%= simple_format(@blog.content) %>
 <% if  @blog.videolink.present? %>
 
 <iframe title="YouTube video player" width="640" height="390" src=<%= @blog.videolink%> frameborder="0" allowfullscreen></iframe>
 <%end%>
 <p><%= @blog.user.name %></p>
 <p><%= image_tag @blog.image_url%></p>
-<p><%= link_to "Edit", edit_blog_post_path %></p>
-<p><%= link_to "Delete", blog_post_path(@blog), method: "DELETE" %></p>
+
+<!-- Start of control panel of blogs -->
+<% if current_user ==@blog.user%>
+    <%= link_to edit_blog_post_path do%>
+    <p class="btn btn-default btn-lg">Edit</p>
+    <%end%>
+    <%= link_to blog_post_path(@blog), method: "DELETE" do%>
+    <p class="btn btn-default btn-lg">Delete</p>
+    <%end%>
+<%else%>
+    <div class="vote">
+    <%=link_to(blog_post_vote_up_path(@blog),:method=>:post) do %>
+    <i class="glyphicon glyphicon-heart btn-default bg-red"></i>
+    <%end%>
+    <span class="btn btn-red"><%= @blog.votes_for%></span>
+    </div>
+<%end%>
+
+
+
 </div>
 </div>
 </body>

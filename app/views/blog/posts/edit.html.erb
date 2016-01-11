@@ -1,5 +1,29 @@
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>OO Studio blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="/assets/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="/assets/grayscale.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="/assets/fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+
+</head>
  <!-- Navigation -->
-<%= render 'shared/nav' %>
+ <%= render 'shared/nav' %>
+ <br> <br> <br> <br> <br>
 
 
 <h1>Update my story</h1>
@@ -16,7 +40,7 @@
 </div>
 <div>
     <%= f.label :content %>
-    <%= f.text_field :content %>
+    <%= f.text_area :content, size: "80x12"%>
 </div>
 <div>
     <%= f.label :category %>
@@ -28,7 +52,8 @@
 </div>
 
 </fieldset>
-<%=f.submit "Add"%>
+<div> <%=f.submit "Add", :class => 'btn btn-default btn-lg'%>
 <%end%>
 
-<%= link_to "Cancel", blog_posts_path %>
+<p class="btn btn-default btn-lg"><%= link_to "Cancel", blog_posts_path %></p>
+</div>

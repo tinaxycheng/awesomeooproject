@@ -85,11 +85,27 @@ $(document).ready(function () {
 
 
     <div class="container">
-
-   
-
-
       <div class="row">
+
+
+        <div class="col-sm-3 col-lg-3">
+          <div class="dash-unit">
+            <dtitle>User Profile</dtitle>
+            <hr>
+        <div class="thumbnail">
+           <%= image_tag @user.avatar_url(:thumb) ,class:"img-circle"%>
+        </div><!-- /thumbnail -->
+        <h1><%= @user.name %></h1>
+        <h3></h3>
+        <br>
+          <div class="info-user">
+            <span aria-hidden="true" class="fa fa-user fs1"></span>
+            <span aria-hidden="true" class="fa fa-cog fs1"></span>
+            <span aria-hidden="true" class="fa fa-envelope-o fs1"></span>
+            <span aria-hidden="true" class="fa fa-key fs1"></span>
+          </div>
+        </div>
+        </div>
    
        <% @blog.each do |story| %>
         <div class="col-sm-3 col-lg-3">
@@ -111,36 +127,28 @@ $(document).ready(function () {
         <% end %>
         
    
-
-        <div class="col-sm-3 col-lg-3">
-          <div class="dash-unit">
-            <dtitle>User Profile</dtitle>
-            <hr>
-        <div class="thumbnail">
-           <%= image_tag @user.avatar_url(:thumb) ,class:"img-circle"%>
-        </div><!-- /thumbnail -->
-        <h1><%= @user.name %></h1>
-        <h3></h3>
-        <br>
-          <div class="info-user">
-            <span aria-hidden="true" class="fa fa-user fs1"></span>
-            <span aria-hidden="true" class="fa fa-cog fs1"></span>
-            <span aria-hidden="true" class="fa fa-envelope-o fs1"></span>
-            <span aria-hidden="true" class="fa fa-key fs1"></span>
-          </div>
-        </div>
-        </div>
   </div>
     
       
     <!-- SECOND ROW OF BLOCKS -->     
-      <div class="row">
-   
-   
+      <div class="row">  
 
-  
+            <div class="col-sm-3 col-lg-3">
+          <div class="dash-unit">
+            <dtitle>User's story</dtitle>
+            <hr>
+        <div class="info-user">
+          <span aria-hidden="true" class="li_news fs2"></span>
+        </div>
+        <br>
+            <div class="text">
+              <p><%= @user.story %></p>
+              <p><grey><%=@user.email%></grey></p>
+            </div>
+          </div>
+        </div>
 
-        
+     <!-- LATEST NEWS BLOCK -->  
        <% @blog2.each do |story| %>
         <div class="col-sm-3 col-lg-3">
           <div class="picture dash-unit">
@@ -162,53 +170,33 @@ $(document).ready(function () {
         <%end%>
         <%end%>
 
-      <!-- LATEST NEWS BLOCK -->     
-        <div class="col-sm-3 col-lg-3">
-          <div class="dash-unit">
-            <dtitle>Latest News</dtitle>
-            <hr>
-        <div class="info-user">
-          <span aria-hidden="true" class="li_news fs2"></span>
-        </div>
-        <br>
-            <div class="text">
-              <p><%= @user.story %></p>
-              <p><grey>Last Update: 5 minutes ago.</grey></p>
-            </div>
-          </div>
-        </div>
+        
+  
       </div>
 
 
-
-
-<! add blog>
     <div class="container">  
     <div class="row">
-    <% if @user == current_user %>
-    <%= link_to new_blog_post_path  do%>
-    <p class="btn btn-default btn-lg">Add new</p>
-    <%end%>
-    <%end%>
-    <!-- FIRST ROW OF BLOCKS -->   
-    <! add blog>
+      <% if @user == current_user %>
+      <!-- control panel -->
+      <%= link_to new_blog_post_path  do%>
+      <p class="btn btn-default btn-lg">Add new Blog</p>
+      <%end%>
+      <%end%>
+      <!-- Edit profile -->
+      <% if @user == current_user %>
+      <p class="btn btn-default btn-lg"><%= link_to "Edit Profile", edit_oo_path %></p>
+      <%end%>
+      <!-- sign out -->
+      <% if @user == current_user %>
+      <p class="btn btn-default btn-lg"><% if user_signed_in? %>
+      <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+      <% else %>
+      <%= link_to "Sign up", new_user_registration_path %> | <%= link_to "Sign in", new_user_session_path %>
+      <% end %>
+      <% end %>
+      </p>
 
-    <!-- USER PROFILE BLOCK -->
-    <! edit profile>
-    <% if @user == current_user %>
-    <p class="btn btn-default btn-lg"><%= link_to "Edit", edit_oo_path %></p>
-    <%end%>
-    <!edit profile>
-    <! sign in and sign out, small, bottom>
-    <% if @user == current_user %>
-    <p class="btn btn-default btn-lg"><% if user_signed_in? %>
-    <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-    <% else %>
-    <%= link_to "Sign up", new_user_registration_path %> | <%= link_to "Sign in", new_user_session_path %>
-    <% end %>
-    <% end %>
-    </p>
-    <! sign in and sign out, small, bottom>
     </div>
     </div>
     <footer>
@@ -216,90 +204,8 @@ $(document).ready(function () {
             <p>Copyright &copy; OOStudio 2015</p>
         </div>
     </footer>
-    
-    <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script type="text/javascript" src="js/bootstrap.js"></script>
-
-
-
-
-  <script type="text/javascript" src="assets/js/lineandbars.js"></script>
-    
-  <script type="text/javascript" src="assets/js/dash-charts.js"></script>
-  <script type="text/javascript" src="assets/js/gauge.js"></script>
-  
-  <!-- NOTY JAVASCRIPT -->
-  <script type="text/javascript" src="js/noty/jquery.noty.js"></script>
-  <script type="text/javascript" src="js/noty/layouts/top.js"></script>
-  <script type="text/javascript" src="js/noty/layouts/topLeft.js"></script>
-  <script type="text/javascript" src="js/noty/layouts/topRight.js"></script>
-  <script type="text/javascript" src="js/noty/layouts/topCenter.js"></script>
-  
-  <!-- You can add more layouts if you want -->
-  <script type="text/javascript" src="js/noty/themes/default.js"></script>
-    <!-- <script type="text/javascript" src="assets/js/dash-noty.js"></script> This is a Noty bubble when you init the theme-->
-  <script type="text/javascript" src="http://code.highcharts.com/highcharts.js"></script>
-  <script src="js/jquery.flexslider.js" type="text/javascript"></script>
-
-    <script type="text/javascript" src="js/admin.js"></script>
   
 </body></html>
-
-
-
-
-
-
-
-
-
-
- <!--  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-    <li><%= link_to"Studio",about_path%></li>
-    <li><%= link_to"Blog",blog_posts_path%></li>
-    <li><%= link_to"Work",projects_path%></li>
-    <% if user_signed_in? %>
-    <li><%= link_to"My story",oo_path(@user)%></li>
-    <% else %>
-    <li><%= link_to"Tell your story",join_path%></li>
-   <%end%>
-
-    </ul>
-    </div>
-
-<h1>Your profile picture is here</h1>
-
-<! edit profile>
-<% if @user == current_user %>
-<p><%= link_to "Edit", edit_oo_path %></p>
-<%end%>
-<p><%= @user.email %></p>
-<p><%= @user.name %></p>
-<p><%= @user.story %></p>
-<p><%= @user.last_sign_in_at %></p>
-<p><%= image_tag @user.avatar_url(:thumb) if @user.avatar? %></p>
-
-<! show the user's posts as a thumb nail >
-
-<div>
-<p>my Storybook</p>
-<% if @user == current_user %>
-<p><%= link_to "Add new", new_blog_post_path %></p>
-<%end%>
-<% @blog.each do |story| %>
-   <li><%= link_to story.title ,blog_post_path(story)%></li>
-   <p><%= image_tag story.image_url(:thumb) if story.image? %></p>
-<% end %>
-
-</div>
-
-
-
-
- -->
 
 
 

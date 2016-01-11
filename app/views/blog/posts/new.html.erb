@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
 
     <meta charset="utf-8">
@@ -10,29 +11,23 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>OO Studio</title>
+    <title>OO Studio blog</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="css/grayscale.css" rel="stylesheet">
+    <link href="/assets/grayscale.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="/assets/fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
 
 </head>
  <!-- Navigation -->
  <%= render 'shared/nav' %>
+ <br> <br> <br> <br> <br>
 <h1>create a new post </h1>
 <%= form_for @blog, url: blog_posts_path do |f| %>
 <fieldset>
@@ -42,7 +37,7 @@
 </div>
 <div>
     <%= f.label :content %>
-    <%= f.text_field :content %>
+    <%= f.text_area :content, size: "80x12"%>
 </div>
 <div>
     <%= f.label :category %>
@@ -52,7 +47,7 @@
     <%= f.label :image %>
     <%= f.file_field :image %>
 </div>
-
 </fieldset>
-<%=f.submit "Add"%>
+<br>
+<div> <%=f.submit "Add", :class => 'btn btn-default btn-lg'%>
 <%end%>

@@ -26,9 +26,9 @@ gem 'devise'
 gem "omniauth-google-oauth2"
 gem 'carrierwave'
 gem "mini_magick"
+gem "fastimage"
 gem "thumbs_up"
 gem 'rails_admin'
-gem 'jquery-rails'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

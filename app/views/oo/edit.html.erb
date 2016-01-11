@@ -1,17 +1,53 @@
 
+<head>
 
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
+    <title>OO Studio blog</title>
 
+    <!-- Bootstrap Core CSS -->
+    <link href="/assets/bootstrap.min.css" rel="stylesheet">
 
+    <!-- Custom CSS -->
+    <link href="/assets/grayscale.css" rel="stylesheet">
 
+    <!-- Custom Fonts -->
+    <link href="/assets/fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
 
+</head>
+ <!-- Navigation -->
+ <%= render 'shared/nav' %>
+ <br> <br> <br> <br> <br>
 <h1>Update my story</h1>
 
 <% if flash[:error] %>
   <p><%= flash[:error] %></p>
 <% end %>
 
-<%= render 'form' %>
+<%= form_for @user, url: oo_path(@user), html:{method: 'PATCH'} do |f| %>
+<fieldset>
+<div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+</div>
+<div>
+    <%= f.label :story %>
+    <%= f.text_field :story %>
+</div>
+<div>
+    <%= f.label :avatar %>
+    <%= f.file_field :avatar %>
+</div>
+</fieldset>
+<div> <%=f.submit "Add", :class => 'btn btn-default btn-lg'%>
+<%end%>
 
-<%= link_to "Cancel", oo_path(@user) %>
+<p class="btn btn-default btn-lg"><%= link_to "Cancel", blog_posts_path %></p>
+</div>
 
