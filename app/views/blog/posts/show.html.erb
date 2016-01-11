@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
 
     <meta charset="utf-8">
@@ -18,26 +20,51 @@
     <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     </head>
+
 <body>
-    <!-- the navigation bar -->
-   <!-- Navigation -->
-<%= render 'shared/nav' %>
 
-<br><br><br><br><br><br>
-<!--content-->
-<div class="container">
-<div class="row">
-<h1>Here is your well-written post</h1>
-<p><%= @blog.title %></p>
-<p><%= @blog.content %></p>
-<% if  @blog.videolink.present? %>
+    <!-- Navigation -->
+    <%= render 'shared/nav' %>
 
-<iframe title="YouTube video player" width="640" height="390" src=<%= @blog.videolink%> frameborder="0" allowfullscreen></iframe>
-<%end%>
-<p><%= @blog.user.name %></p>
-<p><%= image_tag @blog.image_url%></p>
-<p><%= link_to "Edit", edit_blog_post_path %></p>
-<p><%= link_to "Delete", blog_post_path(@blog), method: "DELETE" %></p>
-</div>
-</div>
+    <br><br><br><br><br><br>
+    <!--content-->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h1>Here is your well-written post</h1>
+                <p><%= @blog.title %></p>
+                <p><%= @blog.content %></p>
+                <% if  @blog.videolink.present? %>
+
+                <iframe title="YouTube video player" width="640" height="390" src=<%= @blog.videolink%> frameborder="0" allowfullscreen></iframe>
+                <%end%>
+                <p><%= @blog.user.name %></p>
+                <p><%= image_tag @blog.image_url%></p>
+                <p><%= link_to "Edit", edit_blog_post_path %></p>
+                <p><%= link_to "Delete", blog_post_path(@blog), method: "DELETE" %></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+            <p>Copyright &copy; OOStudio 2015</p>
+        </div>
+    </footer>
+
+ 
+    <!-- jQuery -->
+    <script type="text/javascript" src="/assets/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script type="text/javascript" src="/assets/bootstrap.min.js"></script>
+    <!-- Plugin JavaScript -->
+    <script type="text/javascript" src="/assets/jquery.easing.min.js"></script>
+
+
+    <script type="text/javascript" src="/assets/grayscale.js"></script>
+
 </body>
+
+</html>

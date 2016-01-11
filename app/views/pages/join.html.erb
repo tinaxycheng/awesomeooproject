@@ -1,36 +1,91 @@
- <!-- Navigation -->
- <%= render 'shared/nav' %>
+ <!DOCTYPE html>
+<html lang="en">
 
-<% if user_signed_in? %>
-<h1> Welcome, <%= @user.email%></h1>
-<p>more info, tell us about your story</p>
-<%= form_for @user, url: oo_path(@user), html:{method: 'PATCH'} do |f| %>
-<fieldset>
-<div>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-</div>
-<div>
-    <%= f.label :story %>
-    <%= f.text_field :story %>
-</div>
-<div>
-    <%= f.label :avatar %>
-    <%= f.file_field :avatar %>
-</div>
-</fieldset>
-<%=f.submit "Add"%>
-<%end%>
-  <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-<% else %>
-	<div class="container">
-		<div class="row">
-			<br><br><br><br><br>
-			
-			<h1>Welcome, please join us </h1>
-			<%= link_to "Sign up", new_user_registration_path %> | <%= link_to "Sign in", new_user_session_path %>
-			<p><%= link_to "Sign in with Google", user_omniauth_authorize_path(:google_oauth2) %></p>
-			<% end %>
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>OO Studio</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/grayscale.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+		 <!-- Navigation -->
+		 <%= render 'shared/nav' %>
+
+		<div class="container">
+        	<div class="row">
+            	<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+					<% if user_signed_in? %>
+					<h1> Welcome, <%= @user.email%></h1>
+					<p>more info, tell us about your story</p>
+					<%= form_for @user, url: oo_path(@user), html:{method: 'PATCH'} do |f| %>
+					<fieldset>
+					<div>
+					    <%= f.label :name %>
+					    <%= f.text_field :name %>
+					</div>
+					<div>
+					    <%= f.label :story %>
+					    <%= f.text_field :story %>
+					</div>
+					<div>
+					    <%= f.label :avatar %>
+					    <%= f.file_field :avatar %>
+					</div>
+					</fieldset>
+					<%=f.submit "Add"%>
+					<%end%>
+					  <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+					<% else %>
+				</div>
+			</div>
+
+			<div class="row">
+			    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+					<br><br><br><br><br>
+					
+					<h1>Welcome, please join us </h1>
+					<%= link_to "Sign up", new_user_registration_path %> | <%= link_to "Sign in", new_user_session_path %>
+					<p><%= link_to "Sign in with Google", user_omniauth_authorize_path(:google_oauth2) %></p>
+					<% end %>
+				</div>
+			</div>
 		</div>
-	</div>
+		<!-- Footer -->
+	    <footer>
+	        <div class="container text-center">
+	            <p>Copyright &copy; OOStudio 2015</p>
+	        </div>
+	    </footer>
 
+	 
+	    <!-- jQuery -->
+	    <script type="text/javascript" src="/assets/jquery.js"></script>
+
+	    <!-- Bootstrap Core JavaScript -->
+	    <script type="text/javascript" src="/assets/bootstrap.min.js"></script>
+	    <!-- Plugin JavaScript -->
+	    <script type="text/javascript" src="/assets/jquery.easing.min.js"></script>
+
+
+	    <script type="text/javascript" src="/assets/grayscale.js"></script>
+
+</body>
+
+</html>
