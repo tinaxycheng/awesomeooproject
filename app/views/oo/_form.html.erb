@@ -1,17 +1,76 @@
-<%= form_for @user, url: oo_path(@user), html:{method: 'PATCH'} do |f| %>
-<fieldset>
-<div>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-</div>
-<div>
-    <%= f.label :story %>
-    <%= f.text_area :story, size: "80x12"%>
-</div>
-<div>
-    <%= f.label :avatar %>
-    <%= f.file_field :avatar %>
-</div>
-</fieldset>
-<div> <%=f.submit "Add", :class => 'btn btn-default btn-lg'%>
-<%end%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>OO Studio blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="/assets/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="/assets/grayscale.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="/assets/fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+
+    <!-- Navigation -->
+    <%= render 'shared/nav' %>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+				<%= form_for @user, url: oo_path(@user), html:{method: 'PATCH'} do |f| %>
+				<fieldset>
+				<div>
+				    <%= f.label :name %>
+				    <%= f.text_field :name %>
+				</div>
+				<div>
+				    <%= f.label :story %>
+				    <%= f.text_area :story, size: "80x12"%>
+				</div>
+				<div>
+				    <%= f.label :avatar %>
+				    <%= f.file_field :avatar %>
+				</div>
+				</fieldset>
+				<div> <%=f.submit "Add", :class => 'btn btn-default btn-lg'%></div>
+				<%end%>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+            <p>Copyright &copy; OOStudio 2015</p>
+        </div>
+    </footer>
+    
+    <!-- jQuery -->
+    <script type="text/javascript" src="/assets/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script type="text/javascript" src="/assets/bootstrap.min.js"></script>
+    <!-- Plugin JavaScript -->
+    <script type="text/javascript" src="/assets/jquery.easing.min.js"></script>
+
+
+    <script type="text/javascript" src="/assets/grayscale.js"></script>
+
+</body>
+
+</html>
