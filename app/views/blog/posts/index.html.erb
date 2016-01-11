@@ -33,7 +33,7 @@
          <%= link_to root_path do %>
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
-                    <i class="fa fa-bars"></i>
+                    <i class="glyphicon glyphicon-menu-hamburger"></i>
                 </button>
                 
                 <p class="navbar-brand page-scroll" >
@@ -52,12 +52,12 @@
                    
                     <li><%= link_to"Storybook",blog_posts_path%></li>
                      <ul class="nav navbar-nav navbar-sub">
-                     
-                     <li><a class="page-scroll" href="#inspiration">|  Inspiration</a></li>
-                
-                     <li> <a class="page-scroll" href="#interview">Interviews</a> </li>
+                       
+                       <li><a class="page-scroll" href="#inspiration">|  Inspiration</a></li>
                   
-                     <li> <a class="page-scroll" href="#news">News   |</a></li>
+                       <li> <a class="page-scroll" href="#interview">Interviews</a> </li>
+                    
+                       <li> <a class="page-scroll" href="#news">News   |</a></li>
                     </ul>
                     
                     <li><%= link_to"Projects",projects_path%></li>
@@ -66,12 +66,6 @@
                    <% else %>
                     <li><%= link_to"Tell your story",join_path%></li>
                    <%end%>
-<!--                     <% if user_signed_in? %>
-                    <li><%= link_to"My story",oo_path(current_user)%></li>
-                    <% else %>
-                    <li><%= link_to"Tell your story",join_path%></li>
-                    <%end%> -->
-
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -97,7 +91,7 @@
             </div>
         </div>
 <!-- displaying search result if search otherwise category -->
- <% if @search %>
+<% if @search %>
 <section>
  <div class="container">
         <div class="row">
@@ -269,11 +263,10 @@
      <script type="text/javascript" src="/assets/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-     <script type="text/javascript" src="/assets/jquery.easing.min.js"></script>
+    <script type="text/javascript" src="/assets/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/assets/jquery.easing.min.js"></script>
 
-
-     <script type="text/javascript" src="/assets/grayscale.js"></script>
+    <script type="text/javascript" src="/assets/grayscale.js"></script>
 
 
 </body>

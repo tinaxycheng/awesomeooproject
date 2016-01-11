@@ -38,7 +38,7 @@
 </div>
 <div>
     <%= f.label :story %>
-    <%= f.text_field :story %>
+    <%= f.text_area :story, size: "80x12"%>
 </div>
 <div>
     <%= f.label :avatar %>
@@ -48,6 +48,6 @@
 <div> <%=f.submit "Add", :class => 'btn btn-default btn-lg'%>
 <%end%>
 
-<p class="btn btn-default btn-lg"><%= link_to "Cancel", blog_posts_path %></p>
+<p class="btn btn-default btn-lg"><%= link_to "Cancel", oo_path(current_user) %></p>
 </div>
 

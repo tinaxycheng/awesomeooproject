@@ -27,14 +27,14 @@
 <!--content-->
 <div class="container">
 <div class="row">
-<h1>Here is your well-written post</h1>
-<p><%= @blog.title %></p>
+<h2><%= @blog.title %></h2>
+<h3>By <%= @blog.user.name %></h3>
 <%= simple_format(@blog.content) %>
 <% if  @blog.videolink.present? %>
 
 <iframe title="YouTube video player" width="640" height="390" src=<%= @blog.videolink%> frameborder="0" allowfullscreen></iframe>
 <%end%>
-<p><%= @blog.user.name %></p>
+
 <p><%= image_tag @blog.image_url%></p>
 
 <!-- Start of control panel of blogs -->
