@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
 
     <meta charset="utf-8">
@@ -6,54 +8,80 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Clean Blog</title>
+    <title>Storybook</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-        <link href="/assets/css/grayscale.css" rel="stylesheet">
+    <link href="/assets/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/grayscale.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     </head>
+
 <body>
-    <!-- the navigation bar -->
-   <!-- Navigation -->
-<%= render 'shared/nav' %>
 
-<br><br><br><br><br><br>
-<!--content-->
-<div class="container">
-<div class="row">
-<h2><%= @blog.title %></h2>
-<h3>By <%= @blog.user.name %></h3>
-<%= simple_format(@blog.content) %>
-<% if  @blog.videolink.present? %>
+    <!-- Navigation -->
+    <%= render 'shared/nav' %>
 
-<iframe title="YouTube video player" width="640" height="390" src=<%= @blog.videolink%> frameborder="0" allowfullscreen></iframe>
-<%end%>
+    <br><br><br><br><br><br>
+    <!--content-->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <br><br><br><br><br><br>
+                <!--content-->
+                <div class="container">
+                <div class="row">
+                <h2><%= @blog.title %></h2>
+                <h3>By <%= @blog.user.name %></h3>
+                <%= simple_format(@blog.content) %>
+                <% if  @blog.videolink.present? %>
 
-<p><%= image_tag @blog.image_url%></p>
+                <iframe title="YouTube video player" width="640" height="390" src=<%= @blog.videolink%> frameborder="0" allowfullscreen></iframe>
+                <%end%>
 
-<!-- Start of control panel of blogs -->
-<% if current_user ==@blog.user%>
-    <%= link_to edit_blog_post_path do%>
-    <p class="btn btn-default btn-lg">Edit</p>
-    <%end%>
-    <%= link_to blog_post_path(@blog), method: "DELETE" do%>
-    <p class="btn btn-default btn-lg">Delete</p>
-    <%end%>
-<%else%>
-    <div class="vote">
-    <%=link_to(blog_post_vote_up_path(@blog),:method=>:post) do %>
-    <i class="glyphicon glyphicon-heart btn-default bg-red"></i>
-    <%end%>
-    <span class="btn btn-red"><%= @blog.votes_for%></span>
+                <p><%= image_tag @blog.image_url%></p>
+
+                <!-- Start of control panel of blogs -->
+                <% if current_user ==@blog.user%>
+                    <%= link_to edit_blog_post_path do%>
+                    <p class="btn btn-default btn-lg">Edit</p>
+                    <%end%>
+                    <%= link_to blog_post_path(@blog), method: "DELETE" do%>
+                    <p class="btn btn-default btn-lg">Delete</p>
+                    <%end%>
+                <%else%>
+                    <div class="vote">
+                    <%=link_to(blog_post_vote_up_path(@blog),:method=>:post) do %>
+                    <i class="glyphicon glyphicon-heart btn-default bg-red"></i>
+                    <%end%>
+                    <span class="btn btn-red"><%= @blog.votes_for%></span>
+                    </div>
+                <%end%>
+            </div>
+        </div>
     </div>
-<%end%>
 
-</div>
-</div>
+    <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+            <p>Copyright &copy; OOStudio 2015</p>
+        </div>
+    </footer>
+
+ 
+    <!-- jQuery -->
+    <script type="text/javascript" src="/assets/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script type="text/javascript" src="/assets/bootstrap.min.js"></script>
+    <!-- Plugin JavaScript -->
+    <script type="text/javascript" src="/assets/jquery.easing.min.js"></script>
+
+
+    <script type="text/javascript" src="/assets/grayscale.js"></script>
+
 </body>
+
+</html>

@@ -28,50 +28,56 @@
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
     <!-- Navigation -->
-<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
-         <div class="container">
-         <%= link_to root_path do %>
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
-                    <i class="glyphicon glyphicon-menu-hamburger"></i>
-                </button>
-                
-                <p class="navbar-brand page-scroll" >
-                    <span class="light">OO</span> Studio
-                </>
-                <%end%>
-            </div>
+      <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+               <div class="container">
+               <%= link_to root_path do %>
+                  <div class="navbar-header">
+                      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                          <i class="glyphicon glyphicon-menu-hamburger"></i>
+                      </button>
+                      
+                      <p class="navbar-brand page-scroll" >
+                          <span class="light">OO</span> Studio
+                      </p>
+                      <%end%>
+                  </div>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
-                <ul class="nav navbar-nav">
-                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
-                    <li class="hidden">
-                        <a href="#page-top"></a>
-                    </li>
-                   
-                    <li><%= link_to"Storybook",blog_posts_path%></li>
-                     <ul class="nav navbar-nav navbar-sub">
-                       
-                       <li><a class="page-scroll" href="#inspiration">|  Inspiration</a></li>
-                  
-                       <li> <a class="page-scroll" href="#interview">Interviews</a> </li>
-                    
-                       <li> <a class="page-scroll" href="#news">News   |</a></li>
-                    </ul>
-                    
-                    <li><%= link_to"Projects",projects_path%></li>
-                   <% if user_signed_in? %>
-                       <li><%= link_to"My story",oo_path(current_user)%></li>
-                   <% else %>
-                    <li><%= link_to"Tell your story",join_path%></li>
-                   <%end%>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
+                  <!-- Collect the nav links, forms, and other content for toggling -->
+                  <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                      <ul class="nav navbar-nav">
+                          <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                          <li class="hidden">
+                              <a href="#page-top"></a>
+                          </li>
+                         
+                          <li><%= link_to"Storybook",blog_posts_path%></li>
+                           <ul class="nav navbar-nav navbar-sub">
+                           
+                           <li><a class="page-scroll" href="#inspiration">|  Inspiration</a></li>
+                      
+                           <li> <a class="page-scroll" href="#interview">Interviews</a> </li>
+                        
+                           <li> <a class="page-scroll" href="#news">News   |</a></li>
+                          </ul>
+                          
+                          <li><%= link_to"Work",projects_path%></li>
+                         <% if user_signed_in? %>
+                             <li><%= link_to"My story",oo_path(current_user)%></li>
+                         <% else %>
+                          <li><%= link_to"Tell your story",join_path%></li>
+                         <%end%>
+      <!--                     <% if user_signed_in? %>
+                          <li><%= link_to"My story",oo_path(current_user)%></li>
+                          <% else %>
+                          <li><%= link_to"Tell your story",join_path%></li>
+                          <%end%> -->
+
+                      </ul>
+                  </div>
+                  <!-- /.navbar-collapse -->
+              </div>
+              <!-- /.container -->
+          </nav>
             <!-- Collect the nav links, forms, and other content for toggling -->
          
   
@@ -80,17 +86,19 @@
 <!-- search bar and edit -->
          <div class="container">
              <div class="row">
-                <h3>Search Title or Content Here:</h3>
-                <%= form_tag blog_posts_path, method: :get do %>
-                  <%=  text_field_tag 'search', @search %>
-                  <%=  submit_tag "Search" %>
-                  <% end %>
-                    <%= link_to new_blog_post_path  do%>
-                    <p class="btn btn-default btn-lg">Add new Post</p>
-                    <%end%>
+               <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                  <h3>Search Title or Content Here:</h3>
+                  <%= form_tag blog_posts_path, method: :get do %>
+                    <%=  text_field_tag 'search', @search %>
+                    <%=  submit_tag "Search" %>
+                    <% end %>
+                      <%= link_to new_blog_post_path  do%>
+                      <p class="btn btn-default btn-lg">New Post</p>
+                      <%end%>
+              </div>
             </div>
         </div>
-<!-- displaying search result if search otherwise category -->
+<!-- display search result if search otherwise category -->
 <% if @search %>
 <section>
  <div class="container">
@@ -142,9 +150,9 @@
                             <%= blog.title %>
                         </h2>
                         <div class="post-subtitle">
-                        <p>
-                            <%= blog.content %>
-                        </p>
+                          <p>
+                              <%= blog.content %>
+                          </p>
                         </div>
                     <% end %>
                     <!-- show user's name and direct to dashboard -->
@@ -153,7 +161,7 @@
                             <%= blog.user.name %>
                     </a>
                     <%end%> 
-                     <!--  display votes -->
+                    <!--  display votes -->
                     <div class="vote">
                        <%=link_to(blog_post_vote_up_path(blog),:method=>:post) do %>
                        <i class="glyphicon glyphicon-heart btn-default bg-red"></i>
@@ -254,20 +262,21 @@
 
     <!-- Footer -->
     <footer>
-        <div class="container">
-            <div class="row">
-
-            </div>
+        <div class="container text-center">
+            <p>Copyright &copy; OOStudio 2015</p>
         </div>
     </footer>
-     <script type="text/javascript" src="/assets/jquery.js"></script>
+    
+    <!-- jQuery -->
+    <script type="text/javascript" src="/assets/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script type="text/javascript" src="/assets/bootstrap.min.js"></script>
+    <!-- Plugin JavaScript -->
     <script type="text/javascript" src="/assets/jquery.easing.min.js"></script>
 
-    <script type="text/javascript" src="/assets/grayscale.js"></script>
 
+    <script type="text/javascript" src="/assets/grayscale.js"></script>
 
 </body>
 
