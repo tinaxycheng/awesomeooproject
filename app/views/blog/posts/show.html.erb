@@ -31,11 +31,10 @@
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <br><br><br><br><br><br>
                 <!--content-->
-                <div class="container">
-                <div class="row">
+                
                 <h2><%= @blog.title %></h2>
                 <h3>By <%= @blog.user.name %></h3>
-                <%= simple_format(@blog.content) %>
+                <p><%= simple_format(@blog.content) %></p>
                 <% if  @blog.videolink.present? %>
 
                 <iframe title="YouTube video player" width="640" height="390" src=<%= @blog.videolink%> frameborder="0" allowfullscreen></iframe>
@@ -63,12 +62,6 @@
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container text-center">
-            <p>Copyright &copy; OOStudio 2015</p>
-        </div>
-    </footer>
 
  
     <!-- jQuery -->
