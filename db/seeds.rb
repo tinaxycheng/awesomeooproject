@@ -8,3 +8,5 @@
 inspiration = Category.create(name: "inspiration")
 news = Category.create(name: "news")
 interview = Category.create(name: "interview")
+
+
