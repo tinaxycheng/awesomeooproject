@@ -61,6 +61,7 @@ a:focus {
     color: #1d9b6c;
 }
 
+
 .light {
     font-weight: 400;
 }
@@ -147,7 +148,7 @@ a:focus {
     .navbar-custom.top-nav-collapse {
         padding: 0;
 /*        border-bottom: 1px solid rgba(255,255,255,.3);*/
-        border-bottom: 0px
+        border-bottom: 0;
         background: rgba(255,255,255,0);
     }
 }
@@ -672,6 +673,25 @@ margin : 10 auto;
    height: auto; 
 }
 
+/*join page*/
+.profile-img{
+      width: 96px;
+    height: 96px;
+    margin: 0 auto 10px;
+    display: block;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+.buttonblock
+{
+    max-width: 500px;
+    margin: 0 auto 10px;
+    padding: 15px;
+    margin: 0 auto 200px;
+}
+
+/*post*/
 .post-preview {
     margin-top: 50px;
 }
