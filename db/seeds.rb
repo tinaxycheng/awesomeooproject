@@ -9,4 +9,11 @@ inspiration = Category.create(name: "inspiration")
 news = Category.create(name: "news")
 interview = Category.create(name: "interview")
 
-
+Homepageimage.create(name:"homepage.jpg")
+Homepageimage.create(name:"homepage1.jpg")
+Homepageimage.create(name:"homepage2.jpg")
+Homepageimage.create(name:"homepage3.jpg")
+Homepageimage.create(name:"homepage4.jpg")
+Homepageimage.create(name:"homepage5.jpg")
+Homepageimage.create(name:"homepage6.jpg")
+Homepageimage.create(name:"homepage7.jpg")
