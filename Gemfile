@@ -31,6 +31,7 @@ gem "thumbs_up"
 gem 'rails_admin'
 gem 'jquery-rails'
 gem 'autoprefixer-rails'
+gem 'yaml_db'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
