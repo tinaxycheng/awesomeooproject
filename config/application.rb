@@ -26,5 +26,8 @@ module Awesomeooproject
     config.assets.precompile += [
       'grayscale.css','boostrap.js','bootstrap.min.js','jquery.js','jquery.min.js','jquery.easing.min.js'
     ]
+       config.assets.precompile += [
+      'grayscale.css','boostrap.css','bootstrap.min.css'
+    ]
   end
 end
