@@ -1,0 +1,630 @@
+
+---
+users:
+  columns:
+  - id
+  - email
+  - encrypted_password
+  - reset_password_token
+  - reset_password_sent_at
+  - remember_created_at
+  - sign_in_count
+  - current_sign_in_at
+  - last_sign_in_at
+  - current_sign_in_ip
+  - last_sign_in_ip
+  - created_at
+  - updated_at
+  - name
+  - story
+  - image
+  - avatar
+  - provider
+  - uid
+  - admin
+  records: 
+  - - 1
+    - cxy1122334455@gmail.com
+    - "$2a$10$ud7/xjWJTjVwa9bVvyVRnem9CGLR3XJw1GNXWdazjggZs39FO/dzK"
+    - 
+    - 
+    - 
+    - 12
+    - '2016-01-13 02:01:07.147433'
+    - '2016-01-13 00:18:13.152785'
+    - "::1"
+    - "::1"
+    - '2015-12-31 03:22:59.393351'
+    - '2016-01-13 02:01:07.148424'
+    - OOstudio-Tina
+    - I love photography.
+    - ''
+    - oo_avatar.png
+    - google_oauth2
+    - '113864557222969321518'
+    - true
+  - - 2
+    - chenmin0905@gmail.com
+    - "$2a$10$BUfZQUr1k68mCkuWO6ziFueVJHVmUste1Ft6Xg19Ci.L0AeA8YJI."
+    - 
+    - 
+    - 
+    - 2
+    - '2015-12-31 21:33:00.000000'
+    - '2015-12-31 21:31:00.000000'
+    - "::1"
+    - "::1"
+    - '2015-12-31 21:31:48.780873'
+    - '2016-01-07 18:24:47.919651'
+    - Min Min
+    - story
+    - ''
+    - min.jpg
+    - ''
+    - ''
+    - false
+  - - 4
+    - bluesourcebeck@gmail.com
+    - "$2a$10$B1rHM7wtkCy50f1KlXS3huyNUga86Wv7eFVjcBM.dpN3LVaLcXPVC"
+    - 
+    - 
+    - 
+    - 4
+    - '2016-01-07 06:08:57.136875'
+    - '2016-01-07 03:19:40.672523'
+    - "::1"
+    - "::1"
+    - '2016-01-07 02:52:11.569835'
+    - '2016-01-07 06:08:57.137965'
+    - ryan
+    - oo developer
+    - 
+    - ryan.jpeg
+    - google_oauth2
+    - '104497004690658863080'
+    - false
+  - - 5
+    - yoyolee0721@gmail.com
+    - "$2a$10$J0vYLK6PW/sBmsk4VGwU7OstYHgTD7YVdmRQ0BbD6uBv17MCpSadm"
+    - 
+    - 
+    - 
+    - 1
+    - '2016-01-07 06:09:00.000000'
+    - '2016-01-07 06:09:00.000000'
+    - "::1"
+    - "::1"
+    - '2016-01-07 06:09:25.029137'
+    - '2016-01-07 18:25:05.737301'
+    - OOstudio-Yoyo
+    - hello, i am the makeup artist
+    - ''
+    - yoyo.jpg
+    - google_oauth2
+    - '114223943379949094173'
+    - false
+  - - 7
+    - test1@test1.com
+    - "$2a$10$/tseYrrAXGkq3gTD7E1ZLe7uy8h1mBeRPmeh5CBwntbR.pB7kCYzC"
+    - 
+    - 
+    - 
+    - 1
+    - '2016-01-11 01:19:40.197080'
+    - '2016-01-11 01:19:40.197080'
+    - "::1"
+    - "::1"
+    - '2016-01-11 01:19:40.194507'
+    - '2016-01-11 01:21:49.460301'
+    - test 1
+    - happy to be the test user
+    - 
+    - IMG_0009.PNG
+    - 
+    - 
+    - false
+  - - 8
+    - bluesourcebeck@msn.com
+    - "$2a$10$EOjBgevjAmlajMZQVtpdVOPgowOzzxudGuYso/3jQhr2UQ4lZXPri"
+    - 
+    - 
+    - 
+    - 1
+    - '2016-01-12 01:14:00.000000'
+    - '2016-01-12 01:14:00.000000'
+    - "::1"
+    - "::1"
+    - '2016-01-12 01:14:33.955476'
+    - '2016-01-13 00:18:59.592927'
+    - Ryan
+    - Hi
+    - ''
+    - IMG_0003.PNG
+    - ''
+    - ''
+    - false
+  - - 9
+    - test@gmail.com
+    - "$2a$10$57bjmOZERyCOYWE00UVeu.AZaD5oOUAL3lBpbmR3tZ/WnzswkPN7W"
+    - 
+    - 
+    - 
+    - 1
+    - '2016-01-13 01:59:01.672693'
+    - '2016-01-13 01:59:01.672693'
+    - "::1"
+    - "::1"
+    - '2016-01-13 01:59:01.669501'
+    - '2016-01-13 01:59:16.900664'
+    - tina
+    - i am presenting!
+    - 
+    - IMG_0003.PNG
+    - 
+    - 
+    - false
+
+---
+images:
+  columns:
+  - id
+  - name
+  - created_at
+  - updated_at
+  - project_id
+  records: 
+  - - 1
+    - duoduo1.jpg
+    - '2015-12-31 22:12:27.955291'
+    - '2016-01-01 23:13:12.134645'
+    - 
+  - - 2
+    - duoduo2.jpg
+    - '2015-12-31 22:12:37.438405'
+    - '2016-01-06 03:53:46.933673'
+    - 
+  - - 3
+    - daojie1.jpg
+    - '2016-01-06 03:13:54.940293'
+    - '2016-01-06 03:13:54.940293'
+    - 
+  - - 4
+    - daojie2.jpg
+    - '2016-01-06 03:14:02.666969'
+    - '2016-01-06 03:14:25.963060'
+    - 
+  - - 5
+    - project1_01.jpg
+    - '2016-01-06 23:58:01.879997'
+    - '2016-01-10 02:21:14.008016'
+    - 5
+  - - 6
+    - project1_02.jpg
+    - '2016-01-06 23:58:14.976605'
+    - '2016-01-06 23:58:14.976605'
+    - 3
+  - - 7
+    - project1_03.jpg
+    - '2016-01-06 23:58:25.387497'
+    - '2016-01-06 23:58:25.387497'
+    - 3
+  - - 8
+    - project1_04.jpg
+    - '2016-01-07 00:00:10.772482'
+    - '2016-01-07 00:00:10.772482'
+    - 3
+  - - 9
+    - project4_01.jpg
+    - '2016-01-07 00:01:22.644494'
+    - '2016-01-07 18:18:11.614636'
+    - 4
+  - - 10
+    - project1_05
+    - '2016-01-07 18:15:39.614581'
+    - '2016-01-07 18:15:39.614581'
+    - 3
+  - - 11
+    - project2_01.jpg
+    - '2016-01-07 18:16:03.806142'
+    - '2016-01-07 18:16:03.806142'
+    - 1
+  - - 12
+    - project2_02.jpg
+    - '2016-01-07 18:16:17.087905'
+    - '2016-01-07 18:16:23.563691'
+    - 1
+  - - 13
+    - project2_03.jpg
+    - '2016-01-07 18:16:31.747378'
+    - '2016-01-07 18:16:42.230768'
+    - 1
+  - - 14
+    - project2_04.jpg
+    - '2016-01-07 18:16:37.317356'
+    - '2016-01-07 18:16:53.767367'
+    - 1
+  - - 15
+    - project2_05.jpg
+    - '2016-01-07 18:16:49.566112'
+    - '2016-01-07 18:16:49.566112'
+    - 1
+  - - 16
+    - project3_01.jpg
+    - '2016-01-07 18:17:22.788291'
+    - '2016-01-07 18:17:22.788291'
+    - 2
+  - - 17
+    - project3_02.jpg
+    - '2016-01-07 18:17:31.484635'
+    - '2016-01-09 22:22:00.093680'
+    - 
+  - - 18
+    - project3_04.jpg
+    - '2016-01-07 18:17:39.102218'
+    - '2016-01-07 18:17:39.102218'
+    - 2
+  - - 19
+    - project3_03.jpg
+    - '2016-01-07 18:17:46.713242'
+    - '2016-01-09 22:22:00.092614'
+    - 
+  - - 20
+    - project3_05.jpg
+    - '2016-01-07 18:17:53.697051'
+    - '2016-01-07 18:17:53.697051'
+    - 2
+  - - 21
+    - project4_02.jpg
+    - '2016-01-07 18:18:18.698602'
+    - '2016-01-09 22:22:00.091621'
+    - 
+  - - 22
+    - project4_03.jpg
+    - '2016-01-07 18:18:26.728440'
+    - '2016-01-07 18:18:26.728440'
+    - 4
+  - - 23
+    - project4_04.jpg
+    - '2016-01-07 18:18:34.251269'
+    - '2016-01-07 18:18:34.251269'
+    - 4
+  - - 24
+    - project4_05.jpg
+    - '2016-01-07 18:18:42.671208'
+    - '2016-01-07 18:18:42.671208'
+    - 4
+  - - 25
+    - project4_06.jpg
+    - '2016-01-07 18:18:49.425161'
+    - '2016-01-07 18:18:49.425161'
+    - 4
+  - - 26
+    - project4_07.jpg
+    - '2016-01-07 18:18:55.823911'
+    - '2016-01-07 18:18:55.823911'
+    - 4
+  - - 27
+    - <iframe width="560" height="315" src="https://www.youtube.com/embed/QacWy1yFGUk?list=PLA36RkKMMSHvSy7pqkp_u3nAWcyJwkHCq"
+      frameborder="0" allowfullscreen></iframe>
+    - '2016-01-10 02:15:02.099722'
+    - '2016-01-10 02:15:02.099722'
+    - 
+  - - 28
+    - project3_02.jpg
+    - '2016-01-11 01:04:05.161150'
+    - '2016-01-11 01:04:05.161150'
+    - 2
+  - - 29
+    - project3_03.jpg
+    - '2016-01-11 01:04:23.787938'
+    - '2016-01-11 01:04:32.543717'
+    - 2
+
+---
+categories:
+  columns:
+  - id
+  - name
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - inspiration
+    - '2016-01-01 21:52:36.677298'
+    - '2016-01-01 21:52:36.677298'
+  - - 2
+    - news
+    - '2016-01-01 21:52:36.683385'
+    - '2016-01-01 21:52:36.683385'
+  - - 3
+    - interview
+    - '2016-01-01 21:52:36.685983'
+    - '2016-01-01 21:52:36.685983'
+
+---
+blogs:
+  columns:
+  - id
+  - title
+  - content
+  - time_created
+  - created_at
+  - updated_at
+  - image
+  - videolink
+  - user_id
+  - category_id
+  records: 
+  - - 3
+    - Anything better than Love in Spring ?
+    - "五月，春夏交接之际，草坪很绿，遍地是蒲公英。  阳光大好，有什么比和喜欢的人在一起更让人心旷神怡呢？!  两点工作室在这四五月的好时光里，有幸鉴证了一对新人的甜蜜和爱情，感谢天！感谢地！感谢上苍让你们相遇！
+      \ 他们相识于华盛顿navy yard的龙舟比赛，场景大致如以下两幅图。故事情节如下，男主：你在看我吗？ 女主：没有啊，我在等人啊。 男主：哦。。。（以下省去五千字搭讪对白）
+      \ 据说龙舟比赛撮合了情侣几对，两点工作室的我们经介绍也去参加了，感受是，划船实在是太爽了，就算是没有遇见那个百年修得同船渡的人，也是值得体验一把的。"
+    - 
+    - '2015-12-31 04:04:52.264693'
+    - '2016-01-07 18:08:13.951710'
+    - tumblr_not2fu3ySD1u9c74so1_1280.jpg
+    - ''
+    - 1
+    - 2
+  - - 4
+    - wedding preparation inspirations
+    - "this is my favorite picture that uses natural light\r\n\r\nThe two feminist
+      trailblazers and longtime friends recently gathered in Justice Ginsburg’s chambers
+      at the Supreme Court to talk about the origins of the women’s movement, the
+      setbacks that turned into inspiration, marriage and much more. Here are a few
+      of their most inspiring quotes.\r\nContinue reading the main story\r\nRELATED
+      COVERAGE\r\n\r\n\r\nRuth Bader Ginsburg and Gloria Steinem on the Unending Fight
+      for Women’s Rights\r\n“I assumed I had to get married. Everybody did. If you
+      didn’t, you were crazy. But I kept putting it off: ‘I’m going to do it, but
+      not right now.’ Until I was in my late 30s and the women’s movement came along,
+      and I realized: I’m happy. Not everyone has to live the same way.”\r\n\r\n-
+      Gloria Steinem\r\n\r\n“Justice [Sandra Day] O’Connor once said: ‘Suppose there
+      had been no discrimination when we finished law school. We’d be retired partners
+      from large law firms today.’”\r\n\r\n- Ruth Bader Ginsburg\r\n\r\n“The great
+      thing about obstacles is that they cause you to identify with other groups of
+      people who are facing obstacles.”\r\n\r\n\r\n- Gloria Steinem\r\n\r\n“It’s important
+      to say that the women’s movement was disproportionately pioneered by black women.
+      These are not two different movements; they are profoundly connected. If you
+      are going to continue racism, you have to control reproduction. And that means
+      controlling women. A group called Feminist.com made these baby bead bracelets.
+      On one, they spell ‘Imagine,’ and on the other, they asked us to write what
+      we want. I went with ‘Imagine’ and ‘We are linked, not ranked.’”\r\n\r\n-Gloria
+      Steinem\r\n\r\n“Equal pay for women would be the biggest economic stimulus this
+      country could ever have.”\r\n\r\n- Gloria Steinem\r\n\r\n“I just read Anne-Marie
+      Slaughter’s book [”Unfinished Business: Women Men Work Family”]. She talked
+      about ‘we don’t have it all.’ Who does? I’ve had it all in the course of my
+      life, but at different times.”\r\n\r\n- Ruth Bader Ginsburg\r\n\r\n“[W]hat we
+      want in the future will only happen if we do it every day. So, kindness matters
+      enormously. And empathy. Finding some point of connection.”\r\n\r\n- Gloria
+      Steinem\r\n\r\n"
+    - 
+    - '2016-01-01 21:53:09.812706'
+    - '2016-01-10 21:52:50.446197'
+    - inspiration.jpg
+    - ''
+    - 1
+    - 1
+  - - 5
+    - interview with daojie
+    - "两点初见刀姐是在一个聚会上，几个女生爱好艺术约好了去alexandira的一个老房子里看画展。 初见时，她从马路边跑来，边跑边笑。在活动中，她拿出自己的sketch
+      book和我们分享，满满的一大本都是平日里画的美人帅哥，线条简洁，气质分明。她说，这是她日常工作之外的爱好之一，每天总花上四十分钟画一画。这让学设计的我们惊叹不已并且自愧不如。
+      画展结束，我们在Clarendon吃墨西哥菜，刀姐给我们创业之初提供了很多有用的意见，后来还意外的，给了我们这一份生意。 拍摄当天愉快地像是一场约会，谈谈笑笑，搔首弄姿，挤眉弄眼，两个小时很快就过去了，然后是一段愉快的午餐，为了帮助我们做宣传，热心的刀姐推荐我们到DC吃喝玩乐群，发现刀姐在人脉广阔，各个群里颇有人气。
+      我们对刀姐的生活知道的不多，只有仅有的两次见面和平时看朋友圈。 知道她是在家工作（自由！）回家要给老公做饭（贤惠！）周末还去小溪里捡垃圾（热心！）"
+    - 
+    - '2016-01-01 21:58:01.302710'
+    - '2016-01-07 18:06:38.858886'
+    - inspiration2.jpg
+    - ''
+    - 1
+    - 3
+  - - 6
+    - the single man in the zoo
+    - New video from oostudio, what is the winter like in Washington DC?
+    - 
+    - '2016-01-07 18:12:12.706984'
+    - '2016-01-09 04:15:27.142125'
+    - 
+    - https://www.youtube.com/embed/VGBkYb1wToY
+    - 4
+    - 2
+  - - 7
+    - Hirshhorn
+    - In the last-named lecture, here printed complete, Heidegger poses the question
+      of the essence of technology. He asserts that it is nothing technological and
+      suggests that purely technical modes of thought and discussion do not suit it.
+      For the essence of technology is ultimately a way of revealing the totality
+      of be- ings. As a way of revealing it is pervasive and fundamental in our time,
+      so much so that we cannot "opt for" technology or "opt out" of it. The advent
+      of technology-and it is this historic, essential unfolding or provenance that
+      Heidegger means by "es- sence"-is something destined or sent our way long before
+      the eighteenth century. One of Heidegger's most daring theses is that the essence
+      of technology is prior to, and by no means a con- sequence of, the Scientific
+      Revolution.
+    - 
+    - '2016-01-10 21:35:45.999113'
+    - '2016-01-10 21:36:44.412423'
+    - IMG_0005.PNG
+    - 
+    - 1
+    - 1
+  - - 9
+    - my test blog
+    - Who would ever deny that-it is correct? It is in obvious con- formity with what
+      we are envisioning when we talk about tech- nology. The instrumental definition
+      of technology is indeed so uncannily correct that it even holds for modem technology,
+      of which, in other respects, we maintain with some justification that it is,
+      in contrast to the older handwork technology, something com- pletely different
+      and therefore new. Even the power plant with its turbines and generators is
+      a man-made means to an end estab- lished by man. Even the jet aircraft and the
+      high-frequency ap- paratus are means to ends. A radar station is of course less
+      simple than a weather vane. To be sure, the construction of a high- frequency
+      apparatus requires the interlocking of various processes of technical-industrial
+      production. And certainly a sawmill in a secluded valley of the Black Forest
+      is a primitive means compared with the hydroelectric plant on the Rhine River.
+    - 
+    - '2016-01-11 01:25:46.462265'
+    - '2016-01-11 01:25:46.462265'
+    - IMG_0014.JPG
+    - 
+    - 7
+    - 1
+  - - 10
+    - inspirations
+    - i like
+    - 
+    - '2016-01-13 01:59:49.211809'
+    - '2016-01-13 01:59:49.211809'
+    - IMG_0006.JPG
+    - 
+    - 9
+    - 1
+
+---
+projects:
+  columns:
+  - id
+  - title
+  - lat
+  - lng
+  - tag
+  - content
+  - created_at
+  - updated_at
+  - videolink
+  records: 
+  - - 1
+    - duoduo's engagement photo
+    - 38.8739225
+    - -76.9949
+    - 'engagement '
+    - we shoot this beautiful picture in navy yard.
+    - '2015-12-31 21:55:29.692366'
+    - '2016-01-01 23:04:48.378297'
+    - 
+  - - 2
+    - Dao master
+    - 38.897676
+    - -77.03653
+    - portrait
+    - it was an exciting experience talking with Dao jie.
+    - '2016-01-03 18:30:27.713652'
+    - '2016-01-11 01:04:36.578122'
+    - ''
+  - - 3
+    - Yuan& Chen
+    - 38.897855
+    - -77.0226467
+    - ''
+    - beautiful couple in a sunny winter day
+    - '2016-01-06 23:57:48.093648'
+    - '2016-01-08 00:24:30.919629'
+    - 
+  - - 4
+    - Lain&daniel
+    - 40.7127
+    - -74.0059
+    - ''
+    - a sailboat wedding ceremony
+    - '2016-01-07 00:01:27.670666'
+    - '2016-01-08 00:26:13.319484'
+    - 
+  - - 5
+    - Ryan and Andrew
+    - 
+    - 
+    - story
+    - we meet in a bar.
+    - '2016-01-09 22:22:00.090371'
+    - '2016-01-10 02:21:14.014826'
+    - https://www.youtube.com/embed/QacWy1yFGUk?list=PLA36RkKMMSHvSy7pqkp_u3nAWcyJwkHCq
+
+---
+homepageimages:
+  columns:
+  - id
+  - name
+  - created_at
+  - updated_at
+  - project_id
+  records: 
+  - - 1
+    - homepage.jpg
+    - '2016-01-02 20:56:56.484613'
+    - '2016-01-07 18:19:08.329579'
+    - 4
+  - - 2
+    - homepage2.jpg
+    - '2016-01-07 00:04:20.231788'
+    - '2016-01-07 18:19:19.720219'
+    - 4
+  - - 3
+    - homepage3.jpg
+    - '2016-01-07 00:04:28.543085'
+    - '2016-01-07 18:19:25.693689'
+    - 4
+  - - 4
+    - homepage4.jpg
+    - '2016-01-07 00:04:37.188588'
+    - '2016-01-07 01:45:13.502745'
+    - 4
+  - - 5
+    - homepage6.jpg
+    - '2016-01-07 18:14:49.422730'
+    - '2016-01-07 18:14:49.422730'
+    - 2
+  - - 6
+    - homepage5.jpg
+    - '2016-01-07 18:15:03.919835'
+    - '2016-01-09 22:22:00.094449'
+    - 5
+  - - 7
+    - homepage7.jpg
+    - '2016-01-07 18:15:16.197947'
+    - '2016-01-07 18:15:16.197947'
+    - 1
+
+---
+votes:
+  columns:
+  - id
+  - vote
+  - voteable_id
+  - voteable_type
+  - voter_id
+  - voter_type
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - true
+    - 4
+    - Blog
+    - 1
+    - User
+    - '2016-01-09 16:50:21.477904'
+    - '2016-01-09 16:50:21.477904'
+  - - 3
+    - true
+    - 6
+    - Blog
+    - 7
+    - User
+    - '2016-01-11 01:31:20.102691'
+    - '2016-01-11 01:31:20.102691'
+  - - 4
+    - true
+    - 9
+    - Blog
+    - 8
+    - User
+    - '2016-01-12 01:33:12.618464'
+    - '2016-01-12 01:33:12.618464'
+  - - 5
+    - true
+    - 9
+    - Blog
+    - 9
+    - User
+    - '2016-01-13 02:00:11.962091'
+    - '2016-01-13 02:00:11.962091'
