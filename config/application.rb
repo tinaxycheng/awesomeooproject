@@ -29,5 +29,9 @@ module Awesomeooproject
     config.assets.precompile += [
       'boostrap.js','bootstrap.min.js','jquery.js','jquery.min.js','jquery.easing.min.js'
     ]
+    config.assets.precompile += [
+      '.woff', '.eot', '.svg', '.ttf'
+    ]
+    
   end
 end
