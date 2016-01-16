@@ -24,10 +24,10 @@ module Awesomeooproject
     config.active_record.raise_in_transactional_callbacks = true
     config.assets.initialize_on_precompile = false
     config.assets.precompile += [
-      'grayscale.css','boostrap.js','bootstrap.min.js','jquery.js','jquery.min.js','jquery.easing.min.js'
+      'grayscale.css', 'boostrap.css','bootstrap.min.css','font-awesome.min.css'
     ]
-       config.assets.precompile += [
-      'boostrap.css','bootstrap.min.css'
+    config.assets.precompile += [
+      'boostrap.js','bootstrap.min.js','jquery.js','jquery.min.js','jquery.easing.min.js'
     ]
   end
 end
