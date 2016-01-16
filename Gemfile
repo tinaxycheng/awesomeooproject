@@ -32,6 +32,7 @@ gem 'rails_admin'
 gem 'jquery-rails'
 gem 'autoprefixer-rails'
 gem 'yaml_db'
+gem 'heroku'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
