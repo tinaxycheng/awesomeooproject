@@ -27,7 +27,8 @@ Rails.application.configure do
   config.serve_static_files = ENV['RAILS_SERVE_STATIC_FILES'].present?
   config.assets.compile = true
   config.serve_static_files = true
-
+  config.assets.precompile += %w( jquery.js )
+  config.assets.precompile += %w( jquery.easing.min.js )
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
   # config.assets.css_compressor = :sass
