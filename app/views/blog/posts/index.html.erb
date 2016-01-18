@@ -108,7 +108,6 @@
                         <p>
                             <%= blog.content %>
                         </p>
-
                         </div>
                     <% end %>
                     <!-- show user's name and direct to dashboard -->
@@ -117,8 +116,6 @@
                             <%= blog.user.name %>
                     </a>
                     <%end%> 
-                     <p> <%= blog.created_at %>
-                        </p>
                      <!--  display votes -->
                     <div class="vote">
                        <%=link_to(blog_post_vote_up_path(blog),:method=>:post) do %>
