@@ -281,6 +281,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   devise
   fastimage
+  font-awesome-rails
   heroku
   jbuilder (~> 2.0)
   jquery-rails

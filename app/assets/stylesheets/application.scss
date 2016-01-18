@@ -14,12 +14,12 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "grayscale";
-@import 'font-awesome.min';
+@import "font-awesome";
 @font-face {
       font-family: 'Glyphicons Halflings';
-      src: font-path('glyphicons-halflings-regular.eot');
-      src: font-path('glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
-font-path('glyphicons-halflings-regular.woff') format('woff'), 
-font-path('glyphicons-halflings-regular.ttf') format('truetype'), 
-font-path('glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+      src: asset-path('glyphicons-halflings-regular.eot');
+      src: asset-path('glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
+asset-path('glyphicons-halflings-regular.woff') format('woff'), 
+asset-path('glyphicons-halflings-regular.ttf') format('truetype'), 
+asset-path('glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
   }
