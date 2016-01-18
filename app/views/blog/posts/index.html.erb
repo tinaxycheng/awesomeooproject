@@ -114,8 +114,10 @@
                     <%= link_to oo_path(blog.user) do %>
                     <a class="post-subtitle">
                             <%= blog.user.name %>
+                          <p> <%= blog.created_at %></p>
                     </a>
                     <%end%> 
+
                      <!--  display votes -->
                     <div class="vote">
                        <%=link_to(blog_post_vote_up_path(blog),:method=>:post) do %>

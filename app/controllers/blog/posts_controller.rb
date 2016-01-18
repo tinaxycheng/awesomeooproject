@@ -1,8 +1,8 @@
 class Blog::PostsController < ApplicationController
 	def index
-   @blogs= Category.first.blogs.all
-   @blogs2= Category.second.blogs.all
-   @blogs3= Category.find(3).blogs.all
+   @blogs= Category.first.blogs.all.sort_by(&:created_at)
+   @blogs2= Category.second.blogs.all.sort_by(&:created_at)
+   @blogs3= Category.find(3).blogs.all.sort_by(&:created_at)
    @search = params[:search]
    @blogs_search= Blog.search(@search).all
   end

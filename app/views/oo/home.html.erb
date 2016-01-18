@@ -102,9 +102,6 @@
       <div class="carousel-inner" role="listbox">
           <div class="item active">
             <%=image_tag @image1.name%>
-            <div class="carousel-caption">
-              <h3><%=@image1.project.title%></h3>
-            </div>
           </div>
 
           <% @images.each do |image| %>
@@ -112,9 +109,6 @@
           <%= link_to project_path(image.project) do %>
           <%=image_tag image.name%>
           <%end%>
-            <div class="carousel-caption">
-              <h3><%=image.project.title%></h3>
-            </div>
           </div>
           
           <%end%>
@@ -565,10 +559,9 @@ map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
     var projectLocs = [["duoduo", 38.8738225, -76.9949, 1],["daojie", 38.897676, -77.036530,2],["yuan&chen",38.897855,-77.0226467,4],["yuan&chen2",38.9133116,-76.9696974,4]]
   /*   var projectLocs = <%= Project.pluck(:title, :lat, :lng, :id).to_json.html_safe %>*/
-      var infoWindowContent =  [["<b>Duoduo's engagement photo</b>" +
-                      '<img class="media-object" src="http://41.media.tumblr.com/e979ae71b59eac64454a12a93c332c3b/tumblr_not2e5qkCJ1u9c74so1_1280.jpg" >' +
-                       '<a href="http://localhost:3000/projects">'+ 
-                       'More pictures</a> '],["daojie</br>"+
+      var infoWindowContent =  [['<div id="bodyContent">' + "<b>Duoduo's engagement photo</b>" +
+                      '<img class="media-object" src="http://41.media.tumblr.com/e979ae71b59eac64454a12a93c332c3b/tumblr_not2e5qkCJ1u9c74so1_1280.jpg" >' + '<a href="http://localhost:3000/projects">'+'Moreinfo</a>'+
+      '</div>'],["daojie</br>"+
                       '<img class="media-object" src="https://40.media.tumblr.com/6411b8bcdb31bbf3cbce192d1e4252de/tumblr_o0kdd3vj9Y1u9c74so1_540.jpg" >' +
                        '<a href="http://localhost:3000/projects">'+ 
                        'More pictures</a>'], ["yuan&chen</br>" + 
@@ -580,7 +573,7 @@ map = new google.maps.Map(document.getElementById('map'), mapOptions);
                        'More pictures</a> '] ]
 
     var image = 'http://labs.google.com/ridefinder/images/mm_20_white.png';
-    var infoWindow = new google.maps.InfoWindow({ maxWidth: 250 }), marker, i; 
+    var infoWindow = new google.maps.InfoWindow, marker, i; 
     for (var i = 0; i < projectLocs.length; i++) {
         var position = new google.maps.LatLng(projectLocs[i][1], projectLocs[i][2]);
           /*bounds.extend(position);*/
@@ -602,12 +595,6 @@ map = new google.maps.Map(document.getElementById('map'), mapOptions);
       /*map.fitBounds(bounds);*/
 
     }
-
-    // Override our map zoom level once our fitBounds function runs (Make sure it only runs once)
-   /* var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
-        this.setZoom(8);
-        google.maps.event.removeListener(boundsListener);
-    });*/
 
 }//initialize ends
 
