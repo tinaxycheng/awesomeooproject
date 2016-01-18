@@ -413,7 +413,13 @@ body {
      -moz-box-shadow: 0px;
           box-shadow: 0px;
     background: none;
-    text-align: center;      
+    text-align: center;  
+/*    display: block;*/
+    max-width: 150px;
+    max-height: 150px;
+    width: auto;
+    height: auto;
+
     
 }
 
