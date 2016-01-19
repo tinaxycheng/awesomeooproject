@@ -452,6 +452,7 @@ input[type="text"][id="blog_title"] {
     width: 600px;
     height: 30px;
     margin-bottom: 20px;
+    border: 1px solid #888; 
     background-color: transparent;
     position: relative;
     margin : 10 auto;

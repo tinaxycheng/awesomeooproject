@@ -28,7 +28,7 @@
                    <% if user_signed_in? %>
                        <li><%= link_to"My story",oo_path(current_user), class:"page-scroll"%></li>
                    <% else %>
-                    <li><%= link_to"Tell your story",join_path, class:"page-scroll"%></li>
+                    <li><%= link_to"Login",join_path, class:"page-scroll"%></li>
                    <%end%>
                 </ul>
             </div>

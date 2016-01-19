@@ -60,7 +60,7 @@
                         <% if user_signed_in? %>
                             <li><%= link_to"My story",oo_path(current_user)%></li>
                         <% else %>
-                        <li><%= link_to"Tell your story",join_path%></li>
+                        <li><%= link_to"Login",join_path%></li>
                         <%end%>
                     </ul>
                 </div>
@@ -267,9 +267,9 @@ function initMap() {
     // Disables the default Google Maps UI components
     disableDefaultUI: true,
     scrollwheel: false,
-/*    draggable: false,
+    draggable: false,
     
-    center: {lat: 38.894, lng: -77.016},
+/*    center: {lat: 38.894, lng: -77.016},
     zoom: 12*/
   
  }
@@ -562,28 +562,28 @@ map = new google.maps.Map(document.getElementById('map'), mapOptions);
       var infoWindowContent =  ['<div class="infoWindow">' + 
                                 "<h4 class='media-heading'>Duoduo's engagement photo</h4>" +
                                 '<img class="img-responsive media-object" src="http://41.media.tumblr.com/e979ae71b59eac64454a12a93c332c3b/tumblr_not2e5qkCJ1u9c74so1_1280.jpg" >' + 
-                                '<a href="http://localhost:3000/projects">'+ 
+                                '<a href="http://www.oostudio.org/projects">'+ 
                                 'More pictures</a>'+ 
                                 '</div>', 
 
                                 '<div class="infoWindow">' + 
                                 "<h4 class='media-heading'>daojie</h4>" + 
                                 '<img class="img-responsive media-object" src="https://40.media.tumblr.com/6411b8bcdb31bbf3cbce192d1e4252de/tumblr_o0kdd3vj9Y1u9c74so1_540.jpg" >' + 
-                                '<a href="http://localhost:3000/projects">'+
+                                '<a href="http://www.oostudio.org/projects">'+
                                 'More pictures</a>' + 
                                 '</div>', 
 
                                 '<div class="infoWindow">' +
                                 "<h4 class='media-heading'>Yuan&chen</h4>" +
                                 '<img class="img-responsive media-object" src="https://41.media.tumblr.com/159adf28068b0b2143e63c249ca70f93/tumblr_nk2oedqjpI1u9c74so1_1280.jpg" >' +
-                                '<a href="http://localhost:3000/projects">'+ 
+                                '<a href="http://www.oostudio.org/projects">'+ 
                                 'More pictures</a>' + 
                                 '</div>', 
 
                                 '<div class="infoWindow">' +
                                 "<h4 class='media-heading'>Yuan&Chen2</h4>" + 
                                 '<img class="img-responsive media-object" src="https://40.media.tumblr.com/c43b7fe91d1d71df24f45aa649d409b6/tumblr_nk2nj5gxan1u9c74so1_1280.jpg" >' +
-                                '<a href="http://localhost:3000/projects">'+ 
+                                '<a href="http://www.oostudio.org/projects">'+ 
                                 'More pictures</a>' +
                                 '</div>'
                                 ]
