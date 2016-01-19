@@ -26,4 +26,10 @@ $('.navbar-collapse ul li a').click(function() {
 });
 
 
+// Closes the Responsive Menu on when Scroll
+$(".navbar-collapse").on("shown.bs.collapse", function(){
+    $(window).scroll(function() {
+            $(".navbar-collapse").collapse("hide");
+});
+});
 
