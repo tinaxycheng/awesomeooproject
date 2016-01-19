@@ -103,7 +103,6 @@
                     <%= link_to blog_post_path(blog) do %>
                         <h2 class="post-title">
                             <%= blog.title %>
-                            <%= blog.created_at.strftime("%b %d, %Y")%>
                         </h2>
                         <div class="post-subtitle">
                         <p>
@@ -114,9 +113,9 @@
                     <!-- show user's name and direct to dashboard -->
                     <%= link_to oo_path(blog.user) do %>
                     <a class="post-subtitle">
-                            <%= blog.user.name %>
-                           
+                            <%= blog.user.name %>  
                     </a>
+                    <p><%= blog.created_at.strftime("%b %d, %Y")%></p>
                     <%end%>
                     
                      <!--  display votes -->
@@ -158,6 +157,7 @@
                             <%= blog.user.name %>
                     </a>
                     <%end%> 
+                     <p><%= blog.created_at.strftime("%b %d, %Y")%></p>
                     <!--  display votes -->
                     <div class="vote">
                        <%=link_to(blog_post_vote_up_path(blog),:method=>:post) do %>
@@ -198,6 +198,7 @@
                             <%= blog.user.name %>
                         </p>
                        <% end %> 
+                        <p><%= blog.created_at.strftime("%b %d, %Y")%></p>
                          <!--  display votes -->
                         <div class="vote">
                        <%=link_to(blog_post_vote_up_path(blog),:method=>:post) do %>
@@ -234,6 +235,7 @@
                             <%= blog.user.name %>
                         </div>
                     <% end %> 
+                     <p><%= blog.created_at.strftime("%b %d, %Y")%></p>
                     <!--  display votes -->
                     <div class="vote">
                        <%=link_to(blog_post_vote_up_path(blog),:method=>:post) do %>

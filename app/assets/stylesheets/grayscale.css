@@ -414,9 +414,14 @@ body {
      -moz-box-shadow: 0px;
           box-shadow: 0px;
     background: none;
-    text-align: center;      
+    text-align: center; 
+    width:100%;
+    height:100%;
+    width: auto;
+    height: auto;     
     
 }
+
 
 /* New Blog Input Field */
 input[type="text"][id="user_name"] {
