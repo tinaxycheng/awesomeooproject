@@ -54,7 +54,7 @@
                            <li> <a class="page-scroll" href="#news">News   |</a></li>
                           </ul>
                           
-                          <li><%= link_to"Work",projects_path%></li>
+                          <li><%= link_to"Projects",projects_path%></li>
                          <% if user_signed_in? %>
                              <li><%= link_to"My story",oo_path(current_user)%></li>
                          <% else %>
@@ -103,6 +103,7 @@
                     <%= link_to blog_post_path(blog) do %>
                         <h2 class="post-title">
                             <%= blog.title %>
+                            <%= blog.created_at.strftime("%b %d, %Y")%>
                         </h2>
                         <div class="post-subtitle">
                         <p>
@@ -114,8 +115,10 @@
                     <%= link_to oo_path(blog.user) do %>
                     <a class="post-subtitle">
                             <%= blog.user.name %>
+                           
                     </a>
-                    <%end%> 
+                    <%end%>
+                    
                      <!--  display votes -->
                     <div class="vote">
                        <%=link_to(blog_post_vote_up_path(blog),:method=>:post) do %>
