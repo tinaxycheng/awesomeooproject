@@ -35,10 +35,10 @@
             <dtitle>User Profile</dtitle>
             <hr>
         <div class="thumbnail">
-         <%if user.avatar?%>                      
+         <%if @user.avatar?%>                      
            <%= image_tag @user.avatar_url(:thumb) ,class:"img-circle"%>
            <%else%>
-           <%=image_tag default_avatar.jpg%>
+           <%=image_tag "default_avatar.jpg"%>
           <%end%>
         </div><!-- /thumbnail -->
         <h1><%= @user.name %></h1>
