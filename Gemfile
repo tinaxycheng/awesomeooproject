@@ -25,6 +25,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem "omniauth-google-oauth2"
 gem 'carrierwave'
+gem 'fog'
 gem "mini_magick"
 gem "fastimage"
 gem "thumbs_up"

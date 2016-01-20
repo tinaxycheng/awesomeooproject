@@ -2954,7 +2954,6 @@ $(".navbar-collapse").on("shown.bs.collapse", function(){
             $(".navbar-collapse").collapse("hide");
 });
 });
-
 // This is a manifest file that'll be compiled into application.js, which will include all the files
 // listed below.
 //

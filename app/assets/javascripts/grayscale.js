@@ -30,4 +30,3 @@ $(".navbar-collapse").on("shown.bs.collapse", function(){
             $(".navbar-collapse").collapse("hide");
 });
 });
-
