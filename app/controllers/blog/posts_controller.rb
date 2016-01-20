@@ -67,6 +67,6 @@ class Blog::PostsController < ApplicationController
     def destroy
     @blog = Blog.find(params[:id])
     @blog.destroy
-    redirect_to blog_posts_path(current_user)
+    redirect_to blog_posts_path
   end
 end
