@@ -60,7 +60,7 @@
                         <% if user_signed_in? %>
                             <li><%= link_to"My story",oo_path(current_user)%></li>
                         <% else %>
-                        <li><%= link_to"Tell your story",join_path%></li>
+                        <li><%= link_to"Login",join_path%></li>
                         <%end%>
                     </ul>
                 </div>
@@ -201,7 +201,7 @@
                                 <div class="thumbnail">
                                       <%=image_tag user.avatar_url(:thumb),:class=>"img-circle"%>
                                 </div><!-- /thumbnail -->
-                                <a class="btn btn-light"><%= user.name%></a>
+                                <p class="btn btn-light"><%= user.name%></p>
 
                             <%end%>
                         </div>
@@ -260,7 +260,7 @@
 
 
      <script type="text/javascript">
-
+var map;
 function initMap() {
 
  var mapOptions={
@@ -269,12 +269,12 @@ function initMap() {
     scrollwheel: false,
     draggable: false,
     
-    center: {lat: 38.894, lng: -77.016},
-    zoom: 12
+/*    center: {lat: 38.894, lng: -77.016},
+    zoom: 12*/
   
  }
 map = new google.maps.Map(document.getElementById('map'), mapOptions);
- /*var bounds = new google.maps.LatLngBounds();*/
+
   var styles = [
     {
         "featureType": "administrative.province",
@@ -556,27 +556,43 @@ map = new google.maps.Map(document.getElementById('map'), mapOptions);
     //      '</div>']);
 
     //     });  
-
+    var bounds = new google.maps.LatLngBounds();
     var projectLocs = [["duoduo", 38.8738225, -76.9949, 1],["daojie", 38.897676, -77.036530,2],["yuan&chen",38.897855,-77.0226467,4],["yuan&chen2",38.9133116,-76.9696974,4]]
   /*   var projectLocs = <%= Project.pluck(:title, :lat, :lng, :id).to_json.html_safe %>*/
-      var infoWindowContent =  ['<div id="bodyContent">' + "<b>Duoduo's engagement photo</b>" +
-                      '<img class="media-object" src="http://41.media.tumblr.com/e979ae71b59eac64454a12a93c332c3b/tumblr_not2e5qkCJ1u9c74so1_1280.jpg" >' + '<a href="http://localhost:3000/projects">'+'Moreinfo</a>'+
-                      '</div>',    "<b>daojie</b>"+
-                      '<img class="media-object" src="https://40.media.tumblr.com/6411b8bcdb31bbf3cbce192d1e4252de/tumblr_o0kdd3vj9Y1u9c74so1_540.jpg" >' +
-                       '<a href="http://localhost:3000/projects">'+ 
-                       'More pictures</a>', "yuan&chen</br>" + 
-                      '<img class="media-object" src="https://41.media.tumblr.com/159adf28068b0b2143e63c249ca70f93/tumblr_nk2oedqjpI1u9c74so1_1280.jpg" >' +
-                       '<a href="http://localhost:3000/projects">'+ 
-                       'More pictures</a> ',"yuan&chen2</br>" + 
-                      '<img class="media-object" src="https://40.media.tumblr.com/c43b7fe91d1d71df24f45aa649d409b6/tumblr_nk2nj5gxan1u9c74so1_1280.jpg" >' +
-                       '<a href="http://localhost:3000/projects">'+ 
-                       'More pictures</a> ' ]
+      var infoWindowContent =  ['<div class="infoWindow">' + 
+                                "<h4 class='media-heading'>Duoduo's engagement photo</h4>" +
+                                '<img class="img-responsive media-object" src="http://41.media.tumblr.com/e979ae71b59eac64454a12a93c332c3b/tumblr_not2e5qkCJ1u9c74so1_1280.jpg" >' + 
+                                '<a href="http://www.oostudio.org/projects">'+ 
+                                'More pictures</a>'+ 
+                                '</div>', 
+
+                                '<div class="infoWindow">' + 
+                                "<h4 class='media-heading'>daojie</h4>" + 
+                                '<img class="img-responsive media-object" src="https://40.media.tumblr.com/6411b8bcdb31bbf3cbce192d1e4252de/tumblr_o0kdd3vj9Y1u9c74so1_540.jpg" >' + 
+                                '<a href="http://www.oostudio.org/projects">'+
+                                'More pictures</a>' + 
+                                '</div>', 
+
+                                '<div class="infoWindow">' +
+                                "<h4 class='media-heading'>Yuan&chen</h4>" +
+                                '<img class="img-responsive media-object" src="https://41.media.tumblr.com/159adf28068b0b2143e63c249ca70f93/tumblr_nk2oedqjpI1u9c74so1_1280.jpg" >' +
+                                '<a href="http://www.oostudio.org/projects">'+ 
+                                'More pictures</a>' + 
+                                '</div>', 
+
+                                '<div class="infoWindow">' +
+                                "<h4 class='media-heading'>Yuan&Chen2</h4>" + 
+                                '<img class="img-responsive media-object" src="https://40.media.tumblr.com/c43b7fe91d1d71df24f45aa649d409b6/tumblr_nk2nj5gxan1u9c74so1_1280.jpg" >' +
+                                '<a href="http://www.oostudio.org/projects">'+ 
+                                'More pictures</a>' +
+                                '</div>'
+                                ]
 
     var image = 'http://labs.google.com/ridefinder/images/mm_20_white.png';
     var infoWindow = new google.maps.InfoWindow, marker, i; 
     for (var i = 0; i < projectLocs.length; i++) {
         var position = new google.maps.LatLng(projectLocs[i][1], projectLocs[i][2]);
-          /*bounds.extend(position);*/
+        bounds.extend(position);
         var projectLoc = projectLocs[i];
         var marker = new google.maps.Marker({
           position: position,
@@ -591,12 +607,15 @@ map = new google.maps.Map(document.getElementById('map'), mapOptions);
                 infoWindow.open(map, marker);
             }
         })(marker, i));
-  
-      /*map.fitBounds(bounds);*/
+
+    map.fitBounds(bounds);
+    map.panToBounds(bounds);    
+
 
     }
 
-}//initialize ends
+}//initialize end
+
 
 
     </script>
