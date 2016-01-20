@@ -103,7 +103,7 @@
           <%= link_to blog_post_path(story) do%>
           <% if  story.videolink.present? %>
           <div class="video">
-          <p><%= raw (youtube_embed(story.videolink))%></p>
+           <iframe title="YouTube video player" width="180" height="180" src=<%= story.videolink%> frameborder="0" allowfullscreen></iframe>
           </div>
           <%else%>
           <%= image_tag story.image_url(:thumb) if story.image? %>
