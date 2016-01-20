@@ -76,11 +76,12 @@
          
   
 <%=image_tag "about-bg.jpg"%>
+
 <br><br>
 <!-- search bar and edit -->
          <div class="container">
              <div class="row">
-               <div class="col-lg-8 col-lg-offset-2">
+               <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                   <h3>Search Title or Content Here:</h3>
                   <%= form_tag blog_posts_path, method: :get do %>
                     <%=  text_field_tag 'search', @search %>
@@ -97,7 +98,7 @@
 <section>
  <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-preview">
                  <% @blogs_search.each do |blog| %>
                     <%= link_to blog_post_path(blog) do %>
@@ -138,7 +139,7 @@
     <section id="inspiration">
       <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-preview">
                  <% @blogs.each do |blog| %>
                     <%= link_to blog_post_path(blog) do %>
@@ -179,7 +180,7 @@
        <section id="interview">
         <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-preview">
                <% @blogs3.each do |blog| %>
              
@@ -216,7 +217,7 @@
         <section id="news">
         <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <% @blogs2.each do |blog| %>
                 <div class="post-preview">
             
