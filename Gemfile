@@ -26,11 +26,11 @@ gem 'devise'
 gem "omniauth-google-oauth2"
 gem 'carrierwave'
 gem 'fog'
+gem 'figaro'
 gem "mini_magick"
 gem "fastimage"
 gem "thumbs_up"
 gem 'rails_admin'
-gem 'jquery-rails'
 gem 'autoprefixer-rails'
 gem 'yaml_db'
 gem 'heroku'
