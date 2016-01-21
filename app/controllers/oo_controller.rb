@@ -3,7 +3,7 @@ class OoController < ApplicationController
     @user = current_user
     @image1 = Homepageimage.first
     @images = Homepageimage.all_except(@image1)
-    @users= User.limit(5).order('created_at DESC')
+    @users= User.limit(5)
     @blog1=Blog.first
     @projects=Project.all
   end

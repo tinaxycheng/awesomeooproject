@@ -35,7 +35,11 @@
             <dtitle>User Profile</dtitle>
             <hr>
         <div class="thumbnail">
+         <%if @user.avatar?%>                      
            <%= image_tag @user.avatar_url(:thumb) ,class:"img-circle"%>
+           <%else%>
+           <%=image_tag "default_avatar.jpg"%>
+          <%end%>
         </div><!-- /thumbnail -->
         <h1><%= @user.name %></h1>
         <h3></h3>
@@ -63,14 +67,14 @@
           <%= image_tag story.image_url(:thumb) if story.image? %>
           <%end%>
         </div>
+        <%if story.category.name?%>
         <h1><%= story.category.name %></h1>
+        <%end%>
         <h3><%=story.created_at%></h3>
         </div>
         </div>
         <%end%>
         <% end %>
-        
-   
   </div>
     
       
@@ -101,7 +105,7 @@
           <%= link_to blog_post_path(story) do%>
           <% if  story.videolink.present? %>
           <div class="video">
-          <p><%= raw (youtube_embed(story.videolink))%></p>
+           <iframe title="YouTube video player" width="180" height="180" src=<%= story.videolink%> frameborder="0" allowfullscreen></iframe>
           </div>
           <%else%>
           <%= image_tag story.image_url(:thumb) if story.image? %>
