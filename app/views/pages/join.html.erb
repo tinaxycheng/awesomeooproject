@@ -55,15 +55,15 @@
               <%=image_tag "join.jpg", :class => "profile-img" %>
               <div class="buttonblock">
                 <%= link_to new_user_session_path do%>
-                <button class="btn btn-primary btn-lg" type="submit">
+                <button class="btn btn-default btn-lg" type="submit">
                     Sign in</button>
                 <%end%>
                 <%= link_to new_user_registration_path do%>
-                <button class="btn btn-info btn-lg" type="submit">
+                <button class="btn btn-default btn-lg" type="submit">
                     Sign up</button>
                 <%end%>
                  <%= link_to user_omniauth_authorize_path(:google_oauth2) do%>
-                <button class="btn btn-primary btn-lg" type="submit">
+                <button class="btn btn-default btn-lg" type="submit">
                     Sign in with Google</button>
                 <%end%>
                 </div>

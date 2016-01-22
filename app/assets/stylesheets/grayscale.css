@@ -545,7 +545,16 @@ margin : 10 auto;
     margin:8px;
     padding:0px;
     height:inherit  
-    }
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    line-height: 15px;
+    max-height: 16px;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+    
     
 .dash-unit hr {
     border: 0;
@@ -675,8 +684,9 @@ margin : 10 auto;
 
 
 .item img {
-   width: 100%;
-   height: auto; 
+    width: auto;
+    height: 680px;
+    max-height: 680px;
 }
 
 /*join page*/
