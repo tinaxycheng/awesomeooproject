@@ -2949,11 +2949,12 @@ $('.navbar-collapse ul li a').click(function() {
     $('.navbar-toggle:visible').click();
 });
 // Closes the Responsive Menu on when Scroll
-$(".navbar-collapse").on("shown.bs.collapse", function(){
-    $(window).scroll(function() {
-            $(".navbar-collapse").collapse("hide");
+$(document).on('click','.navbar-collapse.in',function(e) {
+    if( $(e.target).is('a') && $(e.target).attr('class') != 'dropdown-toggle' ) {
+        $(this).collapse('hide');
+    }
 });
-});
+
 // This is a manifest file that'll be compiled into application.js, which will include all the files
 // listed below.
 //
