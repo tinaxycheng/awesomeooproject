@@ -9285,14 +9285,36 @@ input[type="file"][id="blog_image"] {
   margin: 10 auto;
 }
 
-/* line 494, /Users/Tinaxycheng/Documents/awesomeooproject/app/assets/stylesheets/grayscale.css */
+/* line 492, /Users/Tinaxycheng/Documents/awesomeooproject/app/assets/stylesheets/grayscale.css */
+input[type="email"] {
+  width: 600px;
+  height: 30px;
+  margin-bottom: 20px;
+  border: 1px solid #888;
+  background-color: transparent;
+  position: relative;
+  margin: 10 auto;
+}
+
+/* line 502, /Users/Tinaxycheng/Documents/awesomeooproject/app/assets/stylesheets/grayscale.css */
+input[type="password"] {
+  width: 600px;
+  height: 30px;
+  margin-bottom: 20px;
+  border: 1px solid #888;
+  background-color: transparent;
+  position: relative;
+  margin: 10 auto;
+}
+
+/* line 513, /Users/Tinaxycheng/Documents/awesomeooproject/app/assets/stylesheets/grayscale.css */
 .blog {
   border: white dashed thin;
   padding: 20px;
   margin-bottom: 10px;
 }
 
-/* line 500, /Users/Tinaxycheng/Documents/awesomeooproject/app/assets/stylesheets/grayscale.css */
+/* line 519, /Users/Tinaxycheng/Documents/awesomeooproject/app/assets/stylesheets/grayscale.css */
 .media-object {
   display: block;
   max-width: 180px;
@@ -9303,7 +9325,7 @@ input[type="file"][id="blog_image"] {
 
 /*Dashboard*/
 /*--- Dash Unit / Used in Dashboard page ---*/
-/* line 513, /Users/Tinaxycheng/Documents/awesomeooproject/app/assets/stylesheets/grayscale.css */
+/* line 532, /Users/Tinaxycheng/Documents/awesomeooproject/app/assets/stylesheets/grayscale.css */
 .dash-unit {
   margin-bottom: 30px;
   padding-bottom: 10px;
@@ -9317,18 +9339,18 @@ input[type="file"][id="blog_image"] {
   display: inline-block;
 }
 
-/* line 529, /Users/Tinaxycheng/Documents/awesomeooproject/app/assets/stylesheets/grayscale.css */
+/* line 548, /Users/Tinaxycheng/Documents/awesomeooproject/app/assets/stylesheets/grayscale.css */
 .picture.dash-unit {
   background-color: #1f1f1f;
 }
 
-/* line 533, /Users/Tinaxycheng/Documents/awesomeooproject/app/assets/stylesheets/grayscale.css */
+/* line 552, /Users/Tinaxycheng/Documents/awesomeooproject/app/assets/stylesheets/grayscale.css */
 .dash-unit:hover {
   background-color: #4f4f4f;
   box-shadow: 3px 3px 2px 0px #151515;
 }
 
-/* line 541, /Users/Tinaxycheng/Documents/awesomeooproject/app/assets/stylesheets/grayscale.css */
+/* line 560, /Users/Tinaxycheng/Documents/awesomeooproject/app/assets/stylesheets/grayscale.css */
 .dash-unit dtitle {
   font-size: 11px;
   text-transform: uppercase;
@@ -9336,9 +9358,16 @@ input[type="file"][id="blog_image"] {
   margin: 8px;
   padding: 0px;
   height: inherit;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  line-height: 15px;
+  max-height: 16px;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
-/* line 550, /Users/Tinaxycheng/Documents/awesomeooproject/app/assets/stylesheets/grayscale.css */
+/* line 577, /Users/Tinaxycheng/Documents/awesomeooproject/app/assets/stylesheets/grayscale.css */
 .dash-unit hr {
   border: 0;
   border-top: 1px solid #151515;
@@ -9346,7 +9375,7 @@ input[type="file"][id="blog_image"] {
   margin-top: 3px;
 }
 
-/* line 557, /Users/Tinaxycheng/Documents/awesomeooproject/app/assets/stylesheets/grayscale.css */
+/* line 584, /Users/Tinaxycheng/Documents/awesomeooproject/app/assets/stylesheets/grayscale.css */
 .dash-unit h1 {
   font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
   font-weight: 400;
@@ -9361,7 +9390,7 @@ input[type="file"][id="blog_image"] {
   margin: 0 0 10px;
 }
 
-/* line 571, /Users/Tinaxycheng/Documents/awesomeooproject/app/assets/stylesheets/grayscale.css */
+/* line 598, /Users/Tinaxycheng/Documents/awesomeooproject/app/assets/stylesheets/grayscale.css */
 .dash-unit h2 {
   font-family: 'Open Sans', sans-serif;
   font-weight: bold;
@@ -9375,7 +9404,7 @@ input[type="file"][id="blog_image"] {
   text-align: center;
 }
 
-/* line 585, /Users/Tinaxycheng/Documents/awesomeooproject/app/assets/stylesheets/grayscale.css */
+/* line 612, /Users/Tinaxycheng/Documents/awesomeooproject/app/assets/stylesheets/grayscale.css */
 .dash-unit h3 {
   font-family: Lora,"Helvetica Neue",Helvetica,Arial,sans-serif;
   font-weight: 300;
@@ -9390,7 +9419,7 @@ input[type="file"][id="blog_image"] {
   margin: 0 0 5px;
 }
 
-/* line 600, /Users/Tinaxycheng/Documents/awesomeooproject/app/assets/stylesheets/grayscale.css */
+/* line 627, /Users/Tinaxycheng/Documents/awesomeooproject/app/assets/stylesheets/grayscale.css */
 .dash-unit p {
   font-size: 12px;
   font-weight: 200;
@@ -9401,7 +9430,7 @@ input[type="file"][id="blog_image"] {
   padding: 5px;
 }
 
-/* line 610, /Users/Tinaxycheng/Documents/awesomeooproject/app/assets/stylesheets/grayscale.css */
+/* line 637, /Users/Tinaxycheng/Documents/awesomeooproject/app/assets/stylesheets/grayscale.css */
 .dash-unit h4 {
   padding-left: 5px;
   margin-top: 2px;
@@ -9412,7 +9441,7 @@ input[type="file"][id="blog_image"] {
   color: #fff;
 }
 
-/* line 620, /Users/Tinaxycheng/Documents/awesomeooproject/app/assets/stylesheets/grayscale.css */
+/* line 647, /Users/Tinaxycheng/Documents/awesomeooproject/app/assets/stylesheets/grayscale.css */
 .dash-unit bold {
   font-family: 'Open Sans', sans-serif;
   font-size: 26px;
@@ -9421,7 +9450,7 @@ input[type="file"][id="blog_image"] {
   vertical-align: middle;
 }
 
-/* line 630, /Users/Tinaxycheng/Documents/awesomeooproject/app/assets/stylesheets/grayscale.css */
+/* line 657, /Users/Tinaxycheng/Documents/awesomeooproject/app/assets/stylesheets/grayscale.css */
 .text p {
   font-family: Lora,"Helvetica Neue",Helvetica,Arial,sans-serif;
   margin-left: 8px;
@@ -9429,13 +9458,13 @@ input[type="file"][id="blog_image"] {
   line-height: 18px;
 }
 
-/* line 637, /Users/Tinaxycheng/Documents/awesomeooproject/app/assets/stylesheets/grayscale.css */
+/* line 664, /Users/Tinaxycheng/Documents/awesomeooproject/app/assets/stylesheets/grayscale.css */
 .text grey {
   font-size: 11px;
   color: silver;
 }
 
-/* line 642, /Users/Tinaxycheng/Documents/awesomeooproject/app/assets/stylesheets/grayscale.css */
+/* line 669, /Users/Tinaxycheng/Documents/awesomeooproject/app/assets/stylesheets/grayscale.css */
 #footerwrap {
   width: 100%;
   background: #262626;
@@ -9448,39 +9477,40 @@ input[type="file"][id="blog_image"] {
   text-align: center;
 }
 
-/* line 655, /Users/Tinaxycheng/Documents/awesomeooproject/app/assets/stylesheets/grayscale.css */
+/* line 682, /Users/Tinaxycheng/Documents/awesomeooproject/app/assets/stylesheets/grayscale.css */
 #footerwrap p {
   color: white;
   font-size: 12px;
 }
 
-/* line 660, /Users/Tinaxycheng/Documents/awesomeooproject/app/assets/stylesheets/grayscale.css */
+/* line 687, /Users/Tinaxycheng/Documents/awesomeooproject/app/assets/stylesheets/grayscale.css */
 .info-user {
   text-align: center;
   font-size: 24px;
 }
 
-/* line 665, /Users/Tinaxycheng/Documents/awesomeooproject/app/assets/stylesheets/grayscale.css */
+/* line 692, /Users/Tinaxycheng/Documents/awesomeooproject/app/assets/stylesheets/grayscale.css */
 .fs1 {
   padding: 5px 5px 5px 5px;
   position: relative;
 }
 
-/* line 670, /Users/Tinaxycheng/Documents/awesomeooproject/app/assets/stylesheets/grayscale.css */
+/* line 697, /Users/Tinaxycheng/Documents/awesomeooproject/app/assets/stylesheets/grayscale.css */
 .fs1:hover {
   position: relative;
   color: silver;
   cursor: pointer;
 }
 
-/* line 677, /Users/Tinaxycheng/Documents/awesomeooproject/app/assets/stylesheets/grayscale.css */
+/* line 704, /Users/Tinaxycheng/Documents/awesomeooproject/app/assets/stylesheets/grayscale.css */
 .item img {
-  width: 100%;
-  height: auto;
+  width: auto;
+  height: 680px;
+  max-height: 680px;
 }
 
 /*join page*/
-/* line 683, /Users/Tinaxycheng/Documents/awesomeooproject/app/assets/stylesheets/grayscale.css */
+/* line 711, /Users/Tinaxycheng/Documents/awesomeooproject/app/assets/stylesheets/grayscale.css */
 .profile-img {
   width: 96px;
   height: 96px;
@@ -9489,7 +9519,7 @@ input[type="file"][id="blog_image"] {
   border-radius: 50%;
 }
 
-/* line 692, /Users/Tinaxycheng/Documents/awesomeooproject/app/assets/stylesheets/grayscale.css */
+/* line 720, /Users/Tinaxycheng/Documents/awesomeooproject/app/assets/stylesheets/grayscale.css */
 .buttonblock {
   max-width: 500px;
   margin: 0 auto 10px;
@@ -9498,12 +9528,12 @@ input[type="file"][id="blog_image"] {
 }
 
 /*post*/
-/* line 701, /Users/Tinaxycheng/Documents/awesomeooproject/app/assets/stylesheets/grayscale.css */
+/* line 729, /Users/Tinaxycheng/Documents/awesomeooproject/app/assets/stylesheets/grayscale.css */
 .post-preview {
   margin-top: 50px;
 }
 
-/* line 705, /Users/Tinaxycheng/Documents/awesomeooproject/app/assets/stylesheets/grayscale.css */
+/* line 733, /Users/Tinaxycheng/Documents/awesomeooproject/app/assets/stylesheets/grayscale.css */
 .post-title h1 {
   /*    white-space: nowrap; */
   overflow: hidden;
@@ -9515,7 +9545,7 @@ input[type="file"][id="blog_image"] {
   -webkit-box-orient: vertical;
 }
 
-/* line 716, /Users/Tinaxycheng/Documents/awesomeooproject/app/assets/stylesheets/grayscale.css */
+/* line 744, /Users/Tinaxycheng/Documents/awesomeooproject/app/assets/stylesheets/grayscale.css */
 .post-subtitle p {
   /*    white-space: nowrap; */
   overflow: hidden;
@@ -9527,7 +9557,7 @@ input[type="file"][id="blog_image"] {
   -webkit-box-orient: vertical;
 }
 
-/* line 727, /Users/Tinaxycheng/Documents/awesomeooproject/app/assets/stylesheets/grayscale.css */
+/* line 755, /Users/Tinaxycheng/Documents/awesomeooproject/app/assets/stylesheets/grayscale.css */
 .infoWindow h4, a {
   color: silver;
 }

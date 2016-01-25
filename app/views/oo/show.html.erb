@@ -38,18 +38,18 @@
          <%if @user.avatar?%>                      
            <%= image_tag @user.avatar_url(:thumb) ,class:"img-circle"%>
            <%else%>
-           <%=image_tag "default_avatar.jpg"%>
+           <%=image_tag "default_avatar.png"%>
           <%end%>
         </div><!-- /thumbnail -->
         <h1><%= @user.name %></h1>
         <h3></h3>
         <br>
-          <div class="info-user">
+<!--           <div class="info-user">
             <span aria-hidden="true" class="fa fa-user fs1"></span>
             <span aria-hidden="true" class="fa fa-cog fs1"></span>
             <span aria-hidden="true" class="fa fa-envelope-o fs1"></span>
             <span aria-hidden="true" class="fa fa-key fs1"></span>
-          </div>
+          </div> -->
         </div>
         </div>
    
@@ -116,8 +116,6 @@
         <%end%>
         <%end%>
 
-        
-  
       </div>
 
 

@@ -23,18 +23,18 @@
 
     <!-- Navigation -->
       <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
-               <div class="container">
-               <%= link_to root_path do %>
-                  <div class="navbar-header">
-                      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
-                          <i class="glyphicon glyphicon-menu-hamburger"></i>
-                      </button>
-                      
-                      <p class="navbar-brand page-scroll" >
-                          <span class="light">OO</span> Studio
-                      </p>
-                      <%end%>
-                  </div>
+          <div class="container">
+          
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    <i class="glyphicon glyphicon-menu-hamburger"></i>
+                </button>
+                 <%= link_to root_path do %>
+                <p class="navbar-brand page-scroll" >
+                    <span class="light">OO</span> Studio
+                </p>
+               <%end%>
+             </div>
 
                   <!-- Collect the nav links, forms, and other content for toggling -->
                   <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
@@ -75,24 +75,28 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
          
   
-<%=image_tag "about-bg.jpg"%>
 
-<br><br>
-<!-- search bar and edit -->
-         <div class="container">
-             <div class="row">
-               <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                  <h3>Search Title or Content Here:</h3>
-                  <%= form_tag blog_posts_path, method: :get do %>
-                    <%=  text_field_tag 'search', @search %>
-                    <%=  submit_tag "Search" %>
-                    <% end %>
+<%=image_tag "about-bg.jpg", :class=> "img-responsive"%>
+<!-- Intro Header -->
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-1">
+                      <!-- search bar and edit -->
+                      <h3>Search Title or Content Here:</h3>
+                      <%= form_tag blog_posts_path, method: :get do %>
+                      <%=  text_field_tag 'search', @search %>
+                      <%=  submit_tag "Search" %>
+                      <% end %>
                       <%= link_to new_blog_post_path  do%>
                       <p class="btn btn-default btn-lg">New Post</p>
                       <%end%>
-              </div>
+                    </div>
+                </div>
             </div>
-        </div>
+
+<br><br>
+
 <!-- display search result if search otherwise category -->
 <% if @search %>
 <section>

@@ -489,7 +489,26 @@ position: relative;
 margin : 10 auto;
 
 }
+input[type="email"] {
+    width: 600px;
+    height: 30px;
+    margin-bottom: 20px;
+    border: 1px solid #888; 
+    background-color: transparent;
+    position: relative;
+    margin : 10 auto;
 
+}
+input[type="password"] {
+    width: 600px;
+    height: 30px;
+    margin-bottom: 20px;
+    border: 1px solid #888; 
+    background-color: transparent;
+    position: relative;
+    margin : 10 auto;
+
+}
 
 .blog {
     border: white dashed thin;
@@ -544,7 +563,15 @@ margin : 10 auto;
     color:#ffffff;
     margin:8px;
     padding:0px;
-    height:inherit  
+    height:inherit;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    line-height: 15px;
+    max-height: 16px;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
     }
     
 .dash-unit hr {
@@ -675,8 +702,9 @@ margin : 10 auto;
 
 
 .item img {
-   width: 100%;
-   height: auto; 
+    width: auto;
+    height: 680px;
+    max-height: 680px;
 }
 
 /*join page*/
