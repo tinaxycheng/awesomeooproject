@@ -679,9 +679,8 @@ input[type="password"] {
 
 
 .item img {
-    width: auto;
-    height: 680px;
-    max-height: 680px;
+   width: 100%;
+   height: auto; 
 }
 
 /*join page*/

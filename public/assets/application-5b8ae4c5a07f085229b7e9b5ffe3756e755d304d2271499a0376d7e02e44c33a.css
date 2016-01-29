@@ -9504,13 +9504,12 @@ input[type="password"] {
 
 /* line 704, /Users/Tinaxycheng/Documents/awesomeooproject/app/assets/stylesheets/grayscale.css */
 .item img {
-  width: auto;
-  height: 680px;
-  max-height: 680px;
+  width: 100%;
+  height: auto;
 }
 
 /*join page*/
-/* line 711, /Users/Tinaxycheng/Documents/awesomeooproject/app/assets/stylesheets/grayscale.css */
+/* line 710, /Users/Tinaxycheng/Documents/awesomeooproject/app/assets/stylesheets/grayscale.css */
 .profile-img {
   width: 96px;
   height: 96px;
@@ -9519,7 +9518,7 @@ input[type="password"] {
   border-radius: 50%;
 }
 
-/* line 720, /Users/Tinaxycheng/Documents/awesomeooproject/app/assets/stylesheets/grayscale.css */
+/* line 719, /Users/Tinaxycheng/Documents/awesomeooproject/app/assets/stylesheets/grayscale.css */
 .buttonblock {
   max-width: 500px;
   margin: 0 auto 10px;
@@ -9528,12 +9527,12 @@ input[type="password"] {
 }
 
 /*post*/
-/* line 729, /Users/Tinaxycheng/Documents/awesomeooproject/app/assets/stylesheets/grayscale.css */
+/* line 728, /Users/Tinaxycheng/Documents/awesomeooproject/app/assets/stylesheets/grayscale.css */
 .post-preview {
   margin-top: 50px;
 }
 
-/* line 733, /Users/Tinaxycheng/Documents/awesomeooproject/app/assets/stylesheets/grayscale.css */
+/* line 732, /Users/Tinaxycheng/Documents/awesomeooproject/app/assets/stylesheets/grayscale.css */
 .post-title h1 {
   /*    white-space: nowrap; */
   overflow: hidden;
@@ -9545,7 +9544,7 @@ input[type="password"] {
   -webkit-box-orient: vertical;
 }
 
-/* line 744, /Users/Tinaxycheng/Documents/awesomeooproject/app/assets/stylesheets/grayscale.css */
+/* line 743, /Users/Tinaxycheng/Documents/awesomeooproject/app/assets/stylesheets/grayscale.css */
 .post-subtitle p {
   /*    white-space: nowrap; */
   overflow: hidden;
@@ -9557,7 +9556,7 @@ input[type="password"] {
   -webkit-box-orient: vertical;
 }
 
-/* line 755, /Users/Tinaxycheng/Documents/awesomeooproject/app/assets/stylesheets/grayscale.css */
+/* line 754, /Users/Tinaxycheng/Documents/awesomeooproject/app/assets/stylesheets/grayscale.css */
 .infoWindow h4, a {
   color: silver;
 }
