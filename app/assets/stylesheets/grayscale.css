@@ -353,6 +353,30 @@ a:focus {
     text-align: right;
 }
 
+.button{
+    position:relative;
+    margin-left: 25px;
+    border: 5px;
+    padding: 10px 20px 10px 20px;
+    background-color: orange; 
+    border-radius:20px;
+    font-family: Arial;
+    font-weight: 300;
+}
+.button:hover{
+    animation: swing 1s 0s  ease-in-out;
+    transform-origin: top-center;
+    background-color: blue;    
+    font-family: Arial;
+    font-weight: 200px;
+}
+
+@keyframes swing{
+  0%,100% {transform:rotate(0deg);}
+  50% {transform:rotate(30deg);}
+  80% {transform:rotate(-30deg);}
+  }
+
 ul.banner-social-buttons {
     margin-top: 0;
 }
@@ -489,7 +513,7 @@ position: relative;
 margin : 10 auto;
 
 }
-input[type="email"] {
+/*input[type="email"] {
     width: 600px;
     height: 30px;
     margin-bottom: 20px;
@@ -508,7 +532,7 @@ input[type="password"] {
     position: relative;
     margin : 10 auto;
 
-}
+}*/
 
 .blog {
     border: white dashed thin;

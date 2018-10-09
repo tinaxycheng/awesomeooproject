@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'meetup/index'
+
   get 'projects/show'
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
@@ -8,6 +10,7 @@ Rails.application.routes.draw do
   resources :oo
   resources :pages
   resources :projects, only: [:show]
+  resources :meetup, only:[:new, :create, :show]
   get '/about', to: 'pages#about'
   get '/projects', to: 'pages#projects'
   get '/join', to: 'pages#join'

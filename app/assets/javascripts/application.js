@@ -15,4 +15,4 @@
 //= require bootstrap
 //= require jquery.easing.min
 //= require grayscale
-
+//= require geocomplete

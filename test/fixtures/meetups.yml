@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  type: 
+  description: MyText
+  time: 2016-04-04 18:52:08
+  formatted_address: MyText
+  lat: 9.99
+  lng: 9.99
+  organizer_id: 1
+  capacity: 1
+
+two:
+  title: MyString
+  type: 
+  description: MyText
+  time: 2016-04-04 18:52:08
+  formatted_address: MyText
+  lat: 9.99
+  lng: 9.99
+  organizer_id: 1
+  capacity: 1
