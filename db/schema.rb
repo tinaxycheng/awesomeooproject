@@ -88,6 +88,10 @@ ActiveRecord::Schema.define(version: 20160404231929) do
     t.string   "videolink"
   end
 
+  create_table "table_images", force: :cascade do |t|
+    t.string "name"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
