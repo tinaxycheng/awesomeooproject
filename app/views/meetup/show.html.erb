@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Custom Fonts -->
+    <link href="/assets/fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+<!-- Navigation -->
+<%= render 'shared/nav' %>
+<br><br><br><br><br><br>
+<h1>My event's information</h1>
+
+ <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-preview">
+                        <h2 class="post-title">
+                            <%= @meetup.title %>
+                        </h2>
+                    <div class="post-subtitle">
+                        <p>
+                            <%= @meetup.description %>
+                        </p>
+                    </div>
+                    
+
+                </div>
+            </div>
+        </div>
+   </div>
+
+</body>
+
+</html>

@@ -1,17 +1,21 @@
 class MeetupController < ApplicationController
   def index
-  	@user = current_user
-  	@meetup = Meetup.new
+ 
+   @meetup = Meetup.new
+   @meetups= Meetup.all.order('created_at DESC')
   end
   def new
   	
   end
   def create
-	 @meetup = current_user.meetup.new.build(meetup_params)
-	 if @meetup.save!
-	 	redirect_to @meetup
-	 else
-	 	render 'new'
+    @meetup = Meetup.new
+    if @meetup.save!
+      redirect_to meetup_path(@meetup)
+    else
+      flash.now[:error] = @meetup.errors.messages.first.join(" ")
+      render 'new'
+	 
+	 
 	 end
   end
   def show

@@ -25,7 +25,10 @@
 </head>
 <body>
 
-<h1>My first SVG badge</h1>
+<%= render 'shared/nav' %>
+
+   </br></br></br>
+
 
 <!-- <object type="image/svg+xml" data="/assets/badge-experience.svg" id="badge" onClick="alert('hello!');">Your experience badge</object> -->
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -111,7 +114,33 @@
 
 }
 </script>
-<div class="meetup">
+
+
+<section>
+ <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-preview">
+                <% @meetups.each do |meetup| %>
+                    <%= link_to meetup_path(meetup) do %>
+                        <h2 class="post-title">
+                            <%= meetup.title %>
+                        </h2>
+                        <div class="post-subtitle">
+                        <p> <%= meetup.description %>
+                        </p>
+                        </div>
+                    <% end %>
+                <% end %>
+                </div>
+                <hr>
+            </div>
+        </div>
+        </div>
+        </section>
+
+
+<div class="container">
 
 <!-- basic info the organizer -->
 <%=form_for @meetup, url: {action: "create"} do |f| %>
@@ -145,19 +174,6 @@
           </label>
         </span>
 
-         <span class="input input--yoshiko">
-         <%= f.number_field :lat, :step => '0.001', autofocus: true, class:"input__field input__field--yoshiko"%>
-         <label class="input__label input__label--yoshiko" for="type">
-            <span class="input__label-content input__label-content--yoshiko" data-content="Latitude">lat</span>
-          </label>
-        </span>
-
-         <span class="input input--yoshiko">
-          <%= f.number_field :lng, :step => '0.001', autofocus: true, class:"input__field input__field--yoshiko"%>
-          <label class="input__label input__label--yoshiko" for="type">
-            <span class="input__label-content input__label-content--yoshiko" data-content="Longtitude">lng</span>
-          </label>
-        </span>
 
          <span class="input input--yoshiko">
           <%= f.text_field :description, autofocus: true, class:"input__field input__field--yoshiko"%>
@@ -174,13 +190,6 @@
           </label>
         </span>
 
-
-  <span class="input input--yoshiko">
-         <%= f.number_field :capacity, class:"input__field input__field--yoshiko"%>
-          <label class="input__label input__label--yoshiko" for="type">
-            <span class="input__label-content input__label-content--yoshiko">Capacity</span>
-          </label>
-        </span>
 
 
       </section>
@@ -230,5 +239,9 @@
         }
       })();
     </script>
+
+
+
+
 </body>
 </html>

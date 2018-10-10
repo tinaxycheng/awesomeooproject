@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160404231929) do
+ActiveRecord::Schema.define(version: 20181010174645) do
+
+  create_table "Meetups", force: :cascade do |t|
+    t.string   "title"
+    t.string   "type"
+    t.text     "description"
+    t.datetime "time"
+    t.text     "formatted_address"
+    t.integer  "capacity"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
 
   create_table "attendings", force: :cascade do |t|
     t.integer  "meetup_id"
@@ -63,20 +74,6 @@ ActiveRecord::Schema.define(version: 20160404231929) do
 
   add_index "images", ["project_id"], name: "index_images_on_project_id"
 
-  create_table "meetups", force: :cascade do |t|
-    t.string   "title"
-    t.string   "type"
-    t.text     "description"
-    t.datetime "time"
-    t.text     "formatted_address"
-    t.decimal  "lat"
-    t.decimal  "lng"
-    t.integer  "organizer_id"
-    t.integer  "capacity"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
-  end
-
   create_table "projects", force: :cascade do |t|
     t.string   "title"
     t.decimal  "lat"
@@ -86,10 +83,6 @@ ActiveRecord::Schema.define(version: 20160404231929) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "videolink"
-  end
-
-  create_table "table_images", force: :cascade do |t|
-    t.string "name"
   end
 
   create_table "users", force: :cascade do |t|

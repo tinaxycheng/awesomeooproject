@@ -13,8 +13,8 @@ class OoController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @blog = @user.blogs
-    @blog2= Blog.limit(3).order('created_at')
+    @blog = @user.blogs.order('created_at')
+    @blog2= Blog.limit(5).order('created_at')
   end
   
 

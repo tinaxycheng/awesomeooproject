@@ -1,4 +1,4 @@
 class Meetup < ActiveRecord::Base
 	belongs_to :user
-	has_many :attendings
+	self.inheritance_column = :_type_disabled
 end
