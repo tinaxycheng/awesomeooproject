@@ -30,7 +30,7 @@ gem 'figaro'
 gem "mini_magick"
 gem "fastimage"
 gem "thumbs_up"
-gem 'rails_admin'
+
 gem 'autoprefixer-rails'
 gem 'yaml_db'
 gem 'font-awesome-rails'
