@@ -177,78 +177,8 @@
 
 
 
-       <section id="interview">
-        <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="post-preview">
-               <% @blogs3.each do |blog| %>
-             
-                    <%= link_to blog_post_path(blog) do %>
-                        <h2 class="post-title">
-                            <%= blog.title %>
-                        </h2>
-                        <div class="post-subtitle">
-                            <p>
-                                <%= blog.content %>
-                            </p>
-                        </div>
-                    <% end %>
-                    <%= link_to oo_path(blog.user) do %>
-                    <p class="post-subtitle">
-                            <%= blog.user.name %>
-                        </p>
-                       <% end %> 
-                        <p><%= blog.created_at.strftime("%b %d, %Y")%></p>
-                         <!--  display votes -->
-                        <div class="vote">
-                       <%=link_to(blog_post_vote_up_path(blog),:method=>:post) do %>
-                       <i class="glyphicon glyphicon-heart btn-default bg-red"></i>
-                       <%end%>
-                       <span class="btn btn-red"><%= blog.votes_for%></span>
-                      </div>
-                    <!-- end of loop -->
-                    <% end %>
-            <hr>
-          </div>
-        </div>
-    </section>
 
-        <section id="news">
-        <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <% @blogs2.each do |blog| %>
-                <div class="post-preview">
-            
-             <%= link_to blog_post_path(blog) do %>
-                        <h2 class="post-title">
-                            <%= blog.title %>
-                        </h2>
-                        <div class="post-subtitle">
-                            <p>
-                                <%= blog.content %>
-                            </p>
-                        </div>
-                    <% end %>
-                    <%= link_to oo_path(blog.user) do %>
-                    <div class="post-subtitle">
-                            <%= blog.user.name %>
-                        </div>
-                    <% end %> 
-                     <p><%= blog.created_at.strftime("%b %d, %Y")%></p>
-                    <!--  display votes -->
-                    <div class="vote">
-                       <%=link_to(blog_post_vote_up_path(blog),:method=>:post) do %>
-                       <i class="glyphicon glyphicon-heart btn-default bg-red"></i>
-                       <%end%>
-                       <span class="btn btn-red"><%= blog.votes_for%></span>
-                    </div>
-             <% end %>
-             <hr>
-          </div>
-        </div>
-        </section>
+      
  <%end%>
     <!-- Pager -->
     <ul class="pager">
