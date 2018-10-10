@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby "2.2.2"
+ruby "2.5.1"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
 # Use SCSS for stylesheets
@@ -33,7 +33,6 @@ gem "thumbs_up"
 gem 'rails_admin'
 gem 'autoprefixer-rails'
 gem 'yaml_db'
-gem 'heroku'
 gem 'font-awesome-rails'
 gem 'geocomplete_rails'
 # Use ActiveModel has_secure_password
