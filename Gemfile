@@ -35,7 +35,7 @@ gem 'autoprefixer-rails'
 gem 'yaml_db'
 gem 'font-awesome-rails'
 gem 'geocomplete_rails'
-gem 'pg', '~> 1.1.3'
+gem 'pg', '~> 0.20.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -53,7 +53,7 @@ group :development, :test do
 end
 
 group :production do
-  gem 'pg', '~> 1.1.3'
+  gem 'pg', '~> 0.20.0'
 end
 
 group :development do
