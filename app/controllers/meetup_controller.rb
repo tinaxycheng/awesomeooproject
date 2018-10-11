@@ -38,7 +38,7 @@ class MeetupController < ApplicationController
     @meetup = Meetup.find(params[:id])
   end
 
-    def destroy
+  sdef destroy
     @meetup = Meetup.find(params[:id])
     @meetup.destroy
     redirect_to meetup_path
