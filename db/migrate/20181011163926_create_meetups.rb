@@ -7,7 +7,7 @@ class CreateMeetups < ActiveRecord::Migration
       t.text :formatted_address
       t.integer :time_created
       t.timestamps null: false
-      add_reference :meetups, :user, index: true, foreign_key: true
     end
+    add_reference :meetups, :user, index: true, foreign_key: true
   end
 end

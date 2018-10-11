@@ -7,14 +7,14 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-Homepageimage.create(name:"homepage.jpg")
-Homepageimage.create(name:"homepage1.jpg")
-Homepageimage.create(name:"homepage2.jpg")
-Homepageimage.create(name:"homepage3.jpg")
-Homepageimage.create(name:"homepage4.jpg")
-Homepageimage.create(name:"homepage5.jpg")
-Homepageimage.create(name:"homepage6.jpg")
-Homepageimage.create(name:"homepage7.jpg")
+Homepageimage.create(name:"homepage.jpg", project_id:1)
+Homepageimage.create(name:"homepage1.jpg", project_id:2)
+Homepageimage.create(name:"homepage2.jpg", project_id:3)
+Homepageimage.create(name:"homepage3.jpg", project_id:3)
+Homepageimage.create(name:"homepage4.jpg", project_id:5)
+Homepageimage.create(name:"homepage5.jpg", project_id:4)
+Homepageimage.create(name:"homepage6.jpg", project_id:4)
+Homepageimage.create(name:"homepage7.jpg", project_id:4)
 
 Project.create(title:'Invitation card for Di Hu&Fan Yang', content:'We are invited to design a invitation card for their wedding. The client brought us a lot of good ideas which result in this beautiful traditional Chinese style card. It embody the door to a new stage of life they are going to enter together.')
 Project.create(title:'Lain&daniel', lat: '40.7127', lng: '-74.0059')
