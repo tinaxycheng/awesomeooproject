@@ -11,29 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181010174645) do
-
-  create_table "Meetups", force: :cascade do |t|
-    t.string   "title"
-    t.string   "type"
-    t.text     "description"
-    t.datetime "time"
-    t.text     "formatted_address"
-    t.integer  "capacity"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
-  end
-
-  create_table "attendings", force: :cascade do |t|
-    t.integer  "meetup_id"
-    t.integer  "attendant_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
-
-  add_index "attendings", ["attendant_id"], name: "index_attendings_on_attendant_id"
-  add_index "attendings", ["meetup_id", "attendant_id"], name: "index_attendings_on_meetup_id_and_attendant_id", unique: true
-  add_index "attendings", ["meetup_id"], name: "index_attendings_on_meetup_id"
+ActiveRecord::Schema.define(version: 20181011164634) do
 
   create_table "blogs", force: :cascade do |t|
     t.string   "title"
@@ -49,12 +27,6 @@ ActiveRecord::Schema.define(version: 20181010174645) do
 
   add_index "blogs", ["category_id"], name: "index_blogs_on_category_id"
   add_index "blogs", ["user_id"], name: "index_blogs_on_user_id"
-
-  create_table "categories", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "homepageimages", force: :cascade do |t|
     t.string   "name"
@@ -73,6 +45,19 @@ ActiveRecord::Schema.define(version: 20181010174645) do
   end
 
   add_index "images", ["project_id"], name: "index_images_on_project_id"
+
+  create_table "meetups", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "time"
+    t.text     "formatted_address"
+    t.integer  "time_created"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.integer  "user_id"
+  end
+
+  add_index "meetups", ["user_id"], name: "index_meetups_on_user_id"
 
   create_table "projects", force: :cascade do |t|
     t.string   "title"
@@ -100,7 +85,6 @@ ActiveRecord::Schema.define(version: 20181010174645) do
     t.datetime "updated_at",                          null: false
     t.string   "name"
     t.text     "story"
-    t.string   "image"
     t.string   "avatar"
     t.string   "provider"
     t.string   "uid"

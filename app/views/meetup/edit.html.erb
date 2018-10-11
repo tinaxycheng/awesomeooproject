@@ -26,10 +26,11 @@
 <body>
 
 
-<div class="meetup">
-
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 <!-- basic info the organizer -->
-<%=form_for @meetup, url: {action: "create"} do |f| %>
+<%=form_for @meetup, url: meetup_path(@meetup) do |f| %>
 <section class="content-meetup">
         <h2>Your Meetup</h2>
         <span class="input input--yoshiko">
@@ -39,17 +40,6 @@
           </label>
         </span>
 
-        <span class="input input--yoshiko">
-          <%= f.text_field :type, list:'type', class:"input__field input__field--yoshiko"%>
-            <datalist id="type">
-            <option value="hiking"></option>
-             <option value="party"></option>
-             <option value="reading"></option>
-            </datalist>
-          <label class="input__label input__label--yoshiko" for="type">
-            <span class="input__label-content input__label-content--yoshiko" data-content="Meetup Type">Event type</span>
-          </label>
-        </span>
 
 
          <span class="input input--yoshiko">
@@ -75,22 +65,16 @@
             <span class="input__label-content input__label-content--yoshiko">Event time dd/mm/yy </span>
           </label>
         </span>
-
-
-  <span class="input input--yoshiko">
-         <%= f.number_field :capacity, class:"input__field input__field--yoshiko"%>
-          <label class="input__label input__label--yoshiko" for="type">
-            <span class="input__label-content input__label-content--yoshiko">Capacity</span>
-          </label>
-        </span>
-
-
       </section>
-        <%= f.submit @meetup.new_record? ? "Create" : "Update", class:"button"%>
+<%=f.submit @meetup.new_record? ? "Create" : "Update", class:"button"%> 
+
 <%end%>
 
-
+    </div>
+  </div>
 </div>
+
+</br></br></br>
 
 
   <script>

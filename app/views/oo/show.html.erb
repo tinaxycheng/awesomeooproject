@@ -65,9 +65,7 @@
           <%= image_tag story.image_url(:thumb) if story.image? %>
           <%end%>
         </div>
-        <%if story.category.name?%>
-        <h1><%= story.category.name %></h1>
-        <%end%>
+  
         <h3><%=story.created_at%></h3>
         </div>
         </div>

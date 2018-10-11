@@ -20,22 +20,33 @@
 <!-- Navigation -->
 <%= render 'shared/nav' %>
 <br><br><br><br><br><br>
-<h1>My event's information</h1>
+
 
  <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-preview">
-                        <h2 class="post-title">
-                            <%= @meetup.title %>
-                        </h2>
+                <h2>My event's information</h2>
+                        <h3 class="post-title">
+                        Title: <%= @meetup.title %>
+                        </h3>
+                        <h3 class="post-title">
+                        Time: <%= @meetup.time %>
+                        </h3>
+                        <h3 class="post-title">
+                        Address: <%= @meetup.formatted_address %>
+                        </h3>
                     <div class="post-subtitle">
                         <p>
-                            <%= @meetup.description %>
+                        Description: <%= @meetup.description %>
                         </p>
                     </div>
-                    
-
+                    <%= link_to edit_meetup_path do%>
+                    <p class="btn btn-default btn-lg">Edit</p>
+                    <%end%>
+                    <%= link_to meetup_path(@meetup), method: "DELETE" do%>
+                    <p class="btn btn-default btn-lg">Delete</p>
+                    <%end%>
                 </div>
             </div>
         </div>

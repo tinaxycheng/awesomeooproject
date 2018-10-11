@@ -6,9 +6,7 @@ class User < ActiveRecord::Base
   attr_accessor :avatar
   mount_uploader :avatar, AvatarUploader
   has_many :blogs
-  has_many :meetups, foreign_key:"organizer_id"
-  has_many :attendings, foreign_key: "attendant_id",
-                       dependent:   :destroy
+  has_many :meetups
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   devise :omniauthable, :omniauth_providers => [:google_oauth2]
