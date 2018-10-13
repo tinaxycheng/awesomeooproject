@@ -59,9 +59,9 @@ Image.create(name:'project5_05', project_id:5)
 Image.create(name:'project5_06', project_id:6)
 
 Blog.create(title:"new blog1", content:"new blog content", user_id:1)
-Blog.create(title:"new blog2", content:"new blog content2", user_id:2)
+Blog.create(title:"new blog2", content:"new blog content2", user_id:1)
 
-User.create(email:"cxy@gmail.com", name:"tina", id:1, admin: y)
+User.create(email:"cxy@gmail.com", name:"tina", id:1, admin: true)
 User.create(email:"jrolfe@gmail.com", name:"john")
 
 

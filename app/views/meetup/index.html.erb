@@ -23,7 +23,8 @@
   <title>Welcome to the meetup of DC</title>
 
 </head>
-<body>
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
 
 <%= render 'shared/nav' %>
 
@@ -126,12 +127,11 @@
                         <h2 class="post-title">
                             <%= meetup.title %>
                         </h2>
-                        <div class="post-subtitle">
                         <p> <%= meetup.description %>
                         </p>
-                         <h1><%= meetup.user.name %></h1>
-                          <h3><%=meetup.created_at%></h3>
-                        </div>
+                         <p><%= meetup.user.name %></p>
+                          <p><%=meetup.created_at%></p>
+                      
                     <% end %>
                 <% end %>
                 </div>
