@@ -37,17 +37,17 @@
                         <div class="col-md-3 col-sm-4">
                             <div class="dash-unit projectunit">                              
                                 <div class="thumbnail">
-                                <% if  project.videolink.present? %>
-                                  <iframe title="YouTube video player" width=100% height= auto src=<%= project.videolink%> frameborder="0" allowfullscreen></iframe>
+                                <% if  project.images.present? %>
+                                  <%= image_tag project.images.first.name, size: 100*100%>
                                   <%else%>
-                                    <%= image_tag project.images.first.name, size: 100*100%>
+                                  <iframe title="YouTube video player" width=100% height= auto src=<%= project.videolink%> frameborder="0" allowfullscreen></iframe>
                                   <%end%>
                                   <div class="card-block">
                                     <div class="caption">
-                                        <div class="post-title"><h1><%=project.title%></h1>
-                                        <h1><%=project.address%></h1></div>
-                                        
-                                        
+                                        <div class="post-title">
+                                        <h1><%=project.title%></h1>
+                                        <h1><%=project.address%></h1>
+                                        </div>
                                         </div>
                                     </div>
                                 </div><!-- /thumbnail -->
