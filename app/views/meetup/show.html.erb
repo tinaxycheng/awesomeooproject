@@ -28,20 +28,27 @@
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-preview">
                 <ul class="navbar-custom">
-                <h4>My event's information</h4>
-                        <h4 class="post-title">
-                        Title: <%= @meetup.title %>
-                        </h4>
-                       <p>
-                        Time: <%= @meetup.time %>
+                        <p class="meetup-time">
+                        <%= @meetup.time %>
                         </p>
-                        <p>
-                        Address: <%= @meetup.formatted_address %>
+                        <p class="meetup-title">
+                        <%= @meetup.title %>
                         </p>
-                        <p>
-                        Description: <%= @meetup.description %>
+                        
+                       <p class=meetup-host>
+                        Hosted by <span class=meetup-host-name> <%= @meetup.user.name %> </span>
                         </p>
-                 
+                        
+                        <%= link_to "https://maps.google.com/?q=#{@meetup.formatted_address}" do%>
+                        <p class="meetup-location">
+                        Location : <span class="meetup-location-address"><%= @meetup.formatted_address %> </span>
+                        <%end%>
+
+                        <p class="meetup-description">
+                         <%= @meetup.description %>
+                        </p>
+                  <%= image_tag "http://maps.googleapis.com/maps/api/staticmap?center=#{@meetup.latitude},#{@meetup.longitude}&markers=#{@meetup.latitude},#{@meetup.longitude}&zoom=11&size=640x400&key=AIzaSyCx85uA_EOUwfCNnMC7K9K_tbNbZA50dWY", class: 'img-fluid img-rounded', alt: "#{@meetup.title} on the map"%>
+                   <br><br><br>
                     <%= link_to edit_meetup_path do%>
                     <p class="btn btn-default btn-lg">Edit</p>
                     <%end%>
@@ -53,6 +60,8 @@
             </div>
         </div>
    </div>
+
+
 
 </body>
 

@@ -36,6 +36,8 @@ gem 'yaml_db'
 gem 'font-awesome-rails'
 gem 'geocomplete_rails'
 gem 'pg', '~> 0.20.0'
+gem 'geocoder'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

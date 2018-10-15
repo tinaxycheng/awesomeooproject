@@ -277,3 +277,45 @@ body .nomargin-bottom {
   background-color: transparent;
   border-color: #a3d39c;
 }
+
+.meetup-title {
+  text-transform: uppercase;
+  font-size: 30px;
+  font-weight: bold;
+  margin: 0 0 10px;
+}
+
+.meetup-time {
+  margin: 0 0 5px;
+  font-size: 15px;
+  font-weight: bold;
+  color: #7F7F7F;
+}
+
+.meetup-location {
+  margin: 40px 0 20px;
+  font-size: 15px;
+  font-family: Lora,"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.meetup-location-address {
+  text-transform: lowercase;
+  font-family: Lora,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  color: #35E9D4;
+}
+
+.meetup-description {
+  text-transform: lowercase;
+   margin: 0 0 20px;
+  font-size: 12px;
+}
+
+.meetup-host {
+  margin: 0 0 40px;
+   margin: 0 0 25px;
+  font-size: 15px;
+}
+
+.meetup-host-name {
+  color: #35E9D4;
+}

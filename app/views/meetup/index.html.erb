@@ -124,14 +124,15 @@
                 <div class="post-preview">
                 <% @meetups.each do |meetup| %>
                     <%= link_to meetup_path(meetup) do %>
-                        <h2 class="post-title">
-                            <%= meetup.title %>
-                        </h2>
-                        <p> <%= meetup.description %>
+                    <p class="meetup-time">
+                        <%= meetup.time %>
                         </p>
-                         <p><%= meetup.user.name %></p>
-                          <p><%=meetup.created_at%></p>
-                      
+                        <p class="meetup-title">
+                        <%= meetup.title %>
+                        </p>
+                       <p class=meetup-host>
+                        Hosted by <span class=meetup-host-name> <%= meetup.user.name %> </span>
+                        </p>
                     <% end %>
                 <% end %>
                 </div>
@@ -176,9 +177,9 @@
 
 
          <span class="input input--yoshiko">
-          <%= f.datetime_field :time, class:"input__field input__field--yoshiko"%>
+          <%= f.datetime_local_field :time, class:"input__field input__field--yoshiko"%>
           <label class="input__label input__label--yoshiko" for="type">
-            <span class="input__label-content input__label-content--yoshiko">Event time dd/mm/yy </span>
+            
           </label>
         </span>
       </section>
@@ -194,10 +195,6 @@
 
 
   <script>
-
-
-
-
       (function() {
         // trim polyfill : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim
         if (!String.prototype.trim) {
@@ -231,12 +228,8 @@
           }
         }
       })();
+
     </script>
-
-
-
-
-
 
 
 

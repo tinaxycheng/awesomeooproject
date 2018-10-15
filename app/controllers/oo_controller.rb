@@ -4,7 +4,7 @@ class OoController < ApplicationController
     @image1 = Homepageimage.first
     @images = Homepageimage.all_except(@image1)
     @users= User.limit(5)
-    @blog1=Blog.first
+    @blog1=Blog.last
     @projects=Project.all
   end
   def new
@@ -13,7 +13,7 @@ class OoController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @blog = @user.blogs.order('created_at')
+    @blog = @user.blogs.order('created_at DESC')
     @blog2= Blog.limit(5).order('created_at')
   end
   
