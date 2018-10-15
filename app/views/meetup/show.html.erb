@@ -48,6 +48,11 @@
                          <%= @meetup.description %>
                         </p>
                   <%= image_tag "http://maps.googleapis.com/maps/api/staticmap?center=#{@meetup.latitude},#{@meetup.longitude}&markers=#{@meetup.latitude},#{@meetup.longitude}&zoom=11&size=640x400&key=AIzaSyCx85uA_EOUwfCNnMC7K9K_tbNbZA50dWY", class: 'img-fluid img-rounded', alt: "#{@meetup.title} on the map"%>
+                  <div class="card">
+                  <div class="card-block">
+                    <div id="map"></div>
+                  </div>
+                </div>
                    <br><br><br>
                     <%= link_to edit_meetup_path do%>
                     <p class="btn btn-default btn-lg">Edit</p>

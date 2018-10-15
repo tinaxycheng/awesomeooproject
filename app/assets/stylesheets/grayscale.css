@@ -563,10 +563,7 @@ input[type="password"] {
     background-color: #101010;
     color:white;
     position: relative;
-/*    height:290px;*/
-
-/*Pinterest*/
-
+    width:100%;
     display: inline-block;
 
 }
@@ -590,7 +587,6 @@ input[type="password"] {
     margin:8px;
     padding:0px;
     height:inherit;
-
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
@@ -624,7 +620,7 @@ input[type="password"] {
 .dash-unit h2 {
     font-family: 'Open Sans', sans-serif;
     font-weight: bold;
-    font-size: 30px;
+    font-size: 20px;
     line-height: 26px;
     letter-spacing: 0px;
     color: #ffffff;

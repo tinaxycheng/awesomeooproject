@@ -125,7 +125,7 @@
                 <% @meetups.each do |meetup| %>
                     <%= link_to meetup_path(meetup) do %>
                     <p class="meetup-time">
-                        <%= meetup.time %>
+                        <%= meetup.time.strftime("%b %d, %Y") %>
                         </p>
                         <p class="meetup-title">
                         <%= meetup.title %>

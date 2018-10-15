@@ -24,3 +24,8 @@ function showPosition(position) {
     document.getElementById("mapholder").innerHTML = "<img src='"+img_url+"'>";
 }
 
+
+
+
+
+
