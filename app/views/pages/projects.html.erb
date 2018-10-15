@@ -29,9 +29,11 @@
 
             <div class="row content-section text-center">
                 <div class="col-lg-10 col-lg-offset-1">
+
                     <div class="row content-section">
                         <% @projects.each do |project| %>
                         <%= link_to project_path(project) do %>
+                        
                         <div class="col-md-3 col-sm-4">
                             <div class="dash-unit">                              
                                 <div class="thumbnail">
@@ -40,12 +42,13 @@
                                   <%else%>
                                     <%= image_tag project.images.first.name, size: 100*100%>
                                   <%end%>
+                                  <div class="card-block">
                                     <div class="caption">
-                                        <div class="post-title"><h1><%=project.title%></h1></div>
-                                        <h3><%= project.tag%></h3>
-                                        <p><%=project.address%>
-                                        </p>
-                                     
+                                        <div class="post-title"><h1><%=project.title%></h1>
+                                        <h1><%=project.address%></h1></div>
+                                        
+                                        
+                                        </div>
                                     </div>
                                 </div><!-- /thumbnail -->
                             </div>
