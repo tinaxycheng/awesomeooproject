@@ -38,9 +38,9 @@
                             <div class="dash-unit projectunit">                              
                                 <div class="thumbnail">
                                 <% if  project.images.present? %>
-                                  <%= image_tag project.images.first.name, size: 100*100%>
-                                  <%else%>
                                   <iframe title="YouTube video player" width=100% height= auto src=<%= project.videolink%> frameborder="0" allowfullscreen></iframe>
+                                  <%else%>
+                                    <%= image_tag project.images.first.name, size: 100*100%>
                                   <%end%>
                                   <div class="card-block">
                                     <div class="caption">
