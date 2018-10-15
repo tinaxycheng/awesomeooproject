@@ -29,9 +29,8 @@
 <%= render 'shared/nav' %>
 
    </br></br></br>
+<div style="margin: 40px 0px 0px 40px">
 
-
-<!-- <object type="image/svg+xml" data="/assets/badge-experience.svg" id="badge" onClick="alert('hello!');">Your experience badge</object> -->
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
    width="254.987px" height="208.8px" viewBox="0 0 254.987 208.8" enable-background="new 0 0 254.987 208.8" xml:space="preserve" id="badge1">
 <g id="Layer_3">
@@ -43,7 +42,7 @@
 </g>
 <g id="Layer_2">
   <rect x="56.013" y="93.512" fill="none" width="134.656" height="39.234"/>
-  <text transform="matrix(1 0 0 1 56.0132 125.336)" font-family="'Trattatello'" font-size="36">Experience</text>
+  <text transform="matrix(1 0 0 1 56.0132 125.336)" font-family="'Trattatello'" font-size="36">Friends</text>
 </g>
 <rect class="btn" x="0" y="0" width="254" height="239" onclick="complete(0)" />
 </svg>
@@ -61,28 +60,9 @@
 </g>
 <g id="Layer_2">
   <rect x="56.013" y="86.202" fill="none" width="134.656" height="39.234"/>
-  <text transform="matrix(1 0 0 1 56.0132 118.0257)" font-family="'Trattatello'" font-size="36">Exercise</text>
+  <text transform="matrix(1 0 0 1 56.0132 118.0257)" font-family="'Trattatello'" font-size="36">Fun</text>
 </g>
 <rect class="btn" x="0" y="0" width="254" height="239" onclick="complete(1)" />
-</svg>
-
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-   width="242.988px" height="197.00px" viewBox="0 0 242.988 197.36" enable-background="new 0 0 242.988 197.36"
-   xml:space="preserve" id="badge3">
-<g id="Layer_3">
-  <polygon fill="#FFFFFF" stroke="#000000" points="29.714,55.937 111.342,8.809 192.97,55.937 192.97,150.193 111.342,197.321 
-    29.714,150.193  "/>
-</g>
-<g id="Layer_1">
-  <rect x="-218.989" y="-139.772" fill="none" width="340.483" height="149.659"/>
-  <text transform="matrix(1 0 0 1 -218.9888 -85.0522)"><tspan x="0" y="0" font-family="'Menlo-Regular'" font-size="72">week </tspan><tspan x="0" y="86.4" font-family="'Menlo-Regular'" font-size="72">badge</tspan></text>
-  <rect x="29.714" y="83.146" id="rect1" fill="#d0d6d6" width="163.256" height="31.02"/>
-</g>
-<g id="Layer_2">
-  <rect x="44.014" y="74.931" fill="none" width="134.656" height="39.234"/>
-  <text transform="matrix(1 0 0 1 44.0138 106.7545)" font-family="'Trattatello'" font-size="36">Knowledge</text>
-</g>
-<rect class="btn" x="0" y="0" width="254" height="239" onclick="complete(2)" />
 </svg>
 
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -97,10 +77,12 @@
 </g>
 <g id="Layer_2">
   <rect x="54.513" y="74.931" fill="none" width="134.656" height="39.234"/>
-  <text transform="matrix(1 0 0 1 54.5133 106.7545)" font-family="'Trattatello'" font-size="36">Learn</text>
+  <text transform="matrix(1 0 0 1 54.5133 106.7545)" font-family="'Trattatello'" font-size="36">Grow</text>
 </g>
 <rect class="btn" x="0" y="0" width="254" height="239" onclick="complete(3)" />
 </svg>
+
+</div>
 
 
 <script>
@@ -119,9 +101,7 @@
 
 <section>
  <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="post-preview">
+        <div class="meetup-index">
                 <% @meetups.each do |meetup| %>
                     <%= link_to meetup_path(meetup) do %>
                     <p class="meetup-time">
@@ -135,21 +115,15 @@
                         </p>
                     <% end %>
                 <% end %>
-                </div>
                 <hr>
-            </div>
         </div>
         </div>
         </section>
 
 
 <div class="container">
-  <div class="row">
-    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-<!-- basic info the organizer -->
 <%=form_for @meetup, url: {action: "create"} do |f| %>
 <section class="content-meetup">
-        <h2>Your Meetup</h2>
         <span class="input input--yoshiko">
         <%= f.text_field :title, autofocus: true, class:"input__field input__field--yoshiko"%> 
           <label class="input__label input__label--yoshiko" for="title">
@@ -179,18 +153,17 @@
          <span class="input input--yoshiko">
           <%= f.datetime_local_field :time, class:"input__field input__field--yoshiko"%>
           <label class="input__label input__label--yoshiko" for="type">
-            
           </label>
+      </span>
+
+      <div style="margin: 20px 0 0px">
+        <span style="margin: 0 20px"> 
+          <%=f.submit @meetup.new_record? ? "Create your meetup" : "Update your meetup", class:"btn btn-default btn-lg"%> 
         </span>
-      </section>
-<%=f.submit @meetup.new_record? ? "Create" : "Update", class:"button"%> 
-
-<%end%>
-
-    </div>
-  </div>
+      </div>
+         <%end%>
 </div>
-
+ </section>
 </br></br></br>
 
 

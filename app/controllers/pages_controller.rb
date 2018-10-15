@@ -8,7 +8,7 @@ class PagesController < ApplicationController
 	end
 
 	def projects
-	    @projects=Project.all
+	    @projects=Project.all.order('created_at DESC')
 	end
 
 	def join
