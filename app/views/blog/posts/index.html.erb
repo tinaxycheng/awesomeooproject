@@ -26,9 +26,9 @@
 <%=image_tag "about-bg.jpg", :class=> "img-responsive"%>
 
 
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8 col-md-offset-1">
+<div class="container">
+  <div class="row">
+      <div class="col-md-8 col-md-offset-0">
                     </br></br></br>
                       <!-- search bar and edit -->
                       <h3>Search Title or Content Here:</h3>
@@ -39,29 +39,24 @@
                       <%= link_to new_blog_post_path  do%>
                       <p class="btn btn-default btn-lg">New Post</p>
                       <%end%>
-                    </div>
-                </div>
-            </div>
-
-<br><br>
-
+      </div>
+  </div>
+  <br><br>
 <!-- display search result if search otherwise category -->
 <% if @search %>
-<section>
- <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="post-preview">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-0">
+           <div class="post-preview">
                  <% @blogs_search.each do |blog| %>
                     <%= link_to blog_post_path(blog) do %>
                         <h2 class="post-title">
                             <%= blog.title %>
                         </h2>
-                        <div class="post-subtitle">
+              <div class="post-subtitle">
                         <p>
                             <%= blog.content %>
                         </p>
-                        </div>
+              </div>
                     <% end %>
                     <!-- show user's name and direct to dashboard -->
                     <%= link_to oo_path(blog.user) do %>
@@ -72,61 +67,55 @@
                     <%end%>
                     
                      <!--  display votes -->
-                    <div class="vote">
+              <div class="vote">
                        <%=link_to(blog_post_vote_up_path(blog),:method=>:post) do %>
                        <i class="glyphicon glyphicon-heart btn-default bg-red"></i>
                        <%end%>
                        <span class="btn btn-red"><%= blog.votes_for%></span>
-                    </div>
+              </div>
                 <!-- end of loop -->
                 <% end %>
-                </div>
-                <hr>
             </div>
-        </div>
-        </div>
-        </section>
+                <hr>
+          </div>
+      </div>
 <%else%>
-
-  <!-- Main Content -->
-    <section>
-      <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-0">
-                <div class="post-preview">
+     <div class="row">
+        <div class="col-md-8 col-md-offset-0">
+            <div class="post-preview">
                  <% @blogs.each do |blog| %>
                     <%= link_to blog_post_path(blog) do %>
                         <h2 class="post-title">
                             <%= blog.title %>
                         </h2>
-                        <div class="post-subtitle">
-                          <p>
-                              <%= blog.content %>
-                          </p>
-                        </div>
+                <div class="post-subtitle">
+                    <p>
+                    <%= blog.content %>
+                    </p>
+                </div>
                     <% end %>
                     <!-- show user's name and direct to dashboard -->
-                    <%= link_to oo_path(blog.user) do %>
+                  <%= link_to oo_path(blog.user) do %>
                     <a class="post-subtitle">
                             <%= blog.user.name %>
                     </a>
                     <%end%> 
                      <p><%= blog.created_at.strftime("%b %d, %Y")%></p>
                     <!--  display votes -->
-                    <div class="vote">
+                <div class="vote">
                        <%=link_to(blog_post_vote_up_path(blog),:method=>:post) do %>
                        <i class="glyphicon glyphicon-heart btn-default bg-red"></i>
                        <%end%>
                        <span class="btn btn-red"><%= blog.votes_for%></span>
-                    </div>
+                </div>
                 <!-- end of loop -->
                 <% end %>
-                </div>
-                <hr>
-            </div>
-        </div>
-        </div>
-    </section>
+              </div>
+              <hr>
+          </div>
+       </div>
+ </div>
+
 
 
 

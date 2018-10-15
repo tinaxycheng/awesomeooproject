@@ -29,7 +29,9 @@
 <%= render 'shared/nav' %>
 
    </br></br></br>
-<div style="margin: 40px 0px 0px 40px">
+
+<section>  
+<div class="container">
 
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
    width="254.987px" height="208.8px" viewBox="0 0 254.987 208.8" enable-background="new 0 0 254.987 208.8" xml:space="preserve" id="badge1">
@@ -82,25 +84,9 @@
 <rect class="btn" x="0" y="0" width="254" height="239" onclick="complete(3)" />
 </svg>
 
-</div>
 
 
-<script>
-      
-      function complete(i){
-          var color=["#BFD84D","#F7A9B1","#5CBA47","#3CC4E1" ]
-          var badge=["badge1","badge2","badge3","badge4"]
-          var badge = document.getElementById(badge[i]);
-          var rect= badge.getElementById("rect1")
-          rect.setAttributeNS(null, 'fill', color[i]);
-          classie.add( badge.target.parentNode, 'completebadge' );
 
-}
-</script>
-
-
-<section>
- <div class="container">
         <div class="meetup-index">
                 <% @meetups.each do |meetup| %>
                     <%= link_to meetup_path(meetup) do %>
@@ -166,6 +152,19 @@
  </section>
 </br></br></br>
 
+
+  <script>
+        
+        function complete(i){
+            var color=["#BFD84D","#F7A9B1","#5CBA47","#3CC4E1" ]
+            var badge=["badge1","badge2","badge3","badge4"]
+            var badge = document.getElementById(badge[i]);
+            var rect= badge.getElementById("rect1")
+            rect.setAttributeNS(null, 'fill', color[i]);
+            classie.add( badge.target.parentNode, 'completebadge' );
+
+  }
+  </script>
 
   <script>
       (function() {
