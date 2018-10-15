@@ -4,7 +4,11 @@ require 'rails/all'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
-Bundler.require(*Rails.groups)
+Bundler.require(:default, :assets, Rails.env)
+# Enable the asset pipeline
+config.assets.enabled = true
+# Version of your assets, change this if you want to expire all your assets
+config.assets.version = '1.0'
 
 module Awesomeooproject
   class Application < Rails::Application
