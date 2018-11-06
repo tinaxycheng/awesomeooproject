@@ -35,26 +35,29 @@
         </ol>
 
          <div class="carousel-inner" role="listbox">
-                <div class="item active">
-                  <%=image_tag @image1.name%>
-                    
-                </div>
+                
                 <!-- div for video if exist -->
                 <% if  @project.videolink.present? %>
-                <div class="item">
+                <div class="item active">
                     <iframe title="YouTube video player" width=100% height=600 src=<%= @project.videolink%> frameborder="0" allowfullscreen></iframe>
                 </div>
-                <%end%>
-
-            <!-- div for the rest of images-->
-            <% @images.each do |image| %>
+                <%else%>
+                <div class="item active">
+                  <%=image_tag @image1.name%>
+                </div>
+                   <% @images.each do |image| %>
                     <div class="item">
                     <%= link_to project_path(image.project) do %>
                         <%=image_tag image.name%>
                         <%end%>
                     </div>
-            <%end%>
-        </div>
+               <%end%>
+             </div>
+
+                <%end%>
+
+            <!-- div for the rest of images-->
+         
 
         <!-- Controls -->
         <a class="left carousel-control" href="#myCarousel" data-slide="prev">
