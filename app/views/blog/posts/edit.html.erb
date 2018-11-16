@@ -39,14 +39,19 @@
                         <%= f.label :content %>
                         <%= f.text_area :content, size: "80x12"%>
                     </div>
-                    <div>
-                        <%= f.label :category %>
-                    <%= f.collection_select :category_id, Category.order(:name),:id,:name, include_blank: true %>
-                    </div>
-                    <div>
+                    <% if @blog.image? %>
+                        <label> Attached image: </label>
+                        <p><%= @blog.image.file.filename %></p> 
+                        <label> Modify Image </label>
+                        <%= f.file_field :image%>
+                     <% else %>
+                     <div>
+                        <label> Add image: </label>
                         <%= f.label :image %>
                         <%= f.file_field :image%>
                     </div>
+                    <% end %>
+                    
 
                     </fieldset>
                     <div> <%=f.submit "Add", :class => 'btn btn-default btn-lg'%>
