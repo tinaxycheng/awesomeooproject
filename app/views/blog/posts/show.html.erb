@@ -38,7 +38,7 @@
                 <iframe title="YouTube video player" width="640" height="390" src=<%= @blog.videolink%> frameborder="0" allowfullscreen></iframe>
                 
                 <%else%>
-                <p><%= image_tag @blog.image_url%></p>
+                <div><%= image_tag @blog.image_url, class: "img-fluid", width: "100%"%></div>
                 <%end%>
 
                 <!-- Start of control panel of blogs -->
