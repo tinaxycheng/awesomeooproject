@@ -41,8 +41,5 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
-  ENV['GOOGLE_CLIENT_ID'] = '622909947967-p3cave9r0q7sln0lm137hjk0kfpklf0q.apps.googleusercontent.com'
-  ENV['GOOGLE_CLIENT_SECRET'] = 'sgntoqG1xvy0i0qXfbfuX9AB'
-  ENV["AWS_ACCESS_KEY"] =  'AKIAYDZ7BTMMM4TUGATN'                
-  ENV["AWS_SECRET_KEY"]= '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'
+ 
 end
