@@ -34,22 +34,22 @@
           <div class="dash-unit">
             <dtitle>User Profile</dtitle>
             <hr>
-        <div class="thumbnail">
-         <%if @user.avatar?%>                      
-           <%= image_tag @user.avatar_url(:thumb) ,class:"img-circle"%>
-           <%else%>
-           <%=image_tag "default_avatar.png"%>
-          <%end%>
-        </div><!-- /thumbnail -->
-        <h1><%= @user.name %></h1>
-        <br>
+            <div class="thumbnail">
+             <%if @user.avatar?%>                      
+               <%= image_tag @user.avatar_url(:thumb) ,class:"img-circle"%>
+               <%else%>
+               <%=image_tag "default_avatar.png"%>
+              <%end%>
+            </div><!-- /thumbnail -->
+            <h1><%= @user.name %></h1>
+            <br>
           </div>
       </div>
    
-       <% @blog.each do |story| %>
+    <% @blog[0,3].each do |story| %>
      <div class="col-sm-3 col-lg-3">
         <div class="picture dash-unit">
-            <dtitle>My blog </dtitle>
+          <dtitle>My blog </dtitle>
           <div class="thumbnail">
             <%= link_to blog_post_path(story) do%>
             <% if  story.videolink.present? %>
@@ -83,46 +83,72 @@
         </div>
     </div>
 
-     <!-- LATEST NEWS BLOCK -->  
-       <% @meetup.each do |meetup| %>
+<% if  @blog[4,6].present? %>
+ <% @blog[4,6].each do |story| %>
+     <div class="col-sm-3 col-lg-3">
+        <div class="picture dash-unit">
+          <dtitle>My blog </dtitle>
+          <div class="thumbnail">
+            <%= link_to blog_post_path(story) do%>
+            <% if  story.videolink.present? %>
+            <iframe title="YouTube video player" width="180" height="180" src=<%= story.videolink%> frameborder="0" allowfullscreen></iframe>
+            <%else%>
+            <%= image_tag story.image_url(:thumb) if story.image? %>
+            <%end%>
+          </div>
+          <h2><%=story.title%></h2>
+          <h3><%=story.created_at%></h3>
+        </div>
+      </div>
+        <%end%>
+        <% end %> 
+        <% end %> 
+       
+    </div>
+
+
+<div class="row"> 
+   <% @meetup.each do |meetup| %>
         <div class="col-sm-3 col-lg-3">
         <%= link_to meetup_path(meetup) do %>
           <div class="picture dash-unit" %>
             <dtitle> My meetup</dtitle>
-        <h2><%=  meetup.title %></h2>
-        <p><%= meetup.formatted_address %></p>
-        <h3><%= meetup.time.strftime("%b %d, %Y")%></h3>
+            <h2><%=  meetup.title %></h2>
+            <p><%= meetup.formatted_address %></p>
+            <h3><%= meetup.time.strftime("%b %d, %Y")%></h3>
           </div>
         </div>
         <%end%>
         <%end%>
-    </div>
 </div>
 
-    <div class="container">  
+<%= will_paginate @blog %>
+ 
     <div class="row">
-      <% if @user == current_user %>
-      <!-- control panel -->
-      <%= link_to new_blog_post_path  do%>
-      <p class="btn btn-default btn-lg">Add new Blog</p>
-      <%end%>
-      <%end%>
-      <!-- Edit profile -->
-      <% if @user == current_user %>
-      <p class="btn btn-default btn-lg"><%= link_to "Edit Profile", edit_oo_path %></p>
-      <%end%>
-      <!-- sign out -->
-      <% if @user == current_user %>
-      <p class="btn btn-default btn-lg"><% if user_signed_in? %>
-      <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-      <% else %>
-      <%= link_to "Sign up", new_user_registration_path %> | <%= link_to "Sign in", new_user_session_path %>
-      <% end %>
-      <% end %>
-      </p>
+      <div class="user-panel">
+        <% if @user == current_user %>
+        <!-- control panel -->
+        <%= link_to new_blog_post_path  do%>
+        <p class="btn btn-default btn-lg">Add new Blog</p>
+        <%end%>
+        <%end%>
+        <!-- Edit profile -->
+        <% if @user == current_user %>
+        <p class="btn btn-default btn-lg"><%= link_to "Edit Profile", edit_oo_path %></p>
+        <%end%>
+        <!-- sign out -->
+        <% if @user == current_user %>
+        <p class="btn btn-default btn-lg"><% if user_signed_in? %>
+        <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+        <% else %>
+        <%= link_to "Sign up", new_user_registration_path %> | <%= link_to "Sign in", new_user_session_path %>
+        <% end %>
+        <% end %>
+        </p>
+      </div>
 
     </div>
-    </div>
+  </div>
     <footer>
         <div class="container text-center">
             <p>Copyright &copy; OOStudio 2015</p>

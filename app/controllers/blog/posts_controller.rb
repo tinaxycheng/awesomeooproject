@@ -1,6 +1,6 @@
 class Blog::PostsController < ApplicationController
 	def index
-   @blogs= Blog.all.order('created_at DESC')
+   @blogs= Blog.all.order('created_at DESC').paginate(page: params[:page], per_page: 5)
    @search = params[:search]
    @blogs_search= Blog.search(@search).all
   end

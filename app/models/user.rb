@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+
   acts_as_voter
   has_karma :blogs, :as => :submitter, :weight => 0.5
   # Include default devise modules. Others available are:
@@ -9,7 +12,7 @@ class User < ActiveRecord::Base
   has_many :meetups
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  devise :omniauthable, :omniauth_providers => [:google_oauth2]
+  devise :omniauthable, omniauth_providers: [:google_oauth2]
   def self.from_omniauth(auth)
    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
         user.provider = auth.provider

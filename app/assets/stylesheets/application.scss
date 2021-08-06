@@ -12,13 +12,15 @@
  *
  */
 /* ...
-*= require_self
-*= require_tree .
-*/
+ *= require_self
+ *= require_tree .
+ */
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "grayscale";
 @import "font-awesome";
+@import "devise";
+
 @font-face {
       font-family: 'Glyphicons Halflings';
       src: asset-path('glyphicons-halflings-regular.eot');

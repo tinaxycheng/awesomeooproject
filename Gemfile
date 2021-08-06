@@ -22,8 +22,10 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
-gem 'devise'
-gem "omniauth-google-oauth2"
+gem 'devise', github: 'heartcombo/devise'
+gem "omniauth", "~> 2.0.4"
+gem 'omniauth-google-oauth2', '~> 1.0'
+gem 'bcrypt', '~> 3.1', '>= 3.1.12'
 gem 'carrierwave'
 gem 'fog'
 gem 'figaro'
@@ -37,6 +39,8 @@ gem 'font-awesome-rails'
 gem 'geocomplete_rails'
 gem 'pg', '~> 0.20.0'
 gem 'geocoder'
+gem 'will_paginate', '~> 3.1.0'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

@@ -14,64 +14,46 @@
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
 
 </head>
+
+
+
+
+
 <body>
 	<!-- Navigation -->
 	<%= render 'shared/nav' %>
+
+
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <br> <br> <br> <br> <br>
 				<% if user_signed_in? %>
-				<h1> Welcome, <%= @user.email%></h1>
-				<p>more info, tell us about your story</p>
-				<%= form_for @user, url: oo_path(@user), html:{method: 'PATCH'} do |f| %>
-				<fieldset>
-				<div>
-				    <%= f.label :name %>
-				    <%= f.text_field :name %>
-				</div>
-				<div>
-				    <%= f.label :story %>
-				    <%= f.text_field :story %>
-				</div>
-				<div>
-				    <%= f.label :avatar %>
-				    <%= f.file_field :avatar %>
-				</div>
-				</fieldset>
-				<%=f.submit "Add"%>
-				<%end%>
-				  <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-			</div>
-		</div>
-	<% else %>
-
-
-<div class="container">
-    <div class="row">
-        <div class="col-sm-6 col-md-8 col-md-offset-0">
-            <h1 class="text-center login-title">Welcome, please join us </h1>
-            <div class="account-wall">
-              <%=image_tag "join.jpg", :class => "profile-img" %>
-              <div class="buttonblock">
-                <%= link_to new_user_session_path do%>
-                <button class="btn btn-default btn-lg" type="submit">
-                    Sign in</button>
-                <%end%>
-                <%= link_to new_user_registration_path do%>
-                <button class="btn btn-default btn-lg" type="submit">
-                    Sign up</button>
-                <%end%>
-                 <%= link_to user_google_oauth2_omniauth_authorize_path do%>
-                <button class="btn btn-default btn-lg" type="submit">
-                    Sign in with Google</button>
-                <%end%>
-                </div>
-            </div>
-        </div>
+    				<h1> Welcome, <%= @user.email%></h1>
+    				<p>more info, tell us about your story</p>
+    				<%= form_for @user, url: oo_path(@user), html:{method: 'PATCH'} do |f| %>
+    				<fieldset>
+        				<div>
+        				    <%= f.label :name %>
+        				    <%= f.text_field :name %>
+        				</div>
+        				<div>
+        				    <%= f.label :story %>
+        				    <%= f.text_field :story %>
+        				</div>
+        				<div>
+        				    <%= f.label :avatar %>
+        				    <%= f.file_field :avatar %>
+        				</div>
+    				</fieldset>
+    				<%=f.submit "Add"%>
+    				<%end%>
+    				<%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+                 <%end%>   
+    		</div>
+    	</div>
     </div>
-</div>
-<%end%>
+
     <!-- Footer -->
     <footer>
         <div class="container text-center">

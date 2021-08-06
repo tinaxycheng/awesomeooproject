@@ -59,7 +59,7 @@
                         <% if user_signed_in? %>
                             <li><%= link_to"My story",oo_path(current_user)%></li>
                         <% else %>
-                        <li><%= link_to"Login",join_path%></li>
+                        <li><%= link_to"Login",new_user_session_path%></li>
                         <%end%>
 
                         <li><%= link_to"Meetup",meetup_index_path%></li>
@@ -120,21 +120,37 @@
                     <p>See what our sweet couples are saying</p>
 
                      <%= link_to blog_post_path(@blog1) do %>
-                    <div class="media blog">
-                      <div class="media-left">
-                         <div class="col-md-2 col-sm-4">
-                          <%= image_tag @blog1.image_url(:thumb), class:"media-object"%>
+                          <div class="blog col-lg-3 col-md-3 col-sm-4">
+                              <%= image_tag @blog1.image_url(:thumb), class:"media-object"%>
+                              <p class="media-heading"><%=@blog1.title%></p>
+                          </div>  
+                      <%end%>
+
+                      <%= link_to blog_post_path(@blog2) do %>
+                         <div class="blog col-lg-3 col-md-3 col-sm-4">
+                          <%= image_tag @blog2.image_url(:thumb), class:"media-object"%>
+                          <p class="media-heading"><%=@blog2.title%></p>
                           </div>
-                      </div>
-                      <div class="media-body">
-                        <h4 class="media-heading"><%=@blog1.title%></h4>
-                        <p>published at <%=@blog1.created_at.strftime("%b %d, %Y")%></p>
-                      </div>
-                    </div>
-                     <%end%>
-                      <%= link_to blog_posts_path do %>
-                    <p class="btn btn-default btn-lg">See more...</p>
-                    <%end%>
+                      <%end%>
+
+                      
+                      <%= link_to blog_post_path(@blog3) do %>
+                         <div class="blog col-lg-3 col-md-3 col-sm-4">
+                          <%= image_tag @blog3.image_url(:thumb), class:"media-object"%>
+                          <p class="media-heading"><%=@blog3.title%></p>
+                          </div>
+                      <%end%>
+
+                      <%= link_to blog_post_path(@blog4) do %>
+                         <div class="blog col-lg-3 col-md-3 col-sm-4">
+                          <%= image_tag @blog4.image_url(:thumb), class:"media-object"%>
+                          <p class="media-heading"><%=@blog4.title%></p>
+                          </div>
+                      <%end%>
+
+                </div>
+                     
+                   
                 </div>
                 
             </div>
@@ -225,12 +241,12 @@
 
 
 
-    <!-- Footer -->
-    <footer>
-        <div class="container text-center">
-            <p>Copyright &copy; OOStudio 2015</p>
-        </div>
-    </footer>
+<!-- Footer -->
+<footer>
+    <div class="container text-center">
+        <p>Copyright &copy; OOStudio 2015</p>
+    </div>
+</footer>
 
  
 
@@ -245,10 +261,6 @@ function initMap() {
     disableDefaultUI: true,
     scrollwheel: false,
     draggable: true,
-    
-/*    center: {lat: 38.894, lng: -77.016},
-    zoom: 12*/
-  
  }
 
 map = new google.maps.Map(document.getElementById('map'), mapOptions);
@@ -597,6 +609,7 @@ map = new google.maps.Map(document.getElementById('map'), mapOptions);
 </script>
     <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdFD2fes-dy7TbjanLE3zbb9Qrg2RAc74&callback=initMap">
+
     </script>
 </body>
 

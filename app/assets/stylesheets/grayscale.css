@@ -286,11 +286,21 @@ a:focus {
     -o-background-size: cover;
 }
 */
-#map {
-    width: 100%;
-    height: 500px;
-    margin-top: 0px;
+#mycarousel{
+    width: 80%;
+    margin: auto;
+    height: 55vw;
+    overflow: hidden;
+    
 }
+
+.carousel-inner img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
 
 /*Website width*/
 @media(min-width:767px) {
@@ -431,20 +441,7 @@ body {
     webkit-tap-highlight-color: rgba(255,255,255,.2);
 }
 
-.thumbnail {
-    border:0px;
-    text-align:center;
-  -webkit-box-shadow: 0px;
-     -moz-box-shadow: 0px;
-          box-shadow: 0px;
-    background: none;
-    text-align: center; 
-    width:100%;
-    height:100%;
-    width: auto;
-    height: auto;     
-    
-}
+
 
 
 /* New Blog Input Field */
@@ -461,95 +458,6 @@ input[type="text"][id="user_story"] {
     background-color: transparent;
 }
 
-/*Blog index and add new blog input field*/
-label{
-    display:inline-block;
-    width:100px;
-}
-input[type="text"][id="search"] {
-    width: 200px;
-    height: 30px;
-    margin-bottom: 10px;
-    background-color: transparent;
-}
-input[type="text"][id="blog_title"] {
-    width: 600px;
-    height: 30px;
-    margin-bottom: 20px;
-    border: 1px solid #888; 
-    background-color: transparent;
-    position: relative;
-    margin : 10 auto;
-
-}
-textarea {
-  width: 600px;
-  background: transparent;
-  border: 1px solid #888; 
-  margin-bottom: 20px;
-  vertical-align: top; 
-  position: relative;
-  margin : 10 auto;
-}
-select {
-   background: transparent;
-   width: 200px;
-   font-size: 16px;
-   line-height: 1;
-   border: 1;
-   border-radius: 0;
-   height: 34px;
-   margin-bottom: 20px;
-   vertical-align: top; 
-   position: relative;
-   }
-input[type="file"][id="blog_image"] {
-width: 200px;
-height: 30px;
-margin-bottom: 20px;
-vertical-align: middle;
-background-color: transparent;
-position: relative;
-margin : 10 auto;
-
-}
-/*input[type="email"] {
-    width: 600px;
-    height: 30px;
-    margin-bottom: 20px;
-    border: 1px solid #888; 
-    background-color: transparent;
-    position: relative;
-    margin : 10 auto;
-
-}
-input[type="password"] {
-    width: 600px;
-    height: 30px;
-    margin-bottom: 20px;
-    border: 1px solid #888; 
-    background-color: transparent;
-    position: relative;
-    margin : 10 auto;
-
-}*/
-
-.blog {
-    border-top-style: dotted;
-    border-bottom-style: dotted;
-    border-width: 1px;
-    padding: 20px;
-    margin-bottom: 10px;
-}
-
-.media-object {
-    display: block;
-    max-width:180px;
-    max-height:180px;
-    width: auto;
-    height: auto;
-}
-
 
 /*Dashboard*/
 
@@ -563,14 +471,12 @@ input[type="password"] {
     color:white;
     position:relative;
     width:100%;
-    
+    height: 400px;
     display: inline-block;
 
 }
 
-.projectunit{
-    height:250px;
-}
+
 .picture.dash-unit {        
     background-color: #1f1f1f; 
 }
@@ -631,6 +537,7 @@ input[type="password"] {
     padding-left:5px;
     margin-top:2px;
     text-align:center;
+    height: 70px;
 }
 
 
@@ -750,33 +657,5 @@ input[type="password"] {
     margin: 0 auto 200px;
 }
 
-/*post*/
-.post-preview {
-    margin-top: 50px;
-}
 
-.post-title h1{
-/*    white-space: nowrap; */
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    line-height: 17px;
-    max-height: 40px;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-}
 
-.post-subtitle p{
-/*    white-space: nowrap; */
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    line-height: 1.2;
-    max-height: 60px;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-}
-
-.infoWindow h4, a {
-    color: silver;
-}

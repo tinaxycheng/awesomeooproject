@@ -1,16 +1,17 @@
 Rails.application.routes.draw do
-
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get 'projects/show'
-  devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks", :registrations => "registrations" }
-  root 'oo#home'
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks', sessions: 'users/sessions' , registrations: 'users/registrations'}
+  root to: 'oo#home'
   resources :oo
   resources :pages
   resources :projects, only: [:show]
   resources :meetup
   get '/about', to: 'pages#about'
   get '/projects', to: 'pages#projects'
-  get '/join', to: 'pages#join'
+  devise_scope :user do
+    get 'join', to: 'users/sessions#new'
+  end
   namespace :blog do
     resources :posts do
         post :vote_up
