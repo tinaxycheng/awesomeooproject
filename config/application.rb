@@ -32,6 +32,6 @@ module Awesomeooproject
     config.assets.precompile += [
       '.woff', '.eot', '.svg', '.ttf'
     ]
-    
+   
   end
 end
