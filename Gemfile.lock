@@ -464,6 +464,7 @@ DEPENDENCIES
   fastimage
   figaro
   fog
+  fog-aws
   font-awesome-rails
   geocoder
   geocomplete_rails

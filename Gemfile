@@ -28,6 +28,7 @@ gem 'omniauth-google-oauth2', '~> 1.0'
 gem 'bcrypt', '~> 3.1', '>= 3.1.12'
 gem 'carrierwave'
 gem 'fog'
+gem 'fog-aws', group: :production
 gem 'figaro'
 gem "mini_magick"
 gem "fastimage"
